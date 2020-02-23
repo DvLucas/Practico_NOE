@@ -13,8 +13,8 @@ class CreateColorTable extends Migration
      */
     public function up()
     {
-        Schema::create('color', function (Blueprint $table) {
-            $table->bigIncrements('id_color')->change();
+        Schema::create('colors', function (Blueprint $table) {
+            $table->increments('id_color');
             $table->string('name')->nullable($value = true);
             $table->string('image')->nullable($value = true);
         });

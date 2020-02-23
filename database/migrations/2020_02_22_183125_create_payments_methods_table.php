@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class TablaCategories extends Migration
+class CreatePaymentsMethodsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class TablaCategories extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
-            $table->bigIncrements('id_category')->bigInteger();
-            $table->string('name_category');
-            $table->string('description')->nullable();
-            $table->bigInteger('id_father_category');
+        Schema::create('payments_methods', function (Blueprint $table) {
+            $table->increments('id_payment_method');
+            $table->string('description');
         });
     }
 
@@ -28,6 +26,6 @@ class TablaCategories extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('payments_methods');
     }
 }

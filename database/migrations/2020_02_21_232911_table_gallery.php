@@ -14,12 +14,10 @@ class TableGallery extends Migration
     public function up()
     {
         Schema::create('gallery', function (Blueprint $table) {
-            $table->bigIncrements('id_gallery');
-            $table->bigInteger('id_product')->nullable();
+            $table->increments('id_gallery');
+            $table->integer('id_product')->unsigned();
             $table->string('url');
             $table->tinyInteger('store')->nullable($value = true);
-            /* $table->foreign('id_product')->references('id_product')->on('products'); */
-
         });
     }
 

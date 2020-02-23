@@ -14,15 +14,15 @@ class CreateSalesDetailsTable extends Migration
     public function up()
     {
         Schema::create('sales_details', function (Blueprint $table) {
-            $table->bigIncrements('id_sale_detail');
+            $table->increments('id_sale_detail');
             $table->date('created_at');
             $table->integer('quota');
             $table->decimal('descuento', 8,2);
             $table->decimal('total', 10,2);
-            $table->Biginteger('id_user'); //id users
-            $table->BigInteger('id_shipping');
-            $table->BigInteger('id_payment_method');
-            $table->BigInteger('id_state');
+            $table->integer('id_user')->unsigned();
+            $table->integer('id_shipping')->unsigned();
+            $table->integer('id_payment_method')->unsigned();
+            $table->integer('id_state')->unsigned();
         });
     }
 
