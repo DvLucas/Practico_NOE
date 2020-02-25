@@ -1,0 +1,50 @@
+.titulos-importantes{
+  font-family: 'Bebas Neue', cursive;
+  font-size: 4rem;
+  letter-spacing: 0.3rem;
+}
+
+.titulos-medio{
+  font-family: 'Bebas Neue', cursive;
+  font-size: 2rem;
+}
+
+.titulos-header{
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.5rem;
+}
+
+.subtitulos{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+}
+
+.titulos-categorias-tienda{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.categorias-tienda{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.botones-texto{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+}
+
+.texto-parrafo{
+  font-family: 'Bitter', serif;
+  font-size: 1rem;
+}
+
+.text-noe-yellow {
+  color: rgb(255, 217, 0);
+}
+
+.text-noe-black{
+  color: rgb(20, 20, 20);
+}

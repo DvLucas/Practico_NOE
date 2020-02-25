@@ -1,0 +1,360 @@
+/***** Utilidades ****/
+
+.bg-yellow {
+    /** Botones amarillos **/
+    background-color: rgb(252, 216, 22);
+}
+
+
+
+/*** HEADER GLOBAL ***/
+header {
+    font-size: small;
+}
+
+/*** nav ***/
+.header-nav-top a.nav-link {
+    font-size: 0.7em;
+    inline-size: auto;
+    color: #777272c7;
+    font-weight: normal;
+    position: relative;
+    line-height: 25px;
+    padding: 0px 20px 0px 0px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.nav-link,
+a.dropdown-toggle {
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.navbar {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 6px 0px 6px 0px;
+}
+
+ul.navbar-nav li a {
+    margin-left: 17px;
+}
+
+a.search,
+a.bag {
+    padding: 0px 5px;
+}
+
+a.navbar-brand {
+    padding: 0%;
+    margin: 0%;
+}
+
+a.navbar-brand {
+    padding-left: 5px;
+    padding-bottom: 5px;
+}
+
+
+/*** header visible solo mobile y tablet***/
+.nav-menu-nosostros {
+    background-color: #ffeb3bde;
+}
+
+.nav-menu {
+    padding: 0%;
+}
+
+.nav-menu a {
+    color: black;
+    padding: 0%;
+    font-size: 0.7em;
+    text-align: center;
+    font-weight: 600;
+}
+
+.nav-item a {
+    color: darkgray;
+}
+
+/** FOOTER GLOBAL **/
+
+footer ul li {
+    list-style-type: none;
+}
+
+footer ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+.ul-redes li {
+    display: inline;
+}
+
+
+
+/***** HOME *****/
+
+/*** MAIN ***/
+#carouselExampleCaptions {
+    padding-top: 10px;
+}
+
+/*** SECCION PRODUCTOS ***/
+.section-productos {
+    background-color: #fff;
+    padding-top: 15px;
+    padding-bottom: 30px;
+}
+
+.nuestras-bicis {
+    padding-bottom: 20px;
+    margin: auto;
+}
+
+.estilos-bici {
+    background-color: rgb(255, 217, 0);
+    color: black;
+}
+
+.section-productos .productos h3 {
+    font-size: small;
+    font-variant: small-caps;
+    text-decoration: overline;
+    color: black;
+    font-family: 'Bebas Neue';
+    letter-spacing: 0.05rem;
+    font-weight: 600;
+}
+
+/***** FIN HOME *****/
+
+/**** FORMULARIO LOGIN Y REGISTRO ****/
+
+/** Body **/
+.bg-logreg {
+    background-image: url("/img/resources/login_register.jpg");
+    background-position: center center;
+    background-size: cover;
+}
+
+.ForgetPwd {
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.reset-pass a, .reset-pass {
+    font-size: 12px;
+    text-align: right;
+    text-decoration: none;
+}
+
+.reset-pass a:hover {
+    color: rgb(252, 216, 22);
+}
+
+.form-registro .btn:hover {
+    background-color: rgb(252, 216, 22);
+}
+
+/** Form Registro **/
+
+.form-registro {
+    background-color: rgb(3, 3, 4, .8);
+    box-shadow: 10px 10px rgba(252, 216, 22, .5);
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.form-min {
+    min-width: 250px;
+}
+
+/***** FIN FORM-REGISTRO *****/
+
+/***** CONTACTO *****/
+
+.header-contacto {
+    background: url("../img/IMAGENES/AGUA.jpeg") fixed center no-repeat;
+    background-size: cover;
+    height: 40vh;
+    border-radius: 0;
+}
+
+/*servicios*/
+
+/*
+   section.servicios {
+   background-color:white;
+   }*/
+
+section.servicios .elServicio {
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: white;
+    /*rgb(255, 217, 0);*/
+    margin-bottom: 20px;
+
+}
+
+.elServicio img {
+    width: 50px;
+    height: 50px;
+    color: blue;
+}
+
+.elServicio a {
+    color: black;
+    text-decoration: none;
+}
+
+#mapa {
+    border: black 3px solid;
+    margin-top: 50px;
+    position: relative;
+    padding-bottom: 70%;
+    height: 0;
+    overflow: hidden;
+}
+
+#mapa iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+}
+/***** FIN CONTACTO *****/
+
+/*****  FAQ  *****/
+.header-faq {
+    background: url("../img/IMAGENES/HeaderFaq.jpg") fixed center no-repeat;
+    background-size: cover;
+    height: 40vh;
+    border-radius: 0;
+}
+
+.card-faq .card-block {
+
+    text-align: center;
+    padding: 15px;
+}
+
+.card-faq .card-header a {
+    color: black;
+    font-weight: 600;
+}
+/*****  FIN FAQ  *****/
+
+/***** TIENDA *****/
+
+.main-tienda .card, .card-header{
+    border:none;
+    background-color: white;
+}
+
+.main-tienda .card a, .card-header a{
+    text-decoration: none;
+    color: #161616;
+}
+
+.page-link{
+    border:none;
+}
+.fav{
+    color: #c3c3c3;
+    font-size: 0px;
+}
+.fav:hover {
+    color:rgb(216, 187, 21);
+    transition: background-color .5s;
+}
+.shadow-item:hover{
+    box-shadow: inset 0 0 10px #c3c3c3;
+}
+.shadow-item:hover .fav{
+    font-size: 2rem;
+    transition: background-color .5s;
+}
+.btn-comprar{
+    text-decoration: none;
+    color: #c3c3c3;
+}
+.btn-comprar:hover{
+    text-decoration: none;
+    background-color: rgb(252, 216, 22);
+    color:rgb(114, 114, 114);
+    box-shadow: inset 0 0 10px rgb(216, 187, 21);
+    transition: background-color .5s;
+}
+
+.hov-bici:hover:after{
+    content:'';
+    height: 1.5rem;
+    width: 1.5rem;
+    background: url(../img/ICONOS/SVG/SVG/Recurso\ 5.svg) no-repeat;
+    position: absolute ;
+    margin-left: 1rem;
+}
+
+.hov-acce:hover:after{
+    content:'';
+    height: 1.5rem;
+    width: 1.5rem;
+    background: url(../img/ICONOS/SVG/SVG/Recurso\ 10.svg) no-repeat;
+    position: absolute ;
+    margin-left: 1rem;
+}
+
+.hov-part:hover:after{
+    content:'';
+    height: 1.5rem;
+    width: 1.5rem;
+    background: url(../img/ICONOS/SVG/SVG/Recurso\ 4.svg) no-repeat;
+    position: absolute ;
+    margin-left: 1rem;
+}
+
+.hov-cubrt:hover:after{
+    content:'';
+    height: 1.5rem;
+    width: 1.5rem;
+    background: url(../img/ICONOS/SVG/SVG/Recurso\ 9.svg) no-repeat;
+    position: absolute ;
+    margin-left: 1rem;
+}
+
+/** utilidades tienda **/
+.tooltipt {
+    position: relative;
+
+  }
+
+  .tooltipt .tooltiptextt {
+    visibility: hidden;
+    width: 100px;
+    background-color: rgb(0,0,0,0.5);
+    color: #fff;
+    text-align: center;
+    border-radius: 2rem;
+    padding: .2rem .1rem;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: 150%;
+
+    margin-left: -3rem;
+  }
+
+  .tooltipt:hover .tooltiptextt {
+    visibility: visible;
+  }
+
+
+/***** FIN TIENDA *****/

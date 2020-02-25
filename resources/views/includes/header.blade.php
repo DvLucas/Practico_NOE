@@ -1,0 +1,220 @@
+<header>
+
+    <div class="header-nav-top">
+        <div class="nav-contacto float-left">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link active" href="tel:543516999999" target="_blank"> <img
+                            src="img/icons/telefono.svg" alt="" height="16"> +54 3516 999 999</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="mailto:info@bicisnoe.com.ar" target="_blank"> <img
+                            src="img/icons/mail.svg" alt="" height="16"> info@bicisnoe.com.ar</a>
+                </li>
+            </ul>
+        </div>
+        <div class="nav-nosotros float-right d-none d-md-block">
+            <!--oculto en mobile-->
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link active" href="contacto.php">sobre nosotros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="faq.php">preguntas frecuentes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contacto.php">contactanos</a>
+                </li>
+                <li class="nav-item">
+                    <?php if(isset($_COOKIE['log']) && $_COOKIE['log'] == true) : ?>
+
+                    <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                        role="buttom" aria-expanded="false"><?php echo $_SESSION['emailUsuario']; ?>
+                        <span class="glyphicon glyphicon-dashboard " aria-hidden="true"> </span> <span
+                            class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu header-nav-top text-center text-uppercase font-weight-bold">
+                        <li>
+                            <a href="usuario.php">Perfil</a>
+                        </li>
+                        <li>
+                            <a href="tienda.php">Compras</a>
+                        </li>
+                        <li>
+                            <form name="form1" method="post" action="<?php echo $_SERVER['PHP_SELF']?>">
+                                <input type="submit" name="nombre_del_boton"
+                                    class="nav-menu-nosostros btn-sm btn btn-link text-dark list-unstyled small text-uppercase font-weight-bold "
+                                    id="nombre_del_boton" value="Salir">
+                            </form>
+                        </li>
+                    </ul>
+                    <?php else : ?>
+
+                    <a class="nav-link" href="login.php">Ingresar a mi cuenta</a>
+
+                    <?php endif; ?>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-md navbar-dark col-12" style="background-color:rgb(30,30,30)">
+        <div class="row mx-0 w-100 justify-content-around">
+
+            <a class="col navbar-brand text-center" href="index.php"><img src="img/icons/logo_blanco.svg"
+                    alt="logo" height="35"></a> <!-- Logo -->
+
+            <button class="col-2 ml-1 order-first d-md-none navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation" style="text-align:center;">
+                <span class="navbar-toggler-icon"></span>
+            </button> <!-- Boton Desplegable -->
+
+            <div class="col-2 col-md-auto order-md-last navbar justify-content-end"
+                style="background-color:rgb(30,30,30)">
+                <form class="form-inline d-none d-md-block" method="GET" action="tienda.php">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search"
+                        name="buscar">
+                    <button class="btn my-2 my-sm-0" type="submit"><img
+                            src="img/icons/busqueda_amarillo.svg" alt="" height="18"></button>
+                </form>
+
+                <?php if(isset($_COOKIE['log']) && $_COOKIE['log'] == true) : ?>
+
+                <div class="btn-group dropleft d-md-none">
+                    <a href="#" role="button" class="nav-link p-0" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        <img src="img/icons/busqueda_amarillo.svg" alt="" height="18"></a>
+                    <div class="dropdown-menu header-nav-top text-center text-uppercase font-weight-bold">
+                        <ul class="nav flex-column p-1">
+                            <li class="nav-item text-muted">
+                                <?php echo $_SESSION['emailUsuario']; ?>
+                            </li>
+                            <li class="nav-item">
+                                <a href="usuario.php">Perfil</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="tienda.php">Compras</a>
+                            </li>
+                            <li>
+                                <form name="form1" method="post" action="<?php echo $_SERVER['PHP_SELF']?>">
+                                    <input type="submit" name="nombre_del_boton"
+                                        class="nav-menu-nosostros btn-sm btn btn-link text-dark list-unstyled small text-uppercase font-weight-bold "
+                                        id="nombre_del_boton" value="Salir">
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <?php else : ?>
+
+                <a class="d-md-none" href="login.php"><img src="img/icons/busqueda_amarillo.svg" alt=""
+                        height="18"></a>
+
+                <?php endif; ?>
+
+                <a class="bag" href="carrito.php"><img src="img/icons/bolsa_amarillo.svg" alt=""
+                        height="20"></a>
+            </div> <!-- Iconos -->
+
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+
+                <form class="form d-flex my-2  d-md-none" action="tienda.php" method="GET">
+                    <input class="form-control ml-2" type="search" placeholder="Search" aria-label="Search"
+                        name="buscar">
+                    <button class="btn" type="submit"><img src="img/icons/busqueda_amarillo.svg" alt=""
+                            height="18"></button>
+                </form> <!-- Busqueda en movil -->
+
+                <ul class="navbar-nav ">
+                    <li class="nav-item">
+                        <a class="nav-link titulos-header text-light" href="tienda.php">BICICLETAS <span
+                                class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link titulos-header text-light" href="tienda.php">EQUIPOS Y ACCESORIOS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link titulos-header text-light" href="tienda.php">REPUESTOS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link titulos-header text-light" href="tienda.php">CUBIERTAS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link titulos-header text-light" href="tienda.php">SALE !</a>
+                    </li>
+                </ul>
+            </div><!-- Menu colapsable -->
+
+
+        </div> <!-- Row para ordenar columnas en movil -->
+    </nav>
+
+    <div class="nav-menu-nosostros d-block d-md-none">
+        <!--visible en mobile-->
+        <div class="row w-100" style="margin: 0%; padding: 0%;">
+            <div class="nav-menu col-5">
+                <a class="nav-link" href="faq.php">preguntas frecuentes</a>
+            </div>
+            <div class="nav-menu col-2">
+                <a class="nav-link" href="contacto.php">contactanos</a>
+            </div>
+            <div class="nav-menu col-5">
+
+                <?php
+        if(isset($_COOKIE["conectado"]) && !isset($_POST['nombre_del_boton']))
+        {
+            if ($_SESSION["conectado"] == true)
+            { ?>
+
+                <!-- <a class="nav-link" href="registro.php"> <?php echo $_COOKIE['emailLog'] ; ?> </a>-->
+
+
+                <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                    role="buttom" aria-expanded="false"><?php echo $_COOKIE['emailLog'] ; ?>
+
+                    <span class="glyphicon glyphicon-dashboard " aria-hidden="true"> </span> <span
+                        class="caret"></span>
+                </a>
+
+                <ul class="dropdown-menu nav-menu-nosostros text-center text-uppercase font-weight-bold">
+                    <li><a href="usuario.php">Perfil</a></li>
+                    <li> <a href="carrito.php">Compras</a></li>
+
+                    <li>
+                        <form name="form1" method="post" action="index.php">
+                            <input type="submit" name="nombre_del_boton"
+                                class=" btn-sm btn btn-link text-dark list-unstyled small text-uppercase font-weight-bold"
+                                id="nombre_del_boton" value="Salir">
+                        </form>
+
+                    </li>
+
+
+                </ul>
+
+
+                <?php
+            }
+
+        }
+
+        else {
+            ?>
+
+                <a class="nav-link" href="registro.php">Registrate</a>
+
+                <?php
+
+        }
+
+
+         ?>
+
+            </div>
+        </div>
+    </div>
+
+</header>
