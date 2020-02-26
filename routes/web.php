@@ -30,3 +30,6 @@ Route::prefix('panel')->group(function () {
 });
 
 
+Route::get('/cart', function(){
+    return view('cart');
+});
