@@ -5,7 +5,7 @@
             <div class="row justify-content-center mt-2 mt-md-0 p-2 text-center">
                 <div class="col-8">
                     <a href="index.php">
-                        <img src="img/icons/icon_footer.svg" alt="Logo">
+                        <img src="{{asset('img/icons/icon_footer.svg')}}" alt="Logo">
                     </a>
                 </div>
                 <div class="col-12">
@@ -50,27 +50,27 @@
             <ul class="ul-redes p-0">
                 <li>
                     <a href="#">
-                        <img src="img\icons\facebook.svg" width="30" alt="">
+                        <img src="{{asset('img\icons\facebook.svg')}}" width="30" alt="">
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <img src="img\icons\twitter.svg" width="30" alt="">
+                        <img src="{{asset('img\icons\twitter.svg')}}" width="30" alt="">
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <img src="img\icons\youtube.svg" width="30" alt="">
+                        <img src="{{asset('img\icons\youtube.svg')}}" width="30" alt="">
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <img src="img\icons\instagram.svg" width="30" alt="">
+                        <img src="{{asset('img\icons\instagram.svg')}}" width="30" alt="">
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <img src="img/icons/ubicacion.svg" width="30" alt="">
+                        <img src="{{asset('img/icons/ubicacion.svg')}}" width="30" alt="">
                     </a>
                 </li>
             </ul>

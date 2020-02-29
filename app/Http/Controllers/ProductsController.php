@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Product;
+use App\Products;
+use App\Brands;
+use App\Categories;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductsController extends Controller
 {
@@ -14,7 +17,8 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        dd('index');
+        $products = Products::get();
+        return view('dashboard.products.list',['products' => $products]);
     }
 
     /**

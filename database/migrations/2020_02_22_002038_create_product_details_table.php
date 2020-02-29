@@ -16,8 +16,8 @@ class CreateProductDetailsTable extends Migration
         Schema::create('product_details', function (Blueprint $table) {
             $table->increments('id_product_detail');
             $table->integer('quantity');
-            $table->float('unit_price', 8,2);
-            $table->float('subtotal', 8,2);
+            $table->float('unit_price', 8,2)->nullable($value = true);
+            $table->float('subtotal', 8,2)->nullable($value = true);
             $table->integer('id_color_product')->unsigned();
             $table->integer('id_sale_detail')->unsigned();
         });

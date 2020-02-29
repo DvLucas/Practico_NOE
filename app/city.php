@@ -1,13 +1,17 @@
-<?php
+<?php 
 
 namespace App;
-
 use Illuminate\Database\Eloquent\Model;
 
-class City extends Model
-{
-     //public $table = "cities";
-     //public $primaryKey = "id";
-     //public $timestamps = false;
-     public $guarded = [];
+
+class City extends Model {
+
+	protected $table = 'cities';
+	public $timestamps = true;
+
+	public function province()
+	{
+		return $this->belongsTo('Province');
+	}
+
 }

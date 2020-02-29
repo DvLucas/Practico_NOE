@@ -5,11 +5,11 @@
             <ul class="nav">
                 <li class="nav-item">
                     <a class="nav-link active" href="tel:543516999999" target="_blank"> <img
-                            src="img/icons/telefono.svg" alt="" height="16"> +54 3516 999 999</a>
+                            src="{{asset('img/icons/telefono.svg')}}" alt="" height="16"> +54 3516 999 999</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="mailto:info@bicisnoe.com.ar" target="_blank"> <img
-                            src="img/icons/mail.svg" alt="" height="16"> info@bicisnoe.com.ar</a>
+                    src="{{asset('img/icons/mail.svg')}}" alt="" height="16"> info@bicisnoe.com.ar</a>
                 </li>
             </ul>
         </div>
@@ -62,7 +62,7 @@
     <nav class="navbar navbar-expand-md navbar-dark col-12" style="background-color:rgb(30,30,30)">
         <div class="row mx-0 w-100 justify-content-around">
 
-            <a class="col navbar-brand text-center" href="index.php"><img src="img/icons/logo_blanco.svg"
+            <a class="col navbar-brand text-center" href="index.php"><img src="{{asset('img/icons/logo_blanco.svg')}}"
                     alt="logo" height="35"></a> <!-- Logo -->
 
             <button class="col-2 ml-1 order-first d-md-none navbar-toggler" type="button" data-toggle="collapse"
@@ -77,7 +77,7 @@
                     <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search"
                         name="buscar">
                     <button class="btn my-2 my-sm-0" type="submit"><img
-                            src="img/icons/busqueda_amarillo.svg" alt="" height="18"></button>
+                            src="{{asset('img/icons/busqueda_amarillo.svg')}}" alt="" height="18"></button>
                 </form>
 
                 <?php if(isset($_COOKIE['log']) && $_COOKIE['log'] == true) : ?>
@@ -85,7 +85,7 @@
                 <div class="btn-group dropleft d-md-none">
                     <a href="#" role="button" class="nav-link p-0" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
-                        <img src="img/icons/busqueda_amarillo.svg" alt="" height="18"></a>
+                        <img src="{{asset('img/icons/busqueda_amarillo.svg')}}" alt="" height="18"></a>
                     <div class="dropdown-menu header-nav-top text-center text-uppercase font-weight-bold">
                         <ul class="nav flex-column p-1">
                             <li class="nav-item text-muted">
@@ -110,12 +110,12 @@
 
                 <?php else : ?>
 
-                <a class="d-md-none" href="login.php"><img src="img/icons/busqueda_amarillo.svg" alt=""
+                <a class="d-md-none" href="login.php"><img src="{{asset('img/icons/busqueda_amarillo.svg')}}" alt=""
                         height="18"></a>
 
                 <?php endif; ?>
 
-                <a class="bag" href="carrito.php"><img src="img/icons/bolsa_amarillo.svg" alt=""
+                <a class="bag" href="carrito.php"><img src="{{asset('img/icons/bolsa_amarillo.svg')}}" alt=""
                         height="20"></a>
             </div> <!-- Iconos -->
 
@@ -124,7 +124,7 @@
                 <form class="form d-flex my-2  d-md-none" action="tienda.php" method="GET">
                     <input class="form-control ml-2" type="search" placeholder="Search" aria-label="Search"
                         name="buscar">
-                    <button class="btn" type="submit"><img src="img/icons/busqueda_amarillo.svg" alt=""
+                    <button class="btn" type="submit"><img src="{{asset('img/icons/busqueda_amarillo.svg')}}" alt=""
                             height="18"></button>
                 </form> <!-- Busqueda en movil -->
 

@@ -11,8 +11,8 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css"
         integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/fonts.css">
-    <link rel="stylesheet" href="css/stylehome.css">
+    <link rel="stylesheet" href="{{asset('css/fonts.css')}}">
+    <link rel="stylesheet" href="{{asset('css/stylehome.css')}}">
 
     <link rel="shortcut icon" href="img/icons/rueda.svg">
 

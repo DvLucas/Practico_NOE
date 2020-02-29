@@ -10,7 +10,7 @@ class panelController extends Controller
 
     public function log(){
         if (  auth()->user() ) {
-          return view('panel');
+          return view('dashboard.dashboard');
         } 
         else 
         {
