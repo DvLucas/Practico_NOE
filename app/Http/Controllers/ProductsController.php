@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Products;
 use App\Brands;
+use App\Products;
 use App\Categories;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\StoreProductPost;
 
 class ProductsController extends Controller
 {
@@ -48,16 +50,11 @@ class ProductsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreProductPost $request)
     {
-        $request->validate([
-            'name' => 'required|max:255',
-            'price' => 'required',
-            'stock' => 'required',
-            'description' => 'required',
-            'category' => 'required',
-            'brand' => 'required'
-        ]);
+        Products::create($request->validated());
+
+        return redirect('panel/products')->with('status', 'Producto creado');
     }
 
     /**
@@ -100,8 +97,14 @@ class ProductsController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(Products $product)
     {
-        //
+        if ($product->state == 0) {
+            $affected = $product->update(['state' => 1]);
+            return back()->with('status', 'Producto agregado a tienda');
+        }else{
+            $affected = $product->update(['state' => 0]);
+            return back()->with('status', 'Producto quitado de tienda');
+        }
     }
 }

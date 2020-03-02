@@ -12,10 +12,12 @@ class Products extends Model
     public $guarded = [];
 
     public function category(){
-        return $this->belongsTo(Categories::Class);
+        return $this->belongsTo(Categories::Class,'id_category');
     }
 
     public function brand(){
-        return $this->belongsTo(Brands::Class);
+        return $this->belongsTo(Brands::Class,'id_brand');
     }
+
+    
 }

@@ -15,7 +15,7 @@
         <h3 class="text-center">Nuevo Producto</h3>
         <form action="{{route('products.store')}}" method="post">
             @csrf
-
+            <input type="hidden" name="state" value="0">
             <div class="row">
 
                 <div class="form-group col-6">
@@ -45,7 +45,7 @@
 
                     <div class="mb-auto">
                         <label for="exampleFormControlSelect2">Seleccione Categoria</label>
-                        <select multiple class="form-control" id="exampleFormControlSelect2" name="category">
+                        <select multiple class="form-control" id="exampleFormControlSelect2" name="id_category">
                             @foreach ($categoriesFathers as $categoryF)
                                 <option value="" disabled class="text-center">{{ $categoryF->name_category }}</option>
                                 @foreach ($categoriesChildren as $categoryH)
@@ -61,7 +61,7 @@
                         <div class="input-group-prepend">
                             <label class="input-group-text" for="inputGroupSelect01">Seleccione Marca</label>
                         </div>
-                        <select class="custom-select" id="inputGroupSelect01" name="brand">
+                        <select class="custom-select" id="inputGroupSelect01" name="id_brand">
                             @foreach ($brands as $description => $id_brand)
                                 <option value="{{ $id_brand }}">{{ $description }}</option>
                             @endforeach

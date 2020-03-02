@@ -32,6 +32,26 @@
 
     {{-- Script js jquery --}}
     <script src="{{ asset("js/app.js") }}"></script>
+
+    <script>
+        $('#deleteModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget)
+            var id = button.data('id') 
+            var state = button.data('state')
+            action = $('#formDelete').attr('data-action').slice(0,-1)
+            action += id
+            console.log(action)
+    
+            $('#formDelete').attr('action',action)
+    
+            var modal = $(this)
+            if(state==0){
+                modal.find('.modal-title').text('Vas a dar alta al producto: ' + id)
+            }else{
+                modal.find('.modal-title').text('Vas a quitar el producto: ' + id)
+            }
+        })
+    </script> {{-- Este scrip te utiliza en la vista de listar productos panel --}}
     
 </body>
 
