@@ -28,7 +28,18 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        return view ('products.create');
+        $categories = Categories::get();
+        $categoriesFathers=[];
+        $categoriesChildren=[];
+        foreach ($categories as $category){
+            if(!$category->id_father_category){
+                $categoriesFathers[] = $category;
+            }else{
+                $categoriesChildren[] = $category;
+            }
+        }
+        $brands = Brands::pluck('id_brand','description');
+        return view ('dashboard.products.create', ['categoriesFathers' => $categoriesFathers,'categoriesChildren' => $categoriesChildren,'brands' => $brands]);
     }
 
     /**
@@ -39,7 +50,14 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|max:255',
+            'price' => 'required',
+            'stock' => 'required',
+            'description' => 'required',
+            'category' => 'required',
+            'brand' => 'required'
+        ]);
     }
 
     /**

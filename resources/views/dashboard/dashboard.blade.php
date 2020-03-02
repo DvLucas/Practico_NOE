@@ -17,15 +17,8 @@
             
             <div class="col-10">
                 <div class="row">
-                    <div class="col-12">
-asd
-                    </div>
-                    <div class="col-12 mt-2">
-                        @yield('product')
-                    </div>
-
+                    @yield('product')
                 </div>
-
             </div>
 
         </div>
