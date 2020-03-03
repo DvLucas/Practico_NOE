@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Gallery;
 use App\Products;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class GalleryController extends Controller
 {
@@ -41,13 +42,14 @@ class GalleryController extends Controller
             'id_product' => 'required'
         ]);
 
-        $filename = time() . "." . $request->image->extension();
+        $filename = 'images/products/'.time() . '.' . $request->image->extension();
         
         Gallery::create(['id_product' => $request->id_product , 'url' => $filename , 'store' => 0 ]);
         $request->image->move( public_path('images/products') , $filename );
         
-        $products = Products::get();
-        return view('dashboard.products.list',['products' => $products]);   
+        return back();
+        /* $products = Products::get();
+        return view('dashboard.products.list',['products' => $products]);   */ 
     }
 
     /**
@@ -67,9 +69,12 @@ class GalleryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Gallery $gallery)
     {
-        //
+        $id = $gallery->id_product;
+        $affected = DB::table('gallery')->where('id_product',$id)->update( ['store' => 0] );
+        $affected = $gallery->update(['store'=>1]);
+        return back();
     }
 
     /**
@@ -90,8 +95,9 @@ class GalleryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Gallery $gallery)
     {
-        //
+        $gallery->delete();
+        return back();
     }
 }

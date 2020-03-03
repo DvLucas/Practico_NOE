@@ -57,7 +57,8 @@
                         <td>{{$product->updated_at->format('d-M-y')}}</td>
                         <td>
                             <a href="{{ route('products.edit',$product->id_product) }}" class="btn btn-warning"><i class="fas fa-marker"></i></a>
-                            <button data-toggle="modal" data-target="#imageModal" data-id="{{ $product->id_product}}" data-name="{{ $product->name}}" class="btn btn-info"><i class="fas fa-image"></i></button>
+                            <a href="{{ route('products.show',$product->id_product) }}" class="btn btn-info"><i class="fas fa-image"></i></a>
+                           {{--  <button data-toggle="modal" data-target="#imageModal" data-id="{{ $product->id_product}}" data-name="{{ $product->name}}" class="btn btn-info"><i class="fas fa-image"></i></button> --}}
                             @if ($product->state == 0)
                                 <button data-toggle="modal" data-target="#deleteModal" data-id="{{ $product->id_product}}" data-state="0"
                                 class="btn btn-success"><i class="fas fa-arrow-circle-up"></i></button>

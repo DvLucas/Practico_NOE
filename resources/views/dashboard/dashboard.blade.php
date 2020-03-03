@@ -16,7 +16,7 @@
             </div> <!-- Nav Panel de Control -->
             
             <div class="col-10">
-                <div class="row">
+                <div class="row justify-content-center">
                     @yield('product')
                 </div>
             </div>

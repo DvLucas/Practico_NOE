@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers\dashboard;
 
-use App\Http\Controllers\Controller;
 use App\Brands;
+use App\Gallery;
 use App\Products;
-use App\Categories;
 use Carbon\Carbon;
+use App\Categories;
 use Illuminate\Http\Request;
-use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use Illuminate\Pagination\Paginator;
 use App\Http\Requests\StoreProductPost;
 
 class ProductsController extends Controller
@@ -65,9 +66,10 @@ class ProductsController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(Products $product)
     {
-        //
+        $gallery = Gallery::where('id_product','=',$product->id_product)->get();
+        return view('dashboard.products.image',['productImg' => $product ,'gallery' =>$gallery]);
     }
 
     /**
