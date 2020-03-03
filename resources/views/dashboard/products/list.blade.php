@@ -3,6 +3,15 @@
 @section('product')
 
     <div class="col-5 mt-2">
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
         @if (session('status'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ session('status') }}
@@ -47,8 +56,8 @@
                         <td>{{$product->created_at->format('d-M-y')}}</td>
                         <td>{{$product->updated_at->format('d-M-y')}}</td>
                         <td>
-                            <a href="" class="btn btn-warning"><i class="fas fa-marker"></i></a>
-                            <a href="" class="btn btn-info"><i class="fas fa-image"></i></i></a>
+                            <a href="{{ route('products.edit',$product->id_product) }}" class="btn btn-warning"><i class="fas fa-marker"></i></a>
+                            <button data-toggle="modal" data-target="#imageModal" data-id="{{ $product->id_product}}" data-name="{{ $product->name}}" class="btn btn-info"><i class="fas fa-image"></i></button>
                             @if ($product->state == 0)
                                 <button data-toggle="modal" data-target="#deleteModal" data-id="{{ $product->id_product}}" data-state="0"
                                 class="btn btn-success"><i class="fas fa-arrow-circle-up"></i></button>
@@ -61,10 +70,12 @@
                 @endforeach
             </tbody> <!-- Registros Tabla -->
         </table>
+        {{$products->links()}}
     </div>
 
 
 {{-- El siguiente modal se utiliza para dar alta o baja logica un producto en la tienda --}}
     @include('dashboard.includes.modal_up_down_product')
+    @include('dashboard.includes.modal_image')
 
 @endsection

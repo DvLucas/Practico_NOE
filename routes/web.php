@@ -15,20 +15,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('/panel', 'panelController@log');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::prefix('panel')->group(function () {
-    Route::resource('products', 'ProductsController');
+Route::prefix('/panel')->group(function () {
+    Route::resource('products', 'dashboard\ProductsController');
+    Route::resource('gallery', 'GalleryController');
 });
 
+Route::get('/tienda', 'ShopController@index')->name('shop');
 
 Route::get('/cart', function(){
     return view('cart');

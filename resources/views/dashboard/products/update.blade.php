@@ -12,32 +12,33 @@
                 </ul>
             </div>
         @endif
-        <h3 class="text-center">Nuevo Producto</h3>
-        <form action="{{route('products.store')}}" method="post">
+        <h3 class="text-center">Actualizar Producto {{$product->name}}</h3>
+        <form action="{{ route ( 'products.update', $product->id_product ) }}" method="POST">
             @csrf
+            @method('PUT')
             <input type="hidden" name="state" value="0">
             <div class="row">
 
                 <div class="form-group col-6">
     
                     <label for="nombre" class=""> Nombre </label>
-                        <input type="text" name="name" value="{{old('name')}}" class="form-control"
+                    <input type="text" name="name" value="{{old('name',$product->name)}}" class="form-control"
                         placeholder="Colocar Nombre">
                     <div class="row">
                         <div class="col">
                             <label for="Precio" class=""> Precio $</label>
-                            <input type="text" name="price" value="{{old('price')}}" class="form-control"
+                            <input type="text" name="price" value="{{old('price',$product->price)}}" class="form-control"
                                 placeholder="Colocar Precio">
                         </div>
                         <div class="col">
                             <label for="Stock" class=""> Stock </label>
-                            <input type="text" name="stock" value="{{old('stock')}}" class="form-control"
+                            <input type="text" name="stock" value="{{old('stock',$product->stock)}}" class="form-control"
                                 placeholder="Colocar Stock">
                         </div>
                     </div>
     
                     <label for="descripcion" class=""> Descripcion </label>
-                    <textarea class="form-control" placeholder="Actualizar Descripcion" name="description" rows="3">{{old('description')}}</textarea>
+                    <textarea class="form-control" placeholder="Actualizar Descripcion" name="description" rows="3">{{old('description',$product->description)}}</textarea>
                
                 </div>
 
@@ -50,7 +51,11 @@
                                 <option value="" disabled class="text-center">{{ $categoryF->name_category }}</option>
                                 @foreach ($categoriesChildren as $categoryH)
                                     @if ($categoryH->id_father_category == $categoryF->id_category)
-                                        <option value="{{ $categoryH->id_category }}">{{$categoryH->name_category}}</option>
+                                        @if($categoryH->id_category == $product->id_category)
+                                        <option selected value="{{ $categoryH->id_category }}">{{$categoryH->name_category}}</option>
+                                        @else
+                                            <option value="{{ $categoryH->id_category }}">{{$categoryH->name_category}}</option>
+                                        @endif
                                     @endif
                                 @endforeach
                             @endforeach
@@ -63,7 +68,11 @@
                         </div>
                         <select class="custom-select" id="inputGroupSelect01" name="id_brand">
                             @foreach ($brands as $description => $id_brand)
-                                <option value="{{ $id_brand }}">{{ $description }}</option>
+                                @if ($id_brand == $product->id_brand)
+                                    <option selected value="{{ $id_brand }}">{{ $description }}</option>
+                                @else
+                                    <option value="{{ $id_brand }}">{{ $description }}</option>
+                                @endif
                             @endforeach
                         </select>
                     </div>
