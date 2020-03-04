@@ -6,6 +6,7 @@ use App\Gallery;
 use App\Products;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class GalleryController extends Controller
 {
@@ -97,6 +98,8 @@ class GalleryController extends Controller
      */
     public function destroy(Gallery $gallery)
     {
+        $image_path = public_path().'/'.$gallery->url;
+        unlink($image_path);
         $gallery->delete();
         return back();
     }

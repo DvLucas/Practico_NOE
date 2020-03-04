@@ -30,6 +30,7 @@ class StoreProductPost extends FormRequest
             'description' => 'required',
             'id_category' => 'required',
             'id_brand' => 'required',
+            'image' => 'mimes:jpg,png,jpeg|max:102400',
             'state' => 'required'
         ];
     }

@@ -32,6 +32,7 @@ Route::prefix('/panel')->group(function () {
 });
 
 Route::get('/tienda', 'ShopController@index')->name('shop');
+Route::get('/tienda/{id_category}', 'ShopController@show')->name('findShop');
 
 Route::get('/cart', function(){
     return view('cart');

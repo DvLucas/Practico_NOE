@@ -16,7 +16,7 @@
         <form action="{{ route ( 'products.update', $product->id_product ) }}" method="POST">
             @csrf
             @method('PUT')
-            <input type="hidden" name="state" value="0">
+            <input type="hidden" name="state" value="{{$product->state}}">
             <div class="row">
 
                 <div class="form-group col-6">

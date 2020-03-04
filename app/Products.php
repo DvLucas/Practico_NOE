@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Brands;
+use App\Gallery;
 use App\Categories;
 use Illuminate\Database\Eloquent\Model;
 
@@ -19,5 +20,8 @@ class Products extends Model
         return $this->belongsTo(Brands::Class,'id_brand');
     }
 
+    public function gallery(){
+        return $this->hasMany(Gallery::Class,'id_product');
+    }
     
 }

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Gallery;
 use App\Products;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ShopController extends Controller
@@ -14,9 +16,9 @@ class ShopController extends Controller
      */
     public function index()
     {
+        $now = Carbon::now();
         $products = Products::where('state','=','1')->paginate(9);
-
-        return view('shop.shop',['products'=>$products]);
+        return view('shop.shop',['products'=>$products,'now'=>$now]);
     }
 
     /**
@@ -47,8 +49,10 @@ class ShopController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
+    {   
+        $products = Products::where('id_category','=',$id)->paginate(9);
+        $now = Carbon::now();
+        return view('shop.shop',['products'=>$products,'now'=>$now]);
     }
 
     /**

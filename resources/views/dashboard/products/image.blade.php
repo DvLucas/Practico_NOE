@@ -22,7 +22,7 @@
         @foreach ($gallery as $item)
             <div class="col-2 text-center ">
                 <a href=" {{ route( 'gallery.edit' , $item ) }} " class="bg-danger">
-                    <img src="{{asset($item->url)}}" alt="{{$item->url}}" class='img-thumbnail bg-danger'>  
+                    <img src="{{asset($item->url)}}" alt="{{$item->url}}" class='img-thumbnail img-product' data-store="{{$item->store}}">
                 </a>
                 <form action="{{route( 'gallery.destroy',$item )}}" method="POST">
                     @csrf
@@ -33,6 +33,22 @@
                 </form>
             </div>
         @endforeach
+
+        <script>
+            const coll =  document.getElementsByClassName('img-product');
+            var image = [];
+            for(var i = 0; i < coll.length; i++) image.push(coll[i]);
+            image.forEach(myFunction);
+            function myFunction(item){
+                store = item.dataset.store;
+                if (store == 1){
+                    item.classList.add('bg-success');
+                }else{
+                    item.classList.remove('bg-success');
+                } 
+            }
+        </script>
+
     </div>
 </div>
 

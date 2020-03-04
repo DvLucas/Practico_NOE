@@ -13,7 +13,7 @@
             </div>
         @endif
         <h3 class="text-center">Nuevo Producto</h3>
-        <form action="{{route('products.store')}}" method="post">
+        <form action="{{route('products.store')}}" method="post" enctype="multipart/form-data">
             @csrf
             <input type="hidden" name="state" value="0">
             <div class="row">
@@ -69,36 +69,13 @@
                     </div>
                     
                 </div>
-
-                {{-- <div class="form-group col-6">
-                    <div class="row">
-    
-                        @foreach ($categoriesFathers as $categoryF)
-                            <div class="col-3 mb-2 px-1">
-                                <div class="card card-body px-1">
-                                    <h5 class="card-title">{{$categoryF->name_category}}</h5>
-    
-                                    @foreach ($categoriesChildren as $categoryH)
-                                        @if ($categoryH->id_father_category == $categoryF->id_category)
-                                            <div class="input-group mb-1">
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text">
-                                                    <input type="radio" id="radio{{$categoryH->id_category}}" name="idCategoria" value="{{$categoryH->id_category}}">
-                                                    </div>
-                                                </div>
-                                                <label for="radio{{$categoryH->id_category}}" class="form-control" >{{$categoryH->name_category}}</label>
-                                            </div>
-                                        @endif
-                                    @endforeach
-    
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-             --}}
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlFile1">Seleccionar Imagenes</label>
+                <input type="file" class="form-control-file" name="image" id="exampleFormControlFile1">
             </div>
             <button class="btn btn-success text-center" name="nuevoProducto" value="TRUE">Agregar</button>
+
 
         </form>
     </div>

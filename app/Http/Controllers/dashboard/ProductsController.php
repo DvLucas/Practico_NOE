@@ -55,7 +55,19 @@ class ProductsController extends Controller
      */
     public function store(StoreProductPost $request)
     {
-        Products::create($request->validated());
+        if($request->validated()){
+            $validation = $request->validated();
+            $product = [];
+            foreach ($validation as $key => $date) {
+                if($key != 'image'){
+                    $product [$key] = $date;
+                }
+            }
+            $id = Products::create($product);
+            $filename = 'images/products/'.time() . '.' . $validation['image']->extension();
+            Gallery::create(['id_product' => $id->id_product , 'url' => $filename , 'store' => 1 ]);
+            $validation['image']->move( public_path('images/products') , $filename );
+        }
 
         return redirect('panel/products')->with('status', 'Producto creado');
     }

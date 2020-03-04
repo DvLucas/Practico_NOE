@@ -27,17 +27,18 @@
                                 <div class="card-block">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link active hov-bici categorias-tienda"
-                                                href="#">Adventure</a>
+                                            <a class="nav-link active hov-bici categorias-tienda" href="{{ route('findShop',5) }}">
+                                                Adventure
+                                            </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link hov-bici categorias-tienda" href="#">Road</a>
+                                            <a class="nav-link hov-bici categorias-tienda" href="{{ route('findShop',6) }}">Road</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link hov-bici categorias-tienda" href="#">City</a>
+                                            <a class="nav-link hov-bici categorias-tienda" href="{{ route('findShop',7) }}">City</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link hov-bici categorias-tienda" href="#">Cruisers</a>
+                                            <a class="nav-link hov-bici categorias-tienda" href="{{ route('findShop',8) }}">Cruisers</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -61,18 +62,24 @@
                                 <div class="card-block">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link active hov-acce categorias-tienda"
-                                                href="#">Protector Bicicletas</a>
+                                            <a class="nav-link active hov-acce categorias-tienda" href="{{ route('findShop',9) }}">
+                                                Protector Bicicletas
+                                            </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link hov-acce categorias-tienda"
-                                                href="#">Guardabarros</a>
+                                            <a class="nav-link hov-acce categorias-tienda" href="{{ route('findShop',10) }}">
+                                                Guardabarros
+                                            </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link hov-acce categorias-tienda" href="#">Botellas</a>
+                                            <a class="nav-link hov-acce categorias-tienda" href="{{ route('findShop',11) }}">
+                                                Botellas
+                                            </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link hov-acce categorias-tienda" href="#">Luces</a>
+                                            <a class="nav-link hov-acce categorias-tienda" href="{{ route('findShop',12) }}">
+                                                Luces
+                                            </a>
                                         </li>
                                     </ul>
                                 </div>
@@ -96,17 +103,24 @@
                                 <div class="card-block">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link active hov-part categorias-tienda"
-                                                href="#">Pedales</a>
+                                            <a class="nav-link active hov-part categorias-tienda" href="{{ route('findShop',13) }}">
+                                                Pedales
+                                            </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link hov-part categorias-tienda" href="#">Asientos</a>
+                                            <a class="nav-link hov-part categorias-tienda" href="{{ route('findShop',14) }}">
+                                                Asientos
+                                            </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link hov-part categorias-tienda" href="#">Cuadro</a>
+                                            <a class="nav-link hov-part categorias-tienda" href="{{ route('findShop',15) }}">
+                                                Cuadro
+                                            </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link hov-part categorias-tienda" href="#">Frenos</a>
+                                            <a class="nav-link hov-part categorias-tienda" href="{{ route('findShop',16) }}">
+                                                Frenos
+                                            </a>
                                         </li>
                                     </ul>
                                 </div>
@@ -130,18 +144,24 @@
                                 <div class="card-block">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link active hov-cubrt categorias-tienda"
-                                                href="#">Adventure</a>
+                                            <a class="nav-link active hov-cubrt categorias-tienda" href="{{ route('findShop',17) }}">
+                                                Ruta
+                                            </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link hov-cubrt categorias-tienda" href="#">Road</a>
+                                            <a class="nav-link hov-cubrt categorias-tienda" href="{{ route('findShop',18) }}">
+                                                Playeras
+                                            </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link hov-cubrt categorias-tienda" href="#">City</a>
+                                            <a class="nav-link hov-cubrt categorias-tienda" href="{{ route('findShop',19) }}">
+                                                Paseo
+                                            </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link hov-cubrt categorias-tienda"
-                                                href="#">Cruisers</a>
+                                            <a class="nav-link hov-cubrt categorias-tienda" href="{{ route('findShop',20) }}">
+                                                Mountain Bike
+                                            </a>
                                         </li>
                                     </ul>
                                 </div>
