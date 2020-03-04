@@ -177,7 +177,7 @@ footer ul li a {
 /***** CONTACTO *****/
 
 .header-contacto {
-    background: url("../img/IMAGENES/AGUA.jpeg") fixed center no-repeat;
+    background: url("../img/imagenes/IMAGENES/AGUA.jpeg") fixed center no-repeat;
     background-size: cover;
     height: 40vh;
     border-radius: 0;
@@ -233,7 +233,7 @@ section.servicios .elServicio {
 
 /*****  FAQ  *****/
 .header-faq {
-    background: url("../img/IMAGENES/HeaderFaq.jpg") fixed center no-repeat;
+    background: url("../img/imagenes/IMAGENES/HeaderFaq.jpg") fixed center no-repeat;
     background-size: cover;
     height: 40vh;
     border-radius: 0;

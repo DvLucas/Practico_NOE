@@ -37,3 +37,11 @@ Route::get('/tienda/{id_category}', 'ShopController@show')->name('findShop');
 Route::get('/cart', function(){
     return view('cart');
 });
+
+
+Route::get('faq', function () {
+    return view('faq');
+});
+Route::get('contacto', function () {
+    return view('contacto');
+});
