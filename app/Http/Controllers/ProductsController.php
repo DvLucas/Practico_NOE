@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Products;
 use App\Brands;
 use App\Categories;
+use App\Gallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -45,18 +46,20 @@ class ProductsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Product  $product
+     * @param  \App\Products  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show($id_product)
     {
-        //
+        $product = Products::find($id_product);
+        
+        return view('item' , compact('product'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Product  $product
+     * @param  \App\Products  $product
      * @return \Illuminate\Http\Response
      */
     public function edit(Product $product)
@@ -68,7 +71,7 @@ class ProductsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Product  $product
+     * @param  \App\Products  $product
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Product $product)
@@ -79,7 +82,7 @@ class ProductsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Product  $product
+     * @param  \App\Products  $product
      * @return \Illuminate\Http\Response
      */
     public function destroy(Product $product)
