@@ -2,7 +2,7 @@
 
 <ul class="nav flex-column">
     <li class="nav-item">
-    <a class="nav-link active" href="{{ route('products.index') }}">Productos</a>
+        <a class="nav-link active" href="{{ route('products.index') }}">Productos</a>
     </li>
     <li class="nav-item">
         <a class="nav-link disabled" href="#">Galeria Productos</a>

@@ -32,6 +32,7 @@
 
     {{-- Script js jquery --}}
     <script src="{{ asset("js/app.js") }}"></script>
+
     
 </body>
 

@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.master_dashboard')
 
 @section('title') 
     Panel de Control
@@ -16,16 +16,9 @@
             </div> <!-- Nav Panel de Control -->
             
             <div class="col-10">
-                <div class="row">
-                    <div class="col-12">
-asd
-                    </div>
-                    <div class="col-12 mt-2">
-                        @yield('product')
-                    </div>
-
+                <div class="row justify-content-center">
+                    @yield('product')
                 </div>
-
             </div>
 
         </div>
