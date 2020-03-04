@@ -53,8 +53,8 @@
                         <td>{{$product->stock}}</td>
                         <td>{{$product->brand->description}}</td>
                         <td>{{$product->category->name_category}}</td>
-                        <td>{{$product->created_at->format('d-M-y')}}</td>
-                        <td>{{$product->updated_at->format('d-M-y')}}</td>
+                        <td>{{$product->created_at}}</td>
+                        <td>{{$product->updated_at}}</td>
                         <td>
                             <a href="{{ route('products.edit',$product->id_product) }}" class="btn btn-warning"><i class="fas fa-marker"></i></a>
                             <a href="{{ route('products.show',$product->id_product) }}" class="btn btn-info"><i class="fas fa-image"></i></a>
