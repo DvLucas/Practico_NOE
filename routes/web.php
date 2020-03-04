@@ -41,6 +41,6 @@ Route::get('/item/{id_product}', 'ProductsController@show');
 Route::get('faq', function () {
     return view('faq');
 });
-Route::get('contacto', function () {
+Route::get('/contacto', function () {
     return view('contacto');
 });

@@ -17,7 +17,7 @@
             <!--oculto en mobile-->
             <ul class="nav">
                 <li class="nav-item">
-                    <a class="nav-link active" href="contacto">sobre nosotros</a>
+                    <a class="nav-link active" href="{{route('contacto')}}">sobre nosotros</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="faq">preguntas frecuentes</a>
@@ -68,13 +68,8 @@
     <nav class="navbar navbar-expand-md navbar-dark col-12" style="background-color:rgb(30,30,30)">
         <div class="row mx-0 w-100 justify-content-around">
 
-<<<<<<< HEAD
-            <a class="col navbar-brand text-center" href="home"><img src="img/icons/logo_blanco.svg" alt="logo"
-                    height="35"></a> <!-- Logo -->
-=======
             <a class="col navbar-brand text-center" href="home"><img src="{{asset('img/icons/logo_blanco.svg')}}"
                     alt="logo" height="35"></a> <!-- Logo -->
->>>>>>> 5a5cfc57f7fd260215c98f633abbffd78a2d45a0
 
             <button class="col-2 ml-1 order-first d-md-none navbar-toggler" type="button" data-toggle="collapse"
                 data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
@@ -87,13 +82,8 @@
                 <form class="form-inline d-none d-md-block" method="GET" action="tienda.php">
                     <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search"
                         name="buscar">
-<<<<<<< HEAD
-                    <button class="btn my-2 my-sm-0" type="submit"><img src="img/icons/busqueda_amarillo.svg" alt=""
-                            height="18"></button>
-=======
                     <button class="btn my-2 my-sm-0" type="submit"><img
                             src="{{asset('img/icons/busqueda_amarillo.svg')}}" alt="" height="18"></button>
->>>>>>> 5a5cfc57f7fd260215c98f633abbffd78a2d45a0
                 </form>
 
                 @if (auth()->user() !=null)
@@ -130,13 +120,6 @@
 
                 @else
 
-<<<<<<< HEAD
-                <a class="d-md-none" href="login"><img src="img/icons/busqueda_amarillo.svg" alt="" height="18"></a>
-
-                @endif
-
-                <a class="bag" href="cart"><img src="img/icons/bolsa_amarillo.svg" alt="" height="20"></a>
-=======
                 <a class="d-md-none" href="login"><img src="{{asset('img/icons/busqueda_amarillo.svg')}}" alt=""
                         height="18"></a>
 
@@ -144,7 +127,6 @@
 
                 <a class="bag" href="cart"><img src="{{asset('img/icons/bolsa_amarillo.svg')}}" alt=""
                         height="20"></a>
->>>>>>> 5a5cfc57f7fd260215c98f633abbffd78a2d45a0
             </div> <!-- Iconos -->
 
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
@@ -202,7 +184,7 @@
 
                 <ul class="dropdown-menu nav-menu-nosostros text-center text-uppercase font-weight-bold">
                     <li><a href="usuario.php">Perfil</a></li>
-                    <li> <a href="cart">Compras</a></li>
+                    <li> <a href="route('cart')">Compras</a></li>
 
                     <li>
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();

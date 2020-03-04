@@ -22,18 +22,18 @@
                             <div class="preview-pic tab-content">
                                 @foreach($product->gallery as $image)
                                     @if($image['store'] == 1)
-                                        <div class="tab-pane active" id="pic-1"><img class="col-12" src="{{asset($image['url'])}}"></div>
+                                        <div class="tab-pane active" id="pic-{{$image['id_gallery']}}"><img class="col-12" src="{{asset($image['url'])}}"></div>
                                     @else
-                                        <div class="tab-pane" id="pic-2"><img class="col-12" src="{{asset($image['url'])}}"></div>
-                                        @endif
-                                    @endforeach
+                                        <div class="tab-pane" id="pic-{{$image['id_gallery']}}"><img class="col-12" src="{{asset($image['url'])}}"></div>
+                                    @endif
+                                @endforeach
                             </div>
                             <ul class="preview-thumbnail nav overflow-hidden mb-3 mt-2">
                                 @foreach($product->gallery as $image)
                                     @if($image['store'] == 1)
-                                        <li class="active flaot-left col-3"><a data-target="#pic-1" data-toggle="tab"><img class="col-12" src="{{asset($image['url'])}}"></a></li>
+                                        <li class="active flaot-left col-3"><a data-target="#pic-{{$image['id_gallery']}}" data-toggle="tab"><img class="col-12" src="{{asset($image['url'])}}"></a></li>
                                     @else
-                                        <li class="float-left col-3"><a data-target="#pic-2" data-toggle="tab"><img class="col-12" src="{{asset($image['url'])}}"></a></li>
+                                        <li class="float-left col-3"><a data-target="#pic-{{$image['id_gallery']}}" data-toggle="tab"><img class="col-12" src="{{asset($image['url'])}}"></a></li>
                                     @endif
                                 @endforeach
                             </ul>
