@@ -32,7 +32,7 @@
                 <tr class="table-info">
                     <th scope="col">ID</th>
                     <th scope="col">Nombre</th>
-                    <th scope="col">description</th>
+                    {{-- <th scope="col">description</th> --}}
                     <th scope="col">Precio</th>
                     <th scope="col">Stock</th>
                     <th scope="col">Marca</th>
@@ -47,14 +47,14 @@
                 @foreach ($products as $product)
                     <tr>
                         <td>{{$product->id_product}}</td>
-                        <td>{{$product->name}}</td>
-                        <td>{{$product->description}}</td>
+                        <td style='width:50px;'>{{$product->name}}</td>
+                        {{-- <td style='width:20px; height:20px; '>{{$product->description}}</div></td> --}}
                         <td>$ {{$product->price}}</td>
                         <td>{{$product->stock}}</td>
                         <td>{{$product->brand->description}}</td>
                         <td>{{$product->category->name_category}}</td>
-                        <td>{{$product->created_at}}</td>
-                        <td>{{$product->updated_at}}</td>
+                        <td>{{$product->created_at->format('d-M-y')}}</td>
+                        <td>{{$product->updated_at->format('d-M-y')}}</td>
                         <td>
                             <a href="{{ route('products.edit',$product->id_product) }}" class="btn btn-warning"><i class="fas fa-marker"></i></a>
                             <a href="{{ route('products.show',$product->id_product) }}" class="btn btn-info"><i class="fas fa-image"></i></a>

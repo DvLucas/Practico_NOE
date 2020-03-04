@@ -42,13 +42,21 @@
                             <a href="tienda.php">Compras</a>
                         </li>
                         <li>
-                        
-                            <a href="{{auth()->logout() }}">Cerrar Sesion</a>
+
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
                         </li>
                     </ul>
                     @else
 
-                        <a class="nav-link" href="login">Ingresar a mi cuenta</a>
+                    <a class="nav-link" href="login">Ingresar a mi cuenta</a>
 
                     @endif
 
@@ -60,12 +68,12 @@
     <nav class="navbar navbar-expand-md navbar-dark col-12" style="background-color:rgb(30,30,30)">
         <div class="row mx-0 w-100 justify-content-around">
 
-            <a class="col navbar-brand text-center" href="home"><img src="img/icons/logo_blanco.svg"
-                    alt="logo" height="35"></a> <!-- Logo -->
+            <a class="col navbar-brand text-center" href="home"><img src="img/icons/logo_blanco.svg" alt="logo"
+                    height="35"></a> <!-- Logo -->
 
             <button class="col-2 ml-1 order-first d-md-none navbar-toggler" type="button" data-toggle="collapse"
-                data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                aria-label="Toggle navigation" style="text-align:center;">
+                data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
+                style="text-align:center;">
                 <span class="navbar-toggler-icon"></span>
             </button> <!-- Boton Desplegable -->
 
@@ -74,8 +82,8 @@
                 <form class="form-inline d-none d-md-block" method="GET" action="tienda.php">
                     <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search"
                         name="buscar">
-                    <button class="btn my-2 my-sm-0" type="submit"><img
-                            src="img/icons/busqueda_amarillo.svg" alt="" height="18"></button>
+                    <button class="btn my-2 my-sm-0" type="submit"><img src="img/icons/busqueda_amarillo.svg" alt=""
+                            height="18"></button>
                 </form>
 
                 @if (auth()->user() !=null)
@@ -96,7 +104,15 @@
                                 <a href="shop">Compras</a>
                             </li>
                             <li>
-                                <a href="{{auth()->logout() }}">Cerrar Sesion</a>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
                             </li>
                         </ul>
                     </div>
@@ -104,13 +120,11 @@
 
                 @else
 
-                <a class="d-md-none" href="login"><img src="img/icons/busqueda_amarillo.svg" alt=""
-                        height="18"></a>
+                <a class="d-md-none" href="login"><img src="img/icons/busqueda_amarillo.svg" alt="" height="18"></a>
 
                 @endif
 
-                <a class="bag" href="cart"><img src="img/icons/bolsa_amarillo.svg" alt=""
-                        height="20"></a>
+                <a class="bag" href="cart"><img src="img/icons/bolsa_amarillo.svg" alt="" height="20"></a>
             </div> <!-- Iconos -->
 
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
@@ -159,14 +173,11 @@
 
                 @if (auth()->user() !=null)
 
-                <!-- <a class="nav-link" href="registro.php"> <?php echo $_COOKIE['emailLog'] ; ?> </a>-->
 
+                <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="buttom"
+                    aria-expanded="false">{{ auth()->user()->name }}
 
-                <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                    role="buttom" aria-expanded="false">{{ auth()->user()->name }}
-
-                    <span class="glyphicon glyphicon-dashboard " aria-hidden="true"> </span> <span
-                        class="caret"></span>
+                    <span class="glyphicon glyphicon-dashboard " aria-hidden="true"> </span> <span class="caret"></span>
                 </a>
 
                 <ul class="dropdown-menu nav-menu-nosostros text-center text-uppercase font-weight-bold">
@@ -174,7 +185,14 @@
                     <li> <a href="cart">Compras</a></li>
 
                     <li>
-                        <a href="{{auth()->logout() }}">Cerrar Sesion</a>
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
 
                     </li>
 
@@ -182,11 +200,11 @@
                 </ul>
 
 
-        @else
+                @else
 
                 <a class="nav-link" href="register">Registrate</a>
 
-        @endif
+                @endif
 
             </div>
         </div>
