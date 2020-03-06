@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Products;
-use Illuminate\Http\Request;
+
+use App\Http\Requests\CommentRequest;
 
 use Illuminate\Database\Eloquent\Model;
  
@@ -24,9 +25,9 @@ class CommentsController extends Controller
             Comment::create([
                 'body' => $request->body,
                 'user_id' => Auth::id(),
-                'product_id' => $product->id
+                'product_id' => $product->product_id
             ]);
-            return redirect()->route('item', $product->id);
+            return redirect()->route('/shop/item'.$product->product_id);
         }
     
     

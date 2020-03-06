@@ -38,7 +38,7 @@
             <div class="col-3">
                 <div class="row d-flex">
                     <div class="producto"> 
-                      <img src="img/PRODUCTOS/BICICLETAS/carretera.jpg" class="producto-img w-100"> 
+                      <img src="{{ asset('img/PRODUCTOS/BICICLETAS/carretera.jpg') }}" class="producto-img w-100"> 
                     </div>
                 </div>
             </div>
@@ -113,6 +113,11 @@
                               <span> 
                                 <span id="checkout">Checkout</span> 
                                 <span id="check-amt">$21.650,00</span> 
+                              </span> 
+                            </button>
+                            <button class="btn-block btn-yellow"> 
+                              <span> 
+                              <a href="{{ url()->previous() }}">Seguir comprando</a>
                               </span> 
                             </button>
                         </div>
