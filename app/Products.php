@@ -5,6 +5,7 @@ namespace App;
 use App\Brands;
 use App\Gallery;
 use App\Categories;
+use App\Comments;
 use Illuminate\Database\Eloquent\Model;
 
 class Products extends Model
@@ -25,6 +26,7 @@ class Products extends Model
     }
     
     public function comments(){
-        return $this->hasMany(Comments::Class,'id_product');
+      return $this->hasMany(Comments::Class, 'product_id');
     }
+    
 }

@@ -5,9 +5,9 @@
     background-color: rgb(252, 216, 22);
 }
 
-.bg-black {
+.bg-black {  
     /** Botones amarillos **/
-    background-color:rgb(30,30,30);
+    background-color:rgb(30,30,30) !important;
 }
 
 

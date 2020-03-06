@@ -35,13 +35,13 @@
             <h5 class="text-white mb-3 titulos-categorias-tienda">Atencion al Cliente</h5>
             <ul class="p-0 subtitulos">
                 <li>
-                    <a href="faq.php">Faq</a>
+                    <a href="{{route('faq')}}">Faq</a>
                 </li>
                 <li>
-                    <a href="contacto.php">Contacto</a>
+                    <a href="{{route('contacto')}}">Contacto</a>
                 </li>
                 <li>
-                    <a href="registro.php">Registrate</a>
+                    <a href="{{route('register')}}">Registrate</a>
                 </li>
             </ul>
         </div> <!-- Atencion Al Cliente -->

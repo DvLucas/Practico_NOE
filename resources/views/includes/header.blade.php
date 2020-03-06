@@ -20,10 +20,10 @@
                     <a class="nav-link active" href="{{route('contacto')}}">sobre nosotros</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="faq">preguntas frecuentes</a>
+                    <a class="nav-link" href="{{route('faq')}}">preguntas frecuentes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="contacto">contactanos</a>
+                    <a class="nav-link" href="{{route('contacto')}}">contactanos</a>
                 </li>
                 <li class="nav-item">
                     @if (auth()->user() !=null)
@@ -56,7 +56,7 @@
                     </ul>
                     @else
 
-                    <a class="nav-link" href="login">Ingresar a mi cuenta</a>
+                    <a class="nav-link" href="{{route('login')}}">Ingresar a mi cuenta</a>
 
                     @endif
 
@@ -169,7 +169,7 @@
                 <a class="nav-link" href="faq">preguntas frecuentes</a>
             </div>
             <div class="nav-menu col-2">
-                <a class="nav-link" href="contacto">contactanos</a>
+                <a class="nav-link" href="{{route('contacto')}}">contactanos</a>
             </div>
             <div class="nav-menu col-5">
 

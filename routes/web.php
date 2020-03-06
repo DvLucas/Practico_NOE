@@ -36,11 +36,16 @@ Route::get('/cart', function(){
     return view('cart');
 });
 
-Route::get('/item/{id_product}', 'ProductsController@show');
+Route::get('/shop/item/{product_id}', 'ProductsController@show')->name('item');
 
-Route::get('faq', function () {
+Route::resource('comments', 'CommentsController');
+
+Route::get('/faq', function () {
     return view('faq');
-});
+})->name('faq');
+
 Route::get('/contacto', function () {
     return view('contacto');
-});
+})->name('contacto');
+
+

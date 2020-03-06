@@ -5,19 +5,29 @@ namespace App\Http\Controllers;
 use App\Products;
 use Illuminate\Http\Request;
 
+use Illuminate\Database\Eloquent\Model;
+ 
+use App\Presenters\DatePresenter;
+
 class CommentsController extends Controller
 {
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Products $product
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Products $product)
-    {
-        $comments = Comments::where('id_product','=',$product->id_product)->get();
-        return ;
-    }
+        public function __construct() {
+            $this->middleware('auth');
+        }
+     
+     
+        public function store(CommentRequest $request)
+        {
+            $product = Products::findOrFail($request->product_id);
+     
+            Comment::create([
+                'body' => $request->body,
+                'user_id' => Auth::id(),
+                'product_id' => $product->id
+            ]);
+            return redirect()->route('item', $product->id);
+        }
+    
     
 }
