@@ -44,25 +44,25 @@
         <div class="productos d-flex justify-content-center align-items-end w-100">
           <div class="row">
             <div class="col-6 col-md-3 text-center" id="bicicletas">
-            <a href="shop"><img src="img/imagenes/ICONOS/SVG/SVG/Recurso 5.svg" alt="Bicicletas" width="30%" height="50">
+            <a href="tienda"><img src="img/imagenes/ICONOS/SVG/SVG/Recurso 5.svg" alt="Bicicletas" width="30%" height="50">
               <h3>BICICLETAS</h3>
             </a>
             </div>
 
             <div class="col-6 col-md-3 text-center" id="accesorios">
-              <a href="tienda.php"><img src="img/imagenes/ICONOS/SVG/SVG/Recurso 6.svg" alt="Accesorios" width="30%" height="50">
+              <a href="tienda"><img src="img/imagenes/ICONOS/SVG/SVG/Recurso 6.svg" alt="Accesorios" width="30%" height="50">
               <h3>ACCESORIOS</h3>
               </a>
             </div>
 
             <div class="col-6 col-md-3 text-center" id="cubiertas">
-              <a href="tienda.php"><img src="img/imagenes/ICONOS/SVG/SVG/Recurso 9.svg" alt="Cubiertas" width="30%" height="50">
+              <a href="tienda"><img src="img/imagenes/ICONOS/SVG/SVG/Recurso 9.svg" alt="Cubiertas" width="30%" height="50">
               <h3>CUBIERTAS</h3>
               </a>
             </div>
 
             <div class="col-6 col-md-3 text-center" id="repuestos">
-              <a href="tienda.php"><img src="img/imagenes/ICONOS/SVG/SVG/Recurso 10.svg" alt="Repuestos" width="30%" height="50">
+              <a href="tienda"><img src="img/imagenes/ICONOS/SVG/SVG/Recurso 10.svg" alt="Repuestos" width="30%" height="50">
               <h3>REPUESTOS</h3>
               </a>
             </div>
@@ -75,16 +75,16 @@
         <div class="productos d-flex justify-content-center align-items-end w-100">
           <div class="row col-lg-10">
             <div class="col-md-6 p-2">
-              <a href="tienda.php"><img src="img/imagenes/index/CIUDAD-100.jpg" alt="" width="100%"></a>
+              <a href="tienda"><img src="img/imagenes/index/CIUDAD-100.jpg" alt="" width="100%"></a>
             </div>
             <div class="col-md-6 p-2">
-              <a href="tienda.php"><img src="img/imagenes/index/RUTA-100.jpg" alt="" width="100%"></a>
+              <a href="tienda"><img src="img/imagenes/index/RUTA-100.jpg" alt="" width="100%"></a>
             </div>
             <div class="col-md-6 p-2">
-              <a href="tienda.php"><img src="img/imagenes/index/MONTAÑA-100.jpg" alt="" width="100%"></a>
+              <a href="tienda"><img src="img/imagenes/index/MONTAÑA-100.jpg" alt="" width="100%"></a>
             </div>
             <div class="col-md-6 p-2">
-              <a href="tienda.php"><img src="img/imagenes/index/FIXED-100.jpg" alt="" width="100%"></a>
+              <a href="tienda"><img src="img/imagenes/index/FIXED-100.jpg" alt="" width="100%"></a>
             </div>
           </div>
         </div>

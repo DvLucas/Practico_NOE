@@ -20,10 +20,10 @@
                     <a class="nav-link active" href="contacto">sobre nosotros</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="faq">preguntas frecuentes</a>
+                    <a class="nav-link" href="{{ url('faq') }}">preguntas frecuentes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="contacto">contactanos</a>
+                    <a class="nav-link" href="{{ url('contacto') }}">contactanos</a>
                 </li>
                 <li class="nav-item">
                     @if (auth()->user() !=null)
@@ -36,10 +36,10 @@
                     </a>
                     <ul class="dropdown-menu header-nav-top text-center text-uppercase font-weight-bold">
                         <li>
-                            <a href="usuario.php">Perfil</a>
+                            <a href="{{ url('usuario') }}">Perfil</a>
                         </li>
                         <li>
-                            <a href="tienda.php">Compras</a>
+                            <a href="{{ url('cart') }}">Compras</a>
                         </li>
                         <li>
 
@@ -56,7 +56,7 @@
                     </ul>
                     @else
 
-                    <a class="nav-link" href="login">Ingresar a mi cuenta</a>
+                    <a class="nav-link" href="{{route('login')}}">Ingresar a mi cuenta</a>
 
                     @endif
 
@@ -68,13 +68,8 @@
     <nav class="navbar navbar-expand-md navbar-dark col-12" style="background-color:rgb(30,30,30)">
         <div class="row mx-0 w-100 justify-content-around">
 
-<<<<<<< HEAD
-            <a class="col navbar-brand text-center" href="home"><img src="img/icons/logo_blanco.svg" alt="logo"
-                    height="35"></a> <!-- Logo -->
-=======
             <a class="col navbar-brand text-center" href="home"><img src="{{asset('img/icons/logo_blanco.svg')}}"
                     alt="logo" height="35"></a> <!-- Logo -->
->>>>>>> 5a5cfc57f7fd260215c98f633abbffd78a2d45a0
 
             <button class="col-2 ml-1 order-first d-md-none navbar-toggler" type="button" data-toggle="collapse"
                 data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
@@ -87,13 +82,8 @@
                 <form class="form-inline d-none d-md-block" method="GET" action="tienda.php">
                     <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search"
                         name="buscar">
-<<<<<<< HEAD
-                    <button class="btn my-2 my-sm-0" type="submit"><img src="img/icons/busqueda_amarillo.svg" alt=""
-                            height="18"></button>
-=======
                     <button class="btn my-2 my-sm-0" type="submit"><img
                             src="{{asset('img/icons/busqueda_amarillo.svg')}}" alt="" height="18"></button>
->>>>>>> 5a5cfc57f7fd260215c98f633abbffd78a2d45a0
                 </form>
 
                 @if (auth()->user() !=null)
@@ -108,10 +98,10 @@
                                 {{ auth()->user()->name }}
                             </li>
                             <li class="nav-item">
-                                <a href="usuario.php">Perfil</a>
+                                <a href="{{ url('usuario') }}">Perfil</a>
                             </li>
                             <li class="nav-item">
-                                <a href="shop">Compras</a>
+                                <a href="{{ url('cart') }}">Compras</a>
                             </li>
                             <li>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
@@ -130,21 +120,13 @@
 
                 @else
 
-<<<<<<< HEAD
-                <a class="d-md-none" href="login"><img src="img/icons/busqueda_amarillo.svg" alt="" height="18"></a>
-
-                @endif
-
-                <a class="bag" href="cart"><img src="img/icons/bolsa_amarillo.svg" alt="" height="20"></a>
-=======
-                <a class="d-md-none" href="login"><img src="{{asset('img/icons/busqueda_amarillo.svg')}}" alt=""
+                <a class="d-md-none" href="{{route('login')}}"><img src="{{asset('img/icons/busqueda_amarillo.svg')}}" alt=""
                         height="18"></a>
 
                 @endif
 
-                <a class="bag" href="cart"><img src="{{asset('img/icons/bolsa_amarillo.svg')}}" alt=""
+                <a class="bag" href="{{ url('cart') }}"><img src="{{asset('img/icons/bolsa_amarillo.svg')}}" alt=""
                         height="20"></a>
->>>>>>> 5a5cfc57f7fd260215c98f633abbffd78a2d45a0
             </div> <!-- Iconos -->
 
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
@@ -158,20 +140,20 @@
 
                 <ul class="navbar-nav ">
                     <li class="nav-item">
-                        <a class="nav-link titulos-header text-light" href="shop">BICICLETAS <span
+                        <a class="nav-link titulos-header text-light" href="{{ url('tienda') }}">BICICLETAS <span
                                 class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link titulos-header text-light" href="shop">EQUIPOS Y ACCESORIOS</a>
+                        <a class="nav-link titulos-header text-light" href="{{ url('tienda') }}">EQUIPOS Y ACCESORIOS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link titulos-header text-light" href="shop">REPUESTOS</a>
+                        <a class="nav-link titulos-header text-light" href="{{ url('tienda') }}">REPUESTOS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link titulos-header text-light" href="shop">CUBIERTAS</a>
+                        <a class="nav-link titulos-header text-light" href="{{ url('tienda') }}">CUBIERTAS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link titulos-header text-light" href="shop">SALE !</a>
+                        <a class="nav-link titulos-header text-light" href="{{ url('tienda') }}">SALE !</a>
                     </li>
                 </ul>
             </div><!-- Menu colapsable -->
@@ -184,10 +166,10 @@
         <!--visible en mobile-->
         <div class="row w-100" style="margin: 0%; padding: 0%;">
             <div class="nav-menu col-5">
-                <a class="nav-link" href="faq">preguntas frecuentes</a>
+                <a class="nav-link" href="{{ url('faq') }}">preguntas frecuentes</a>
             </div>
             <div class="nav-menu col-2">
-                <a class="nav-link" href="contacto">contactanos</a>
+                <a class="nav-link" href="{{ url('contacto') }}">contactanos</a>
             </div>
             <div class="nav-menu col-5">
 
@@ -201,7 +183,7 @@
                 </a>
 
                 <ul class="dropdown-menu nav-menu-nosostros text-center text-uppercase font-weight-bold">
-                    <li><a href="usuario.php">Perfil</a></li>
+                    <li><a href="usuario">Perfil</a></li>
                     <li> <a href="cart">Compras</a></li>
 
                     <li>
@@ -222,7 +204,7 @@
 
                 @else
 
-                <a class="nav-link" href="register">Registrate</a>
+                <a class="nav-link" href="{{route('register')}}">Registrate</a>
 
                 @endif
 
