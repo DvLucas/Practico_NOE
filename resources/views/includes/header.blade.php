@@ -17,7 +17,7 @@
             <!--oculto en mobile-->
             <ul class="nav">
                 <li class="nav-item">
-                    <a class="nav-link active" href="contacto">sobre nosotros</a>
+                    <a class="nav-link active" href="{{route('contacto')}}">sobre nosotros</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('faq') }}">preguntas frecuentes</a>
@@ -183,8 +183,8 @@
                 </a>
 
                 <ul class="dropdown-menu nav-menu-nosostros text-center text-uppercase font-weight-bold">
-                    <li><a href="usuario">Perfil</a></li>
-                    <li> <a href="cart">Compras</a></li>
+                    <li><a href="{{ url('usuario')}}">Perfil</a></li>
+                    <li> <a href="{{ url('cart')}}">Compras</a></li>
 
                     <li>
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
