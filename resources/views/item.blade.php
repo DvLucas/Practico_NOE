@@ -112,14 +112,14 @@
                 <form action="{{route('comments.store')}}" method="post">
                     @csrf
                     <textarea name="body" id="" >{{old('body')}}</textarea>
-                    <input type="text" name="product_id" value="1">
-                <input type="text" name="user_id" value="1">
+                    <input hidden type="text" name="product_id" value="{{$product->id_product}}">
+                    <input hidden type="text" name="user_id" value="{{Auth::user()->id}}">
                     <button type="submit">enviar</button>
                 </form>
                
                 @endif
                 @forelse ($product->comments as $comment)
-                    <p class="titulos-header text-noe-yellow"> {{ $comment->user->name }} {{$comment->created_at}}</p>
+                    <p class="titulos-header text-noe-yellow"> {{ $comment->user->name }}</p>
                     <p class="texto-parrafo">{{$comment->created_at}}</p>
                     <p class="col-12 texto-parrafo">{{ $comment->body }}</p>
                     <hr>

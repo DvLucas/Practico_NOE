@@ -13,7 +13,7 @@ class StoreCommentsRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,8 @@ class StoreCommentsRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'body' => 'required|min:25|max:1000',
+            'product_id' => 'required'
         ];
     }
 }

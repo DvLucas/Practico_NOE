@@ -6,6 +6,8 @@ use App\Comments;
 use App\Products;
 use Illuminate\Http\Request;
 
+use App\Http\Requests\StoreCommentsRequest;
+
 class CommentsControllers extends Controller
 {
     /**
@@ -34,7 +36,7 @@ class CommentsControllers extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreCommentsRequest $request)
     {
         $product = Products::findOrFail($request->product_id);
         Comments::create([
