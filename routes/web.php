@@ -29,6 +29,8 @@ Route::prefix('/panel')->group(function () {
     Route::resource('gallery', 'GalleryController');
 });
 
+Route::resource('comments','CommentsControllers');
+
 Route::get('/tienda', 'ShopController@index')->name('shop');
 Route::get('/tienda/{id_category}', 'ShopController@show')->name('findShop');
 
@@ -38,7 +40,7 @@ Route::get('/cart', function(){
 
 Route::get('/shop/item/{product_id}', 'ProductsController@show')->name('item');
 
-Route::resource('comments', 'CommentsController');
+/* Route::resource('comments', 'CommentsController'); */
 
 Route::get('/faq', function () {
     return view('faq');

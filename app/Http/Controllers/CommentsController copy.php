@@ -20,12 +20,12 @@ class CommentsController extends Controller
      
         public function store(CommentRequest $request)
         {
+            dd($request->id_product);
             $product = Products::findOrFail($request->product_id);
-     
-            Comment::create([
+            Comments::create([
                 'body' => $request->body,
                 'user_id' => Auth::id(),
-                'product_id' => $product->product_id
+                'product_id' => $product->id_product
             ]);
             return redirect()->route('/shop/item'.$product->product_id);
         }

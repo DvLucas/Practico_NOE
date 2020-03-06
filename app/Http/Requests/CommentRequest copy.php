@@ -26,6 +26,7 @@ class CommentRequest extends FormRequest
     {
         return [
             'body' => 'required|max:1000',
+            'id_product' => 'required'
         ];
     }
 }

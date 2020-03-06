@@ -108,12 +108,15 @@
                 <!-- seccion para dejar comentarios -->
 
                 @if (Auth::check())
-                @include('includes.errors')
-                {{ Form::open(['route' => ['comments.store'], 'method' => 'POST']) }}
-                    <p class="col-12 texto-parrafo">{{ Form::textarea('body', old('body')) }}</p>
-                    {{ Form::hidden('product_id', $product->product_id) }}
-                    <p class="subtitulos">{{ Form::submit('Send') }}</p>
-                {{ Form::close() }}
+               
+                <form action="{{route('comments.store')}}" method="post">
+                    @csrf
+                    <textarea name="body" id="" >{{old('body')}}</textarea>
+                    <input type="text" name="product_id" value="1">
+                <input type="text" name="user_id" value="1">
+                    <button type="submit">enviar</button>
+                </form>
+               
                 @endif
                 @forelse ($product->comments as $comment)
                     <p class="titulos-header text-noe-yellow"> {{ $comment->user->name }} {{$comment->created_at}}</p>
