@@ -90,7 +90,7 @@
                                         </div>
                                     </div>
                                     <!-- botones de compra y agregar al carrito -->
-                                    <a href="#" class="btn bg-yellow float-left botones-texto ml-1"> Comprar </a>
+                                    <a href="{{route('cart')}}" class="btn bg-yellow float-left botones-texto ml-1 @if(!empty(session('carrito')) && in_array($product->id_product, session('carrito')))@endif"> Comprar </a>
                                     <a href="#" class="btn bg-yellow float-left ml-1 botones-texto add-cart @if(!empty(session('carrito')) && in_array($product->id_product, session('carrito'))) {{ 'exists text-success' }}@else {{'text-muted'}} @endif" id="cart-{{$product->id_product}}">
                                     <i class="fas fa-shopping-cart"></i>Agregar al carrito</a>
                                 </div>
