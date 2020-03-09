@@ -48,8 +48,9 @@ class ProductsController extends Controller
     public function show($product_id)
     {
         $product = Products::find($product_id);
+        $related = Products::where('id_category','=', $product['id_category'])->get();
 
-        return view('item' , compact('product'));
+        return view('item' , compact('product', 'related'));
     }
 
     /**

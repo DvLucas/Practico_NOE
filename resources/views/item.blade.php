@@ -8,7 +8,6 @@
 
 @section('content')
 
-
 <main class="my-5">
 
         <!-- PRODUCTO + COMENTARIOS -->
@@ -141,9 +140,10 @@
 
                     <div class="col-12">
                         <div class="row justify-content-around">
-                            @for($i=0; $i<=1; $i++) <div class="card producto mb-3 col-12 p-0">
+                            @foreach($related as $related_product) 
+                                <div class="card producto mb-3 col-12 p-0">
                                 <a href="" class="text-center p-3">
-                                    @foreach($product->gallery as $image)
+                                    @foreach($related_product->gallery as $image)
                                     @if($image['store'] == 1)
                                     <img src="{{asset($image['url'])}}" class="card-img-top img-fluid" alt="..."
                                         style="max-width: 13rem;">
@@ -152,16 +152,16 @@
                                 </a>
                                 <div class="card-body botones-texto my-0 py-0">
                                     <a href="#">
-                                        <h6 class="mb-1">{{$product['name']}}</h6>
+                                        <h6 class="mb-1">{{$related_product['name']}}</h6>
                                     </a>
-                                    <p class="texto-parrafo mb-1">${{$product['price']}}</p>
+                                    <p class="texto-parrafo mb-1">${{$related_product['price']}}</p>
                                 </div>
                                 <div class="card-footer">
                                     <small class="text-noe-black botones-texto">&#9733; &#9733; &#9733; &#9733;
                                         &#9734;</small>
                                 </div>
                         </div>
-                        @endfor
+                        @endforeach
                     </div> <!-- fin columnas productos -->
                 </div> <!-- fin row productos relacionados -->
             </div> <!-- fin row -->
