@@ -29,7 +29,7 @@ Route::prefix('/panel')->group(function () {
     Route::resource('gallery', 'GalleryController');
 });
 
-Route::resource('comments','CommentsControllers');
+
 
 Route::get('/tienda', 'ShopController@index')->name('shop');
 Route::get('/tienda/{id_category}', 'ShopController@show')->name('findShop');
@@ -37,9 +37,8 @@ Route::get('/tienda/{id_category}', 'ShopController@show')->name('findShop');
 Route::post('cart.store', 'CartController@store')->name('cart.store');
 Route::get('/cart', 'CartController@index')->name('cart');
 
-Route::get('/shop/item/{product_id}', 'ProductsController@show')->name('item');
-
-/* Route::resource('comments', 'CommentsController'); */
+Route::get('/tienda/item/{product_id}', 'ProductsController@show')->name('item');
+Route::resource('comments','CommentsControllers');
 
 Route::get('/faq', function () {
     return view('faq');

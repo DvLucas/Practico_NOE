@@ -1,5 +1,6 @@
 @extends('layouts.master')
 
+
 @section('title')
 {{$product['name']}}
 @endsection
@@ -90,9 +91,8 @@
                                     </div>
                                     <!-- botones de compra y agregar al carrito -->
                                     <a href="#" class="btn bg-yellow float-left botones-texto ml-1"> Comprar </a>
-                                    <a href="#" class="btn bg-yellow float-left ml-1 botones-texto"> <span
-                                            class="text">Agregar al carrito</span> <i class="fas fa-shopping-cart"></i>
-                                    </a>
+                                    <a href="#" class="btn bg-yellow float-left ml-1 botones-texto add-cart @if(!empty(session('carrito')) && in_array($product->id_product, session('carrito'))) {{ 'exists text-success' }}@else {{'text-muted'}} @endif" id="cart-{{$product->id_product}}">
+                                    <i class="fas fa-shopping-cart"></i>Agregar al carrito</a>
                                 </div>
                             </div>
                         </article>
@@ -111,13 +111,13 @@
                
                 <form action="{{route('comments.store')}}" method="post">
                     @csrf
-                    <textarea name="body" id="" >{{old('body')}}</textarea>
+                    <textarea class="col-md-12" name="body" id="" >{{old('body')}}</textarea>
                     <input hidden type="text" name="product_id" value="{{$product->id_product}}">
                     <input hidden type="text" name="user_id" value="{{Auth::user()->id}}">
-                    <button type="submit">enviar</button>
+                    <button class="btn bg-yellow botones-texto" type="submit">enviar</button>
                 </form>
-               
                 @endif
+                <hr>
                 @forelse ($product->comments as $comment)
                     <p class="titulos-header text-noe-yellow"> {{ $comment->user->name }}</p>
                     <p class="texto-parrafo">{{$comment->created_at}}</p>
