@@ -100,6 +100,11 @@
                                 <span id="check-amt">$ {{$Subtotal}}</span> 
                               </span> 
                             </button>
+                            <button class="btn-block btn-yellow"> 
+                              <span> 
+                              <a href="{{ url()->previous() }}">Seguir comprando</a>
+                              </span> 
+                            </button>
                         </div>
                     </div>
                 </div>

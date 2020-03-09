@@ -29,17 +29,24 @@ Route::prefix('/panel')->group(function () {
     Route::resource('gallery', 'GalleryController');
 });
 
+Route::resource('comments','CommentsControllers');
+
 Route::get('/tienda', 'ShopController@index')->name('shop');
 Route::get('/tienda/{id_category}', 'ShopController@show')->name('findShop');
 /* Route::resource('/cart', 'CartController@index')->name('cart'); */
 Route::post('cart.store', 'CartController@store')->name('cart.store');
 Route::get('/cart', 'CartController@index')->name('cart');
 
-Route::get('/item/{id_product}', 'ProductsController@show');
+Route::get('/shop/item/{product_id}', 'ProductsController@show')->name('item');
 
-Route::get('faq', function () {
+/* Route::resource('comments', 'CommentsController'); */
+
+Route::get('/faq', function () {
     return view('faq');
-});
+})->name('faq');
+
 Route::get('/contacto', function () {
     return view('contacto');
-});
+})->name('contacto');
+
+

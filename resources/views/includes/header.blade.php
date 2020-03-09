@@ -20,10 +20,10 @@
                     <a class="nav-link active" href="{{route('contacto')}}">sobre nosotros</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="faq">preguntas frecuentes</a>
+                    <a class="nav-link" href="{{route('faq')}}">preguntas frecuentes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="contacto">contactanos</a>
+                    <a class="nav-link" href="{{route('contacto')}}">contactanos</a>
                 </li>
                 <li class="nav-item">
                     @if (auth()->user() !=null)
@@ -36,10 +36,10 @@
                     </a>
                     <ul class="dropdown-menu header-nav-top text-center text-uppercase font-weight-bold">
                         <li>
-                            <a href="usuario.php">Perfil</a>
+                            <a href="{{ url('usuario') }}">Perfil</a>
                         </li>
                         <li>
-                            <a href="tienda.php">Compras</a>
+                            <a href="{{ url('cart') }}">Compras</a>
                         </li>
                         <li>
 
@@ -56,7 +56,7 @@
                     </ul>
                     @else
 
-                    <a class="nav-link" href="login">Ingresar a mi cuenta</a>
+                    <a class="nav-link" href="{{route('login')}}">Ingresar a mi cuenta</a>
 
                     @endif
 
@@ -98,10 +98,10 @@
                                 {{ auth()->user()->name }}
                             </li>
                             <li class="nav-item">
-                                <a href="usuario.php">Perfil</a>
+                                <a href="{{ url('usuario') }}">Perfil</a>
                             </li>
                             <li class="nav-item">
-                                <a href="shop">Compras</a>
+                                <a href="{{ url('cart') }}">Compras</a>
                             </li>
                             <li>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
@@ -120,12 +120,12 @@
 
                 @else
 
-                <a class="d-md-none" href="login"><img src="{{asset('img/icons/busqueda_amarillo.svg')}}" alt=""
+                <a class="d-md-none" href="{{route('login')}}"><img src="{{asset('img/icons/busqueda_amarillo.svg')}}" alt=""
                         height="18"></a>
 
                 @endif
 
-                <a class="bag" href="cart"><img src="{{asset('img/icons/bolsa_amarillo.svg')}}" alt=""
+                <a class="bag" href="{{ url('cart') }}"><img src="{{asset('img/icons/bolsa_amarillo.svg')}}" alt=""
                         height="20"></a>
             </div> <!-- Iconos -->
 
@@ -140,20 +140,20 @@
 
                 <ul class="navbar-nav ">
                     <li class="nav-item">
-                        <a class="nav-link titulos-header text-light" href="shop">BICICLETAS <span
+                        <a class="nav-link titulos-header text-light" href="{{ url('tienda') }}">BICICLETAS <span
                                 class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link titulos-header text-light" href="shop">EQUIPOS Y ACCESORIOS</a>
+                        <a class="nav-link titulos-header text-light" href="{{ url('tienda') }}">EQUIPOS Y ACCESORIOS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link titulos-header text-light" href="shop">REPUESTOS</a>
+                        <a class="nav-link titulos-header text-light" href="{{ url('tienda') }}">REPUESTOS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link titulos-header text-light" href="shop">CUBIERTAS</a>
+                        <a class="nav-link titulos-header text-light" href="{{ url('tienda') }}">CUBIERTAS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link titulos-header text-light" href="shop">SALE !</a>
+                        <a class="nav-link titulos-header text-light" href="{{ url('tienda') }}">SALE !</a>
                     </li>
                 </ul>
             </div><!-- Menu colapsable -->
@@ -166,10 +166,10 @@
         <!--visible en mobile-->
         <div class="row w-100" style="margin: 0%; padding: 0%;">
             <div class="nav-menu col-5">
-                <a class="nav-link" href="faq">preguntas frecuentes</a>
+                <a class="nav-link" href="{{ url('faq') }}">preguntas frecuentes</a>
             </div>
             <div class="nav-menu col-2">
-                <a class="nav-link" href="contacto">contactanos</a>
+                <a class="nav-link" href="{{route('contacto')}}">contactanos</a>
             </div>
             <div class="nav-menu col-5">
 
@@ -183,8 +183,8 @@
                 </a>
 
                 <ul class="dropdown-menu nav-menu-nosostros text-center text-uppercase font-weight-bold">
-                    <li><a href="usuario.php">Perfil</a></li>
-                    <li> <a href="route('cart')">Compras</a></li>
+                    <li><a href="{{ url('usuario')}}">Perfil</a></li>
+                    <li> <a href="{{ url('cart')}}">Compras</a></li>
 
                     <li>
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
@@ -204,7 +204,7 @@
 
                 @else
 
-                <a class="nav-link" href="register">Registrate</a>
+                <a class="nav-link" href="{{route('register')}}">Registrate</a>
 
                 @endif
 

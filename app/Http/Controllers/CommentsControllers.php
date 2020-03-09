@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Comments;
 use App\Products;
-use App\Brands;
-use App\Categories;
-use App\Gallery;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class ProductsController extends Controller
+use App\Http\Requests\StoreCommentsRequest;
+
+class CommentsControllers extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,6 +17,7 @@ class ProductsController extends Controller
      */
     public function index()
     {
+    
     }
 
     /**
@@ -27,6 +27,7 @@ class ProductsController extends Controller
      */
     public function create()
     {
+        //
     }
 
     /**
@@ -35,54 +36,59 @@ class ProductsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreProductPost $request)
+    public function store(StoreCommentsRequest $request)
     {
+        $product = Products::findOrFail($request->product_id);
+        Comments::create([
+                'body' => $request->body,
+                'user_id' => $request->user_id,
+                'product_id' => $product->id_product
+        ]);
+        return back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Products  $product
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($product_id)
+    public function show($id)
     {
-        $product = Products::find($product_id);
-    
-        
-        return view('item' , compact('product'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Products  $product
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Products $product)
+    public function edit($id)
     {
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Products  $product
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreProductPost $request, Products $product)
+    public function update(Request $request, $id)
     {
-
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Products  $product
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Products $product)
+    public function destroy($id)
     {
-
+        //
     }
 }
