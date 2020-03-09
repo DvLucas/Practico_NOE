@@ -55,7 +55,7 @@
                     <h6 class="categorias-tienda">${{ $item->price }}</h6>
                 </div>
 
-                <a class="col-12 py-2 mb-3 btn-comprar categorias-tienda" href="carrito.php">Comprar</a>
+                <a class="col-12 py-2 mb-3 btn-comprar categorias-tienda" href="{{route('cart')}}">Comprar</a>
 
             </div>
         </div> <!-- Producto -->

@@ -73,6 +73,9 @@
                         $(msg.id).removeClass('exists');
                         $(msg.id).addClass('text-muted');
                        /* $(msg.id).attr('data-original-title', msg.text).tooltip('show');*/
+                       if(msg.cantidad == 0){
+                        msg.cantidad=null;
+                       }
                         $('#cant-cart').text(msg.cantidad);
                     }
                 },

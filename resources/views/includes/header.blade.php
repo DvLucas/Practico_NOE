@@ -82,7 +82,7 @@
                 <form class="form-inline d-none d-md-block" method="GET" action="tienda.php">
                     <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search"
                         name="buscar">
-                    <button class="btn my-2 my-sm-0" type="submit"><img
+                    <button class="btn my-2 my-sm-0 p-0" type="submit"><img
                             src="{{asset('img/icons/busqueda_amarillo.svg')}}" alt="" height="18"></button>
                 </form>
 
@@ -124,9 +124,12 @@
                         height="18"></a>
 
                 @endif
-
-                <a class="bag" href="{{ url('cart') }}"><img src="{{asset('img/icons/bolsa_amarillo.svg')}}" alt=""
-                        height="20"></a>
+                <div>
+                    <a class="bag text-warning pt-1 mr-2" href="{{ url('cart') }}">
+                        <i style="font-size: 17px;" class="fas fa-shopping-cart"></i>
+                        <span class="badge badge-info badge-header" id="cant-cart">@if( !empty(session('carrito')) ){{count(session('carrito'))}}@endif</span>
+                    </a>
+                </div>
             </div> <!-- Iconos -->
 
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
