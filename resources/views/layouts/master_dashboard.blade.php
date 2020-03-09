@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="_token" content="@csrf">
 
     <link rel="stylesheet" href="{{ asset("css/app.css") }}">
     <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Bitter|Montserrat&display=swap" rel="stylesheet">
@@ -22,7 +23,7 @@
 
 <body>
 
-    @include('includes.header')
+    
 
 
         @yield('content')

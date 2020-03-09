@@ -16,9 +16,13 @@
                                 <span class='badge badge-info'>Nuevo</span>
                             @endif    
                         </div>
-                        <div class="col-2 conte-fav text-danger">
-                            <a href="carrito.php">
+                        <div class="col-2 conte-fav d-flex">
+                            <a href="carrito.php" class="text-danger">
                                 <i class="far fa-heart"></i>
+                            </a>
+                            <a href="#" class="add-cart @if(!empty(session('carrito')) && in_array($item->id_product, session('carrito'))) {{ 'exists text-success' }}@else {{'text-muted'}} @endif" 
+                                id="cart-{{$item->id_product}}">
+                                <i class="fas fa-cart-plus"></i>
                             </a>
                         </div>
                     </div>

@@ -31,10 +31,9 @@ Route::prefix('/panel')->group(function () {
 
 Route::get('/tienda', 'ShopController@index')->name('shop');
 Route::get('/tienda/{id_category}', 'ShopController@show')->name('findShop');
-
-Route::get('/cart', function(){
-    return view('cart');
-});
+/* Route::resource('/cart', 'CartController@index')->name('cart'); */
+Route::post('cart.store', 'CartController@store')->name('cart.store');
+Route::get('/cart', 'CartController@index')->name('cart');
 
 Route::get('/item/{id_product}', 'ProductsController@show');
 
