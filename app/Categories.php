@@ -10,4 +10,9 @@ class Categories extends Model
      public $primaryKey = "id_category";
      public $timestamps = false;
      public $guarded = [];
+
+     public function id_father_category()
+     {
+          return $this->hasMany(Categories::class, 'id_category', 'id_father_category');
+     }
 }
