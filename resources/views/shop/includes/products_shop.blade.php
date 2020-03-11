@@ -6,9 +6,9 @@
 
             <div class="frhoverinfo">
                 <ul class="productaction p-0">
-                    <li><a class="favor" href="#"><i class="fa fa-heart"></i></a></li>
+                    <li><i class="color-gris fa fa-heart"></i></li>
                     <li>
-                            <i id="cart-{{$item->id_product}}" class="add-cart @if(!empty(session('carrito')) && in_array($item->id_product, session('carrito'))) {{ 'exists text-success' }} @endif fas fa-shopping-cart color-gris"></i>
+                        <i id="cart-{{$item->id_product}}" class="add-cart @if(!empty(session('carrito')) && in_array($item->id_product, session('carrito'))) {{ 'exists text-success' }} @endif fas fa-shopping-cart color-gris"></i>
                     </li>
                 </ul>
             </div>

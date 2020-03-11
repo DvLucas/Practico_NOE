@@ -375,7 +375,7 @@ section.servicios .elServicio {
 .frhoverinfo {
     position: absolute;
     z-index: 1;
-    right: -1%;
+    right: -2%;
     top:25%
 }
 .productaction {
@@ -396,13 +396,13 @@ ol {
 }
 .productaction li:nth-child(1) {
     opacity: 0;
-    border-radius: 50%;
+    /* border-top-left-radius: 35%; */
     transition: opacity 300ms linear 0s
 }
 
 .productaction li:nth-child(2) {
     opacity: 0;
-    border-radius: 50%;
+    /* border-bottom-left-radius: 35%;  */
     transition: opacity 300ms linear 0s
 }
 
