@@ -10,4 +10,8 @@ class Color_product extends Model
      public $primaryKey = "id_color_product";
      public $timestamps = false;
      public $guarded = [];
+
+     public function color(){
+          return $this->belongsTo(Color::Class,'id_color');
+      }
 }

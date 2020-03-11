@@ -28,5 +28,9 @@ class Products extends Model
     public function comments(){
       return $this->hasMany(Comments::Class, 'product_id');
     }
+
+    public function color(){
+        return $this->hasMany(Colors_Products::Class,'id_product');
+    }
     
 }
