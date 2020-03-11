@@ -1,8 +1,19 @@
 <div class="col px-0">
-    <div class="row justify-content-center m-0">
+    <div class="row justify-content-around m-0">
         @foreach ($products as $item)
 
-        <div class="col-10 col-md-4 text-center border shadow-item">
+        <div class="col-10 col-md-3 m-2 text-center item shadow-item">
+
+            <div class="frhoverinfo">
+                <ul class="productaction p-0">
+                    <li><a class="favor" href="#"><i class="fa fa-heart"></i></a></li>
+                    <li><a id="cart-{{$item->id_product}}" class="add-cart @if(!empty(session('carrito')) && in_array($item->id_product, session('carrito'))) {{ 'exists text-success' }} @endif" href="#cart-{{$item->id_product}}">
+                            <i id="icon-cart-{{$item->id_product}}" class="fas fa-shopping-cart"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
             <div class="row item">
 
                 <div class="col-12 my-2">  <!-- item header -->
@@ -17,22 +28,22 @@
                             @endif    
                         </div>
                         <div class="col-2 conte-fav d-flex">
-                            <a href="carrito.php" class="text-danger">
+                            {{-- <a href="carrito.php" class="text-danger">
                                 <i class="far fa-heart"></i>
                             </a>
                             <a href="#" class="add-cart @if(!empty(session('carrito')) && in_array($item->id_product, session('carrito'))) {{ 'exists text-success' }}@else {{'text-muted'}} @endif" 
                                 id="cart-{{$item->id_product}}">
                                 <i class="fas fa-cart-plus"></i>
-                            </a>
+                            </a> --}}
                         </div>
                     </div>
                 </div>
 
-                <div class="col-12"> <!-- imagen -->
+                <div class="col-12 p-0"> <!-- imagen -->
                     <a href="item.php">
                         @foreach ($item->gallery as $image )
                             @if($image['store'] == 1)
-                                <img src="{{asset($image['url'])}}" class="card-img-top" alt="...">
+                                <img src="{{asset($image['url'])}}" class="img-fluid" alt="...">
                             @endif
                         @endforeach
                         {{-- <div class="row btn-group btn-group-toggle justify-content-center mt-2"
@@ -55,7 +66,7 @@
                     <h6 class="categorias-tienda">${{ $item->price }}</h6>
                 </div>
 
-                <a class="col-12 py-2 mb-3 btn-comprar categorias-tienda" href="{{route('cart')}}">Comprar</a>
+                <a class="col-12 py-2  btn-comprar categorias-tienda" href="{{route('cart')}}">Comprar</a>
 
             </div>
         </div> <!-- Producto -->

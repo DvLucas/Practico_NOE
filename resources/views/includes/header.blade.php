@@ -143,17 +143,17 @@
 
                 <ul class="navbar-nav ">
                     <li class="nav-item">
-                        <a class="nav-link titulos-header text-light" href="{{ url('tienda') }}">BICICLETAS <span
+                        <a class="nav-link titulos-header text-light" href="{{route('search',['tipo'=>'category','id'=> 1])}}">BICICLETAS <span
                                 class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link titulos-header text-light" href="{{ url('tienda') }}">EQUIPOS Y ACCESORIOS</a>
+                        <a class="nav-link titulos-header text-light" href="{{route('search',['tipo'=>'category','id'=> 2])}}">EQUIPOS Y ACCESORIOS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link titulos-header text-light" href="{{ url('tienda') }}">REPUESTOS</a>
+                        <a class="nav-link titulos-header text-light" href="{{route('search',['tipo'=>'category','id'=> 3])}}">REPUESTOS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link titulos-header text-light" href="{{ url('tienda') }}">CUBIERTAS</a>
+                        <a class="nav-link titulos-header text-light" href="{{route('search',['tipo'=>'category','id'=> 4])}}">CUBIERTAS</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link titulos-header text-light" href="{{ url('tienda') }}">SALE !</a>

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Brands;
 use App\Gallery;
 use App\Products;
 use Carbon\Carbon;
+use App\Categories;
 use Illuminate\Http\Request;
 
 class ShopController extends Controller
@@ -17,8 +19,21 @@ class ShopController extends Controller
     public function index()
     {
         $now = Carbon::now();
+        $brands = Brands::get();
         $products = Products::where('state','=','1')->paginate(9);
-        return view('shop.shop',['products'=>$products,'now'=>$now]);
+
+        $categories = Categories::get();
+        $categoriesFathers=[];
+        $categoriesChildren=[];
+        foreach ($categories as $category){
+            if(!$category->id_father_category){
+                $categoriesFathers[] = $category;
+            }else{
+                $categoriesChildren[] = $category;
+            }
+        }
+
+        return view('shop.shop',['products'=>$products,'now'=>$now, 'brands' => $brands,'categoriesFathers' => $categoriesFathers,'categoriesChildren' => $categoriesChildren]);
     }
 
     /**
@@ -48,11 +63,33 @@ class ShopController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($tipo,$id)
     {   
-        $products = Products::where('id_category','=',$id)->paginate(9);
+        if($tipo == 'category'){
+            if($id >= 1 && $id <= 4){
+                $products = Products::category()->where('id_father_category','=',$id)->paginate(9);
+            }else{
+                $products = Products::where('id_category','=',$id)->paginate(9);
+            }
+        }else{
+            $products = Products::where('id_brand','=',$id)->paginate(9);
+        }
+        $brands = Brands::get();
         $now = Carbon::now();
-        return view('shop.shop',['products'=>$products,'now'=>$now]);
+        
+        $categories = Categories::get();
+        $categoriesFathers=[];
+        $categoriesChildren=[];
+        foreach ($categories as $category){
+            if(!$category->id_father_category){
+                $categoriesFathers[] = $category;
+            }else{
+                $categoriesChildren[] = $category;
+            }
+        }
+
+        return view('shop.shop',['products'=>$products,'now'=>$now, 'brands' => $brands,'categoriesFathers' => $categoriesFathers,'categoriesChildren' => $categoriesChildren]);
+
     }
 
     /**

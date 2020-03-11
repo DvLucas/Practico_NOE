@@ -35,18 +35,6 @@
     <script src="{{ asset("js/app.js") }}"></script>
 
     <script>
-        // Carrito
-        /* $('.add-cart').on('mouseenter', function(e) {
-            $(this).attr('src', '{{ url("img/system/bag-danger.png") }}');
-        });
-
-        $('.add-cart').on('mouseleave', function(e) {
-            if(!$(this).hasClass('exists')){
-                $(this).attr('src', '{{ url("img/system/bag-dark.png") }}');
-                $(this).attr('data-original-title', 'Agregar al carrito');
-            }
-        }); */
-
         $('.add-cart').on('click', function(e) {
             var id_orig = $(this).attr('id');
             var id = $(this).attr('id').replace('cart-', '');
@@ -62,7 +50,6 @@
                 success: function(msg){
                     console.log(msg.status); 
                     if(msg.status == 'ok'){
-                        $(msg.id).removeClass('text-muted');
                         $(msg.id).addClass('exists');
                         $(msg.id).addClass('text-success');
                         /*$(msg.id).attr('data-original-title', msg.text).tooltip('show');*/
@@ -71,7 +58,6 @@
                     if(msg.status == 'deleted'){
                         $(msg.id).removeClass('text-success');
                         $(msg.id).removeClass('exists');
-                        $(msg.id).addClass('text-muted');
                        /* $(msg.id).attr('data-original-title', msg.text).tooltip('show');*/
                        if(msg.cantidad == 0){
                         msg.cantidad=null;
@@ -85,7 +71,7 @@
                 }
             });
         });
-</script>
+    </script>
 
     
 </body>
