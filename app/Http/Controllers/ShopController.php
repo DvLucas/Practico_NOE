@@ -65,15 +65,22 @@ class ShopController extends Controller
      */
     public function show($tipo,$id)
     {   
+        $products = Products::where('state', 1)
+        ->whereHas('category.id_father_category', function ($query) use ($id) {
+            $query->where('id_category', $id);
+        })->with('brand')->with('category')->with('comments')
+        ->paginate(9);
+
         if($tipo == 'category'){
             if($id >= 1 && $id <= 4){
-                $products = Products::category()->where('id_father_category','=',$id)->paginate(9);
+                //$products = Products::category()->where('id_father_category','=',$id)->paginate(9);
             }else{
                 $products = Products::where('id_category','=',$id)->paginate(9);
             }
         }else{
             $products = Products::where('id_brand','=',$id)->paginate(9);
         }
+
         $brands = Brands::get();
         $now = Carbon::now();
         

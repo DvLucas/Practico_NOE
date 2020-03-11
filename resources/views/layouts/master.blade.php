@@ -36,6 +36,7 @@
 
     <script>
         $('.add-cart').on('click', function(e) {
+            e.preventDefault();
             var id_orig = $(this).attr('id');
             var id = $(this).attr('id').replace('cart-', '');
             var action = '{{ route("cart.store") }}';
@@ -51,6 +52,7 @@
                     console.log(msg.status); 
                     if(msg.status == 'ok'){
                         $(msg.id).addClass('exists');
+                        $(msg.id).removeClass('color-gris');
                         $(msg.id).addClass('text-success');
                         /*$(msg.id).attr('data-original-title', msg.text).tooltip('show');*/
                         $('#cant-cart').text(msg.cantidad); 
@@ -58,6 +60,7 @@
                     if(msg.status == 'deleted'){
                         $(msg.id).removeClass('text-success');
                         $(msg.id).removeClass('exists');
+                        $(msg.id).addClass('color-gris');
                        /* $(msg.id).attr('data-original-title', msg.text).tooltip('show');*/
                        if(msg.cantidad == 0){
                         msg.cantidad=null;
