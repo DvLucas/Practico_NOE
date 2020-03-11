@@ -39,11 +39,13 @@ class CommentsControllers extends Controller
     public function store(StoreCommentsRequest $request)
     {
         $product = Products::findOrFail($request->product_id);
+        
         Comments::create([
                 'body' => $request->body,
                 'user_id' => $request->user_id,
-                'product_id' => $product->id_product
+                'product_id' => $request->product_id
         ]);
+
         return back();
     }
 

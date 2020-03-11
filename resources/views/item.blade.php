@@ -1,12 +1,12 @@
 @extends('layouts.master')
 
+
 @section('title')
 {{$product['name']}}
 @endsection
 
 
 @section('content')
-
 
 <main class="my-5">
 
@@ -89,10 +89,9 @@
                                         </div>
                                     </div>
                                     <!-- botones de compra y agregar al carrito -->
-                                    <a href="#" class="btn bg-yellow float-left botones-texto ml-1"> Comprar </a>
-                                    <a href="#" class="btn bg-yellow float-left ml-1 botones-texto"> <span
-                                            class="text">Agregar al carrito</span> <i class="fas fa-shopping-cart"></i>
-                                    </a>
+                                    <a href="{{route('cart')}}" class="btn bg-yellow float-left botones-texto ml-1 @if(!empty(session('carrito')) && in_array($product->id_product, session('carrito')))@endif"> Comprar </a>
+                                    <a href="#" class="btn bg-yellow float-left ml-1 botones-texto add-cart @if(!empty(session('carrito')) && in_array($product->id_product, session('carrito'))) {{ 'exists text-success' }}@else {{'text-muted'}} @endif" id="cart-{{$product->id_product}}">
+                                    <i class="fas fa-shopping-cart"></i>Agregar al carrito</a>
                                 </div>
                             </div>
                         </article>
@@ -111,13 +110,13 @@
                
                 <form action="{{route('comments.store')}}" method="post">
                     @csrf
-                    <textarea name="body" id="" >{{old('body')}}</textarea>
+                    <textarea class="col-md-12" name="body" id="" >{{old('body')}}</textarea>
                     <input hidden type="text" name="product_id" value="{{$product->id_product}}">
                     <input hidden type="text" name="user_id" value="{{Auth::user()->id}}">
-                    <button type="submit">enviar</button>
+                    <button class="btn bg-yellow botones-texto" type="submit">enviar</button>
                 </form>
-               
                 @endif
+                <hr>
                 @forelse ($product->comments as $comment)
                     <p class="titulos-header text-noe-yellow"> {{ $comment->user->name }}</p>
                     <p class="texto-parrafo">{{$comment->created_at}}</p>
@@ -141,9 +140,10 @@
 
                     <div class="col-12">
                         <div class="row justify-content-around">
-                            @for($i=0; $i<=1; $i++) <div class="card producto mb-3 col-12 p-0">
+                            @foreach($related as $related_product) 
+                                <div class="card producto mb-3 col-12 p-0">
                                 <a href="" class="text-center p-3">
-                                    @foreach($product->gallery as $image)
+                                    @foreach($related_product->gallery as $image)
                                     @if($image['store'] == 1)
                                     <img src="{{asset($image['url'])}}" class="card-img-top img-fluid" alt="..."
                                         style="max-width: 13rem;">
@@ -152,16 +152,16 @@
                                 </a>
                                 <div class="card-body botones-texto my-0 py-0">
                                     <a href="#">
-                                        <h6 class="mb-1">{{$product['name']}}</h6>
+                                        <h6 class="mb-1">{{$related_product['name']}}</h6>
                                     </a>
-                                    <p class="texto-parrafo mb-1">${{$product['price']}}</p>
+                                    <p class="texto-parrafo mb-1">${{$related_product['price']}}</p>
                                 </div>
                                 <div class="card-footer">
                                     <small class="text-noe-black botones-texto">&#9733; &#9733; &#9733; &#9733;
                                         &#9734;</small>
                                 </div>
                         </div>
-                        @endfor
+                        @endforeach
                     </div> <!-- fin columnas productos -->
                 </div> <!-- fin row productos relacionados -->
             </div> <!-- fin row -->
