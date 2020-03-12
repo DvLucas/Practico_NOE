@@ -27,6 +27,7 @@ Route::get('/panel', 'panelController@log');
 Route::prefix('/panel')->group(function () {
     Route::resource('products', 'dashboard\ProductsController');
     Route::resource('gallery', 'GalleryController');
+    Route::get('/products/categories', 'CategoriesController@index')->name('categories');
 });
 
 

@@ -15,4 +15,9 @@ class Categories extends Model
      {
           return $this->hasMany(Categories::class, 'id_category', 'id_father_category');
      }
+
+     public function id_children_category()
+     {
+          return $this->hasMany(Categories::class, 'id_father_category', 'id_category');
+     }
 }
