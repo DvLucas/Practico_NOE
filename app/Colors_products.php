@@ -11,8 +11,7 @@ class Color_product extends Model
      public $timestamps = false;
      public $guarded = [];
 
-
      public function color(){
-          return $this->belongTo(Color::class, 'id_color');
-     }
+          return $this->belongsTo(Color::Class,'id_color');
+      }
 }
