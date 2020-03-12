@@ -131,7 +131,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('categories')}}" data-abc="true">
+                                <a href="{{route('categories.index')}}" data-abc="true">
                                     Categorias
                                 </a>
                             </li>

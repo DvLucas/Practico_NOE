@@ -27,13 +27,6 @@
                             @endif    
                         </div>
                         <div class="col-2 conte-fav d-flex">
-                            {{-- <a href="carrito.php" class="text-danger">
-                                <i class="far fa-heart"></i>
-                            </a>
-                            <a href="#" class="add-cart @if(!empty(session('carrito')) && in_array($item->id_product, session('carrito'))) {{ 'exists text-success' }}@else {{'text-muted'}} @endif" 
-                                id="cart-{{$item->id_product}}">
-                                <i class="fas fa-cart-plus"></i>
-                            </a> --}}
                         </div>
                     </div>
                 </div>
@@ -63,7 +56,6 @@
                 <div class="col-12 mt-3">  <!-- Informacion item -->
                     <h1 class="h5 titulos-categorias-tienda">{{ $item->name}}</h1>
                     <h6 class="categorias-tienda">${{ $item->price }}</h6>
-                    <h6>{{ $item->brand->description }}</h6>
                     
                 </div>
 
