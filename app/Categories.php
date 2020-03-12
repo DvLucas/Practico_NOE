@@ -11,17 +11,13 @@ class Categories extends Model
      public $timestamps = false;
      public $guarded = [];
 
-     public function categoriesChildren($id_father = null){
-          if($id_father == null){
-               $categories = Categories::where('id_father_category','!=',null)->get();
-               return $categories;
-          }
-          $categories = Categories::where('id_father_category','=',$id_father)->get();
-          return $categories;
+     public function id_father_category()
+     {
+          return $this->hasMany(Categories::class, 'id_category', 'id_father_category');
      }
 
-     public function categoriesFathers(){
-          return Categories::where('id_father_category','=','null');
+     public function id_children_category()
+     {
+          return $this->hasMany(Categories::class, 'id_father_category', 'id_category');
      }
-
 }

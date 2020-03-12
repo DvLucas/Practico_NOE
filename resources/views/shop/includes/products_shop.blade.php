@@ -6,10 +6,9 @@
 
             <div class="frhoverinfo">
                 <ul class="productaction p-0">
-                    <li><a class="favor" href="#"><i class="fa fa-heart"></i></a></li>
-                    <li><a id="cart-{{$item->id_product}}" class="add-cart @if(!empty(session('carrito')) && in_array($item->id_product, session('carrito'))) {{ 'exists text-success' }} @endif" href="#cart-{{$item->id_product}}">
-                            <i id="icon-cart-{{$item->id_product}}" class="fas fa-shopping-cart"></i>
-                        </a>
+                    <li><i class="color-gris fa fa-heart"></i></li>
+                    <li>
+                        <i id="cart-{{$item->id_product}}" class="add-cart @if(!empty(session('carrito')) && in_array($item->id_product, session('carrito'))) {{ 'exists text-success' }} @endif fas fa-shopping-cart color-gris"></i>
                     </li>
                 </ul>
             </div>
@@ -64,9 +63,11 @@
                 <div class="col-12 mt-3">  <!-- Informacion item -->
                     <h1 class="h5 titulos-categorias-tienda">{{ $item->name}}</h1>
                     <h6 class="categorias-tienda">${{ $item->price }}</h6>
+                    <h6>{{ $item->brand->description }}</h6>
+                    
                 </div>
 
-                <a class="col-12 py-2  btn-comprar categorias-tienda" href="{{route('cart')}}">Comprar</a>
+                <a class="col-12 py-2  btn-comprar categorias-tienda" href="{{route('item',$item)}}">Comprar</a>
 
             </div>
         </div> <!-- Producto -->

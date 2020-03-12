@@ -71,6 +71,8 @@
                                 <dd class="col-sm-9 botones-texto">{{$product['brand']->description}}</dd>
                                 <dt class="col-sm-3 botones-texto">Stock</dt>
                                 <dd class="col-sm-9 botones-texto">{{$product['stock']}}</dd>
+                                <dt class="col-sm-3 botones-texto">Color</dt>
+                                <dd class="col-sm-9 botones-texto"></dd>
                             </dl>
                             <!-- linea separadora entre descripcion y detalles de compra -->
                             <hr>

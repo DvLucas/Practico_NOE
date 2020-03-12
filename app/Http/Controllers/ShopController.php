@@ -21,13 +21,13 @@ class ShopController extends Controller
         $now = Carbon::now();
         $brands = Brands::get();
         $products = Products::where('state','=','1')->paginate(9);
+        $categories = Categories::with('id_children_category')
+        ->whereNull('id_father_category')
+        ->orderBy('name_category')->get();
 
-        $categories = new Categories();
-        $categoriesFathers=$categories->categoriesFathers();
-        dd($categoriesFathers);
-        $categoriesChildren=$categories->categoriesChildren();
+        $var =compact('now','brands','products','categories');
 
-        return view('shop.shop',['products'=>$products,'now'=>$now, 'brands' => $brands,'categoriesFathers' => $categoriesFathers,'categoriesChildren' => $categoriesChildren]);
+        return view('shop.shop',$var);
     }
 
     /**
@@ -61,22 +61,28 @@ class ShopController extends Controller
     {   
         if($tipo == 'category'){
             if($id >= 1 && $id <= 4){
-                $products = Products::category()->categoriesChildren($id)->paginate(9);
+                $products = Products::where('state', 1)
+                    ->whereHas('category.id_father_category', function ($query) use ($id) {
+                        $query->where('id_category', $id);
+                    })->with('brand')->with('category')->with('comments')
+                    ->paginate(9);
             }else{
                 $products = Products::where('id_category','=',$id)->paginate(9);
             }
         }else{
             $products = Products::where('id_brand','=',$id)->paginate(9);
         }
+
         $brands = Brands::get();
         $now = Carbon::now();
+        $categories = Categories::with('id_children_category')
+        ->whereNull('id_father_category')
+        ->orderBy('name_category')->get();
+
         
-        $categories = Categories::get();
-        $categoriesFathers=Categories::categoriesFathers();
-        $categoriesChildren[]=Categories::categoriesChildren();
+        $var =compact('now','brands','products','categories');
 
-        return view('shop.shop',['products'=>$products,'now'=>$now, 'brands' => $brands,'categoriesFathers' => $categoriesFathers,'categoriesChildren' => $categoriesChildren]);
-
+        return view('shop.shop',$var);
     }
 
     /**

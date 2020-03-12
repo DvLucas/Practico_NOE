@@ -375,7 +375,7 @@ section.servicios .elServicio {
 .frhoverinfo {
     position: absolute;
     z-index: 1;
-    right: -1%;
+    right: -2%;
     top:25%
 }
 .productaction {
@@ -396,18 +396,19 @@ ol {
 }
 .productaction li:nth-child(1) {
     opacity: 0;
-    border-radius: 50%;
+    /* border-top-left-radius: 35%; */
     transition: opacity 300ms linear 0s
 }
 
 .productaction li:nth-child(2) {
     opacity: 0;
-    border-radius: 50%;
+    /* border-bottom-left-radius: 35%;  */
     transition: opacity 300ms linear 0s
 }
 
-.productaction li a {
+.productaction li {
     background: rgb(252, 216, 22);
+    cursor: pointer;
     display: inline-block;
     height: 30px;
     line-height: 35px;
@@ -417,10 +418,13 @@ ol {
     margin-top: 15px;   
     border-top-left-radius: 35%;
     border-bottom-left-radius: 35%; 
+}
+
+.color-gris {
     color: rgb(0, 0, 0,0.6);
 }
 
-.productaction li a i {
+.productaction li i {
     font-size: 18px;
     transition: all 0.4s ease 0s
 }
