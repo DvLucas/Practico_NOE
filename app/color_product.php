@@ -13,6 +13,6 @@ class Color_product extends Model
 
 
      public function color(){
-          return $this->hasMany(Color::class, 'id_color');
+          return $this->belongTo(Color::class, 'id_color');
      }
 }

@@ -12,13 +12,13 @@ class ColorsTableSeeder extends Seeder
     public function run()
     {
        $colors =[
-           ['name'=>'blanco ', 'image'=> ' '],
-           ['name'=>'negro ', 'image'=> ' '],
-           ['name'=>'rojo ', 'image'=> ' '],
-           ['name'=>'azul ', 'image'=> ' '],
-           ['name'=>'verde ', 'image'=> ' '],
-           ['name'=>'amarillo ', 'image'=> ' '],
-           ['name'=>'naranja ', 'image'=> ' ']
+           ['name'=>'blanco ', 'image'=> '#ffffff'],
+           ['name'=>'negro ', 'image'=> '#000000'],
+           ['name'=>'rojo ', 'image'=> '#ff0000'],
+           ['name'=>'azul ', 'image'=> '#0d00ff'],
+           ['name'=>'verde ', 'image'=> '#00ff1a'],
+           ['name'=>'amarillo ', 'image'=> '#fff700'],
+           ['name'=>'naranja ', 'image'=> '#ff8000']
 
        ];
 

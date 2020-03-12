@@ -29,7 +29,7 @@ class Products extends Model
       return $this->hasMany(Comments::Class, 'product_id');
     }
 
-    public function colors(){
+    public function color_product(){
         return $this->hasMany(Color_product::Class, 'id_product');
     }
     
