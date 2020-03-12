@@ -22,16 +22,10 @@ class ShopController extends Controller
         $brands = Brands::get();
         $products = Products::where('state','=','1')->paginate(9);
 
-        $categories = Categories::get();
-        $categoriesFathers=[];
-        $categoriesChildren=[];
-        foreach ($categories as $category){
-            if(!$category->id_father_category){
-                $categoriesFathers[] = $category;
-            }else{
-                $categoriesChildren[] = $category;
-            }
-        }
+        $categories = new Categories();
+        $categoriesFathers=$categories->categoriesFathers();
+        dd($categoriesFathers);
+        $categoriesChildren=$categories->categoriesChildren();
 
         return view('shop.shop',['products'=>$products,'now'=>$now, 'brands' => $brands,'categoriesFathers' => $categoriesFathers,'categoriesChildren' => $categoriesChildren]);
     }
@@ -67,7 +61,7 @@ class ShopController extends Controller
     {   
         if($tipo == 'category'){
             if($id >= 1 && $id <= 4){
-                $products = Products::category()->where('id_father_category','=',$id)->paginate(9);
+                $products = Products::category()->categoriesChildren($id)->paginate(9);
             }else{
                 $products = Products::where('id_category','=',$id)->paginate(9);
             }
@@ -78,15 +72,8 @@ class ShopController extends Controller
         $now = Carbon::now();
         
         $categories = Categories::get();
-        $categoriesFathers=[];
-        $categoriesChildren=[];
-        foreach ($categories as $category){
-            if(!$category->id_father_category){
-                $categoriesFathers[] = $category;
-            }else{
-                $categoriesChildren[] = $category;
-            }
-        }
+        $categoriesFathers=Categories::categoriesFathers();
+        $categoriesChildren[]=Categories::categoriesChildren();
 
         return view('shop.shop',['products'=>$products,'now'=>$now, 'brands' => $brands,'categoriesFathers' => $categoriesFathers,'categoriesChildren' => $categoriesChildren]);
 
