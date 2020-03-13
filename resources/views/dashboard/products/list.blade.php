@@ -27,8 +27,8 @@
     </div>
     <div class="col-12 mt-2">
 
-        <table class="table table-bordered">
-            <thead class="thead-ligth">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark ">
                 <tr class="table-info">
                     <th scope="col">ID</th>
                     <th scope="col">Nombre</th>
@@ -47,7 +47,7 @@
                 @foreach ($products as $product)
                     <tr>
                         <td>{{$product->id_product}}</td>
-                        <td style='width:50px;'>{{$product->name}}</td>
+                        <td style='width:150px;'>{{$product->name}}</td>
                         {{-- <td style='width:20px; height:20px; '>{{$product->description}}</div></td> --}}
                         <td>$ {{$product->price}}</td>
                         <td>{{$product->stock}}</td>

@@ -52,6 +52,20 @@
                 modal.find('.modal-title').text('Vas a quitar el producto: ' + id)
             }
         })
+
+        $('#checkCategoryFather').on('click', function(e){
+            if (this.checked == true) {
+                console.log($('#selectCategoryChild'));
+                $('#selectCategoryChild').attr('disabled','disabled');
+            } else {
+                $('#selectCategoryChild').removeAttr('disabled');
+            }
+
+        })
+
+        $('#a-icon-nav').on('click', function(e){
+            $('#icon-nav').toggleClass('rotate');
+        })
     </script> {{-- Este scrip te utiliza en la vista de listar productos panel --}}
 
 <script>

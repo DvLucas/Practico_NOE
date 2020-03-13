@@ -11,7 +11,7 @@ class Categories extends Model
      public $timestamps = false;
      public $guarded = [];
 
-     public function id_father_category()
+     public function id_father_categoryf()
      {
           return $this->hasMany(Categories::class, 'id_category', 'id_father_category');
      }

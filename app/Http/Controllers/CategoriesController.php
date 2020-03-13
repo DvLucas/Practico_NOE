@@ -14,7 +14,9 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $categories = Categories::get();
+        $categories = Categories::with('id_father_categoryf')
+            ->orderBy('id_father_category')
+            ->paginate(8);
         return view('dashboard.products.categories',['categories'=>$categories]);
     }
 
@@ -36,7 +38,16 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $category = $request->validate([
+            'name_category' => 'required|max:20',
+            'id_father_category' => ''
+        ]);
+        $affected = Categories::create($category);
+
+        $categories = Categories::with('id_father_categoryf')
+            ->orderBy('name_category')
+            ->paginate(8);
+        return view('dashboard.products.categories',['categories'=>$categories]);
     }
 
     /**
