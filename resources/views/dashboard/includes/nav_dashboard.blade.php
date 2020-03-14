@@ -50,7 +50,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="" data-abc="true">
+                                <a href="{{route('brands.index')}}" data-abc="true">
                                     Marcas
                                 </a>
                             </li>

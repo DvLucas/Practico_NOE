@@ -30,6 +30,7 @@ Route::prefix('/panel')->group(function () {
     Route::resource('products', 'dashboard\ProductsController');
     Route::resource('gallery', 'GalleryController');
     Route::resource('categories', 'CategoriesController');
+    Route::resource('brands', 'BrandController');
 });
 
 Route::get('/tienda', 'ShopController@index')->name('shop');
