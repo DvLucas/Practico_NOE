@@ -17,7 +17,7 @@
                 <div class="card-body pt-0">
                     <form method="POST" action="{{ route('register') }}" class="row justify-content-center text-white subtitulos">
                         @csrf
-
+                        
                         <div class="form-group col-9">
                             <label for="name" class="col-form-label text-md-right">{{ __('Nombre') }}</label>
 

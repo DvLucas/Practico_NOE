@@ -16,8 +16,8 @@ class CategoriesController extends Controller
     {
         $categories = Categories::with('id_father_categoryf')
             ->orderBy('id_father_category')
-            ->paginate(8);
-        return view('dashboard.products.categories',['categories'=>$categories]);
+            ->get();
+        return view('dashboard.categories.categories',['categories'=>$categories]);
     }
 
     /**
@@ -43,11 +43,8 @@ class CategoriesController extends Controller
             'id_father_category' => ''
         ]);
         $affected = Categories::create($category);
-
-        $categories = Categories::with('id_father_categoryf')
-            ->orderBy('name_category')
-            ->paginate(8);
-        return view('dashboard.products.categories',['categories'=>$categories]);
+        
+        return back()->with('state','Categoria Agregada');
     }
 
     /**
@@ -92,6 +89,13 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $affected= Categories::destroy($id);
+            $status="Categoria Eliminada";
+        } catch (\Throwable $th) {
+            $status="Categoria no se puede eliminar";
+        }
+        
+        return back()->with('state', $status);
     }
 }

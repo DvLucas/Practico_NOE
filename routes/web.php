@@ -12,9 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('home');
 });
-
+Route::get('/back', function () {
+    return back();
+})->name('back');
 
 Auth::routes();
 
@@ -22,15 +24,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
-Route::get('/panel', 'panelController@log');
+Route::get('/panel', 'panelController@log')->name('dashboard');
 
 Route::prefix('/panel')->group(function () {
     Route::resource('products', 'dashboard\ProductsController');
     Route::resource('gallery', 'GalleryController');
     Route::resource('categories', 'CategoriesController');
 });
-
-
 
 Route::get('/tienda', 'ShopController@index')->name('shop');
 Route::get('/tienda/search/{tipo}/{id?}', 'ShopController@show')->name('search');
