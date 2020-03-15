@@ -1,4 +1,4 @@
-<div class="col-12 col-lg-2  m-2 text-left pl-0">
+<div class="col-12 col-lg-2  m-2 text-left pl-0 min-vh-100">
 
     <h3 class="mt-2 titulos-medio d-none d-lg-block">Categorias</h3>
     <style>
@@ -125,7 +125,7 @@
                         class="icon-control fa fa-chevron-down"></i>
                     <h6 class="title">Categorias </h6>
                 </a> </header>
-            <div class="filter-content collapse" id="collapse_aside1" style="">
+            <div class="filter-content collapse @if(isset($nav) && $nav == 'category') {{'show'}} @endif" id="collapse_aside1" style="">
                 <div class="card-body pt-0">
                     <ul class="list-menu">
                         <a href="{{route('shop')}}">
@@ -156,7 +156,7 @@
                         class="icon-control fa fa-chevron-down"></i>
                     <h6 class="title">Marca </h6>
                 </a> </header>
-            <div class="filter-content collapse" id="collapse_aside2" style="">
+            <div class="filter-content collapse @if(isset($nav) && $nav == 'brand') {{'show'}} @endif" id="collapse_aside2" style="">
                 <div class="card-body pt-0">
                     <a href="{{route('shop')}}">
                         <p class="font-weight-bold">Todos</p>

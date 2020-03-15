@@ -49,11 +49,33 @@ Carrito de compras
                                 </div>
                             </div>
                         </div>
+
+                        <style>
+                            .span-color{
+                                border-radius: 50%;
+                                display: inline-block;
+                                border: 1px solid #000;
+                                width: 17px;
+                                height: 17px;
+                                margin: auto 2.5px;
+                            }
+                        </style>
                         <div class="my-auto col-9">
                             <div class="row text-center">
                                 <div class="col-6">
                                     <h6 class="mob-text"> {{$item->name}} </h6>
-                                    <p class="mob-text"> Color: Amarillo </p>
+                                    <div class="justify-content-center align-items-center">
+                                        <p class="mob-text mb-0">Color</p>
+                                            @foreach ($item->color_product as $colorP)
+                                                @foreach ($colors as $color)
+                                                    @if ($colorP->id_color == $color->id_color)
+                                                    <a href="">
+                                                        <span class="span-color" style="background:{{$color->image}}"></span>
+                                                    </a>
+                                                    @endif
+                                                @endforeach
+                                            @endforeach
+                                    </div>
                                 </div>
                                 <div class="col-3">
                                     <div class="row d-flex justify-content-center align-items-center  px-3">

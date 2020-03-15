@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Color;
 use App\Products;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,8 @@ class CartController extends Controller
             foreach (session('carrito') as $key => $value) {
                 $products[]= Products::find($value);
             }
-            return view('cart',compact('products'));   
+            $colors = Color::get();
+            return view('cart',compact('products','colors'));   
         }
         return view('cart');
     }

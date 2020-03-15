@@ -2,9 +2,10 @@
 
 namespace App;
 
+use App\Color;
 use Illuminate\Database\Eloquent\Model;
 
-class Color_product extends Model
+class Colors_products extends Model
 {
      public $table = "colors_products";
      public $primaryKey = "id_color_product";

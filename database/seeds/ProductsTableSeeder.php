@@ -1,5 +1,6 @@
 <?php
 
+use App\Colors_products;
 use Illuminate\Database\Seeder;
 
 class ProductsTableSeeder extends Seeder
@@ -51,5 +52,6 @@ class ProductsTableSeeder extends Seeder
         foreach($products as $product) {
             App\Products::create($product);
         }
+
     }
 }

@@ -1,4 +1,4 @@
-<div class="col px-0">
+<div class="col px-0 min-vh-100">
     <div class="row justify-content-around m-0">
         @foreach ($products as $item)
 
@@ -6,8 +6,10 @@
 
             <div class="frhoverinfo">
                 <ul class="productaction p-0">
-                    <li><i class="color-gris fa fa-heart"></i></li>
-                    <li>
+                    <li title="Favoritos">
+                        <i class="color-gris fa fa-heart"></i>
+                    </li>
+                    <li title="Agregar a carrito">
                         <i id="cart-{{$item->id_product}}" class="add-cart @if(!empty(session('carrito')) && in_array($item->id_product, session('carrito'))) {{ 'exists text-success' }} @endif fas fa-shopping-cart color-gris"></i>
                     </li>
                 </ul>
@@ -26,31 +28,36 @@
                                 <span class='badge badge-info'>Nuevo</span>
                             @endif    
                         </div>
-                        <div class="col-2 conte-fav d-flex">
+                        <div class="col-7 pr-0 text-center">
                         </div>
                     </div>
                 </div>
 
                 <div class="col-12 p-0"> <!-- imagen -->
-                    <a href="item.php">
+                    <a href="{{route('item',$item)}}" class="row">
                         @foreach ($item->gallery as $image )
                             @if($image['store'] == 1)
-                                <img src="{{asset($image['url'])}}" class="img-fluid" alt="...">
+                                <div class="col-12">
+                                    <img src="{{asset($image['url'])}}" class="img-fluid" alt="...">
+                                </div>
                             @endif
                         @endforeach
-                        {{-- <div class="row btn-group btn-group-toggle justify-content-center mt-2"
-                            data-toggle="buttons">
-
-                             <label class="col-2 btn btn-ligh active tooltipt"
-                                style="background-color: ;">
-
-                                <input type="radio" name="options" id="option1" checked>
-                                <span class="tooltiptextt"></span>
-
-                            </label> 
-
-                        </div> --}}
                     </a>
+                        <div class="row btn-group btn-group-toggle justify-content-center mt-2" data-toggle="buttons">
+                            @foreach ($item->color_product as $colorP)
+                                @foreach ($colors as $color)
+                                @if($colorP->id_color == $color->id_color)
+                                <label class="col-2 btn btn-ligh active tooltipt" style="background-color:{{$color->image}};">
+
+                                    <input type="radio" name="options" id="option1" checked>
+                                    <span class="tooltiptextt">{{$color->name}}</span>
+
+                                </label>
+                                @endif
+                                @endforeach
+                            @endforeach
+
+                        </div>
                 </div> 
 
                 <div class="col-12 mt-3">  <!-- Informacion item -->
@@ -59,7 +66,7 @@
                     
                 </div>
 
-                <a class="col-12 py-2  btn-comprar categorias-tienda" href="{{route('item',$item)}}">Comprar</a>
+                <a class="col-12 py-2  btn-comprar categorias-tienda" href="{{route('item',$item)}}">Ver Producto</a>
 
             </div>
         </div> <!-- Producto -->
