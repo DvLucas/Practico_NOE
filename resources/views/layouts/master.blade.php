@@ -35,6 +35,53 @@
     <script src="{{ asset("js/app.js") }}"></script>
 
     <script>
+        // Jquery cart
+        $(document).ready(function(){
+            var prices = $('.price');
+            var subtotal = 0
+            $.each(prices, function(index,price){
+                subtotal += parseInt( $(price).text().replace('$','') );
+                console.log(subtotal);
+            });
+            $('.subtotal').text('$'+subtotal);
+            $('.total').text('$'+(subtotal+500));
+            $('#check-amt').text('$'+(subtotal+500));
+        });
+
+        // Sumar y restar items
+        $('.btn-sumar').on('click',function(e){
+            var id = $(this).attr('id');
+            var cant = $('#cant-'+id).text();
+            var subtotal =parseInt( $('.subtotal').text().replace('$', '') );
+            var price =parseInt( $('#price-'+id).text().replace('$', '') );
+            console.log(price);
+            subtotal = subtotal + price;
+            cant++;
+            $('.subtotal').text('$'+subtotal);
+            $('.total').text('$'+(subtotal+500));
+            $('#check-amt').text('$'+(subtotal+500));
+            $('#cant-'+id).text(cant);
+        });
+        $('.btn-restar').on('click',function(e){
+            var id = $(this).attr('id');
+            var cant = $('#cant-'+id).text();
+            var subtotal =parseInt( $('.subtotal').text().replace('$', '') );
+            var price =parseInt( $('#price-'+id).text().replace('$', '') );
+            if(cant > 1){
+                cant--;
+                subtotal = subtotal - price;
+            }
+            $('.subtotal').text('$'+subtotal);
+            $('.total').text('$'+(subtotal+500));
+            $('#check-amt').text('$'+(subtotal+500));
+            $('#cant-'+id).text(cant);
+            console.log(cant++);
+        });
+
+
+
+        // fin cart
+
         $('.add-cart').on('click', function(e) {
             e.preventDefault();
             var id_orig = $(this).attr('id');

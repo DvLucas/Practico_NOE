@@ -15,7 +15,7 @@ Carrito de compras
     </nav>
     <div class="tab-content" id="nav-tabContent">
         <div class="tab-pane fade show active" id="nav-carrito" role="tabpanel" aria-labelledby="nav-home-tab">
-            <div class="container px-3 py-2 mx-auto">
+            <div class="container px-3 py-2 mx-auto cart-items">
                 @if (isset($products))
                   <div class="row d-flex justify-content-center titulos-items">
                       <div class="col-3">
@@ -79,15 +79,15 @@ Carrito de compras
                                 </div>
                                 <div class="col-3">
                                     <div class="row d-flex justify-content-center align-items-center  px-3">
-                                        <p class="mb-0 col-3" id="cnt2">1</p>
-                                        <div class="col-3 d-flex flex-column plus-minus">
-                                            <span class="vsm-text plus text-success"><i class="fas fa-plus-square"></i></i></span>
-                                            <span class="vsm-text minus text-danger"><i class="fas fa-minus-square"></i></span>
+                                        <p class="mb-0 col-3 cantItem" id="cant-{{$item->id_product}}">1</p>
+                                        <div class="col-3 d-flex flex-column">
+                                            <button class="btn btn-success btn-sumar p-0 mb-1 align-items-center" id="{{$item->id_product}}" style="height:25px;width:25px">+</button>
+                                            <button class="btn btn-danger btn-restar p-0 align-items-center" id="{{$item->id_product}}" style="height:25px;width:25px">-</button>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-3">
-                                    <h6 class="mob-text"> ${{$item->price}} </h6>
+                                    <h6 class="mob-text price" id="price-{{$item->id_product}}"> ${{$item->price}} </h6>
                                 </div>
                             </div>
                         </div>
@@ -101,30 +101,20 @@ Carrito de compras
                                   <div class="col-lg-4 mt-2 ">
                                       <div class="row d-flex justify-content-between px-4">
                                           <p class="mb-1 text-left">Subtotal</p>
-                                          <h6 class="mb-1 text-right">
-                                              @php
-                                                $Subtotal=0;
-                                              @endphp
-                                              @foreach ($products as $item)
-                                              @php
-                                                $Subtotal =$Subtotal + $item->price;
-                                              @endphp
-                                              @endforeach
-                                              $ {{$Subtotal}}
-                                          </h6>
+                                          <h6 class="mb-1 text-right subtotal"><!-- Calculado por js --></h6>
                                       </div>
                                       <div class="row d-flex justify-content-between px-4">
                                           <p class="mb-1 text-left">Envío</p>
-                                          <h6 class="mb-1 text-right">$0,00</h6>
+                                          <h6 class="mb-1 text-right">$500,00</h6>
                                       </div>
                                       <div class="row d-flex justify-content-between px-4" id="tax">
                                           <p class="mb-1 text-left">Total (tax included)</p>
-                                          <h6 class="mb-1 text-right">$ {{$Subtotal}}</h6>
+                                          <h6 class="mb-1 text-right total"><!-- Calculado por js --></h6>
                                       </div>
                                       <button class="btn-block btn-yellow">
                                           <span>
                                               <span id="checkout">Checkout</span>
-                                              <span id="check-amt">$ {{$Subtotal}}</span>
+                                              <span id="check-amt"><!-- Calculado por js --></span>
                                           </span>
                                       </button>
                                       <button class="btn-block btn-yellow">
