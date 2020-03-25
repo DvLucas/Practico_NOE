@@ -57,7 +57,13 @@ Carrito de compras
                                 border: 1px solid #000;
                                 width: 17px;
                                 height: 17px;
-                                margin: auto 2.5px;
+                                cursor: pointer;
+                            }
+                            .check-ok{
+                                position: absolute;
+                                z-index: 1;     
+                                top: -10px;
+                                left: 11px;              
                             }
                         </style>
                         <div class="my-auto col-9">
@@ -65,16 +71,19 @@ Carrito de compras
                                 <div class="col-6">
                                     <h6 class="mob-text"> {{$item->name}} </h6>
                                     <div class="justify-content-center align-items-center">
-                                        <p class="mob-text mb-0">Color</p>
+                                        <p class="mob-text mb-0 ">Color</p>
+                                        <div class="d-flex justify-content-center">
                                             @foreach ($item->color_product as $colorP)
                                                 @foreach ($colors as $color)
                                                     @if ($colorP->id_color == $color->id_color)
-                                                    <a href="">
-                                                        <span class="span-color" style="background:{{$color->image}}"></span>
-                                                    </a>
+                                                    <div class="mx-1" style="position:relative">
+                                                        <span class="check-ok text-success"><i class="fas fa-check-square"></i></span>
+                                                        <span href="#" class="span-color" style="background:{{$color->image}};" ></span>
+                                                    </div>
                                                     @endif
                                                 @endforeach
                                             @endforeach
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-3">
@@ -111,12 +120,12 @@ Carrito de compras
                                           <p class="mb-1 text-left">Total (tax included)</p>
                                           <h6 class="mb-1 text-right total"><!-- Calculado por js --></h6>
                                       </div>
-                                      <button class="btn-block btn-yellow">
-                                          <span>
-                                              <span id="checkout">Checkout</span>
-                                              <span id="check-amt"><!-- Calculado por js --></span>
-                                          </span>
-                                      </button>
+                                          <button class="btn-block btn-yellow">
+                                              <span>
+                                                  <span id="checkout">Checkout</span>
+                                                  <span id="check-amt"><!-- Calculado por js --></span>
+                                              </span>
+                                          </button>
                                       <button class="btn-block btn-yellow">
                                           <span>
                                               <a href="{{ url()->previous() }}">Seguir comprando</a>

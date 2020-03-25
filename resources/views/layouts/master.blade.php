@@ -36,12 +36,11 @@
 
     <script>
         // Jquery cart
+        var subtotal = 0;
         $(document).ready(function(){
             var prices = $('.price');
-            var subtotal = 0
             $.each(prices, function(index,price){
                 subtotal += parseInt( $(price).text().replace('$','') );
-                console.log(subtotal);
             });
             $('.subtotal').text('$'+subtotal);
             $('.total').text('$'+(subtotal+500));
@@ -52,9 +51,7 @@
         $('.btn-sumar').on('click',function(e){
             var id = $(this).attr('id');
             var cant = $('#cant-'+id).text();
-            var subtotal =parseInt( $('.subtotal').text().replace('$', '') );
             var price =parseInt( $('#price-'+id).text().replace('$', '') );
-            console.log(price);
             subtotal = subtotal + price;
             cant++;
             $('.subtotal').text('$'+subtotal);
@@ -65,7 +62,6 @@
         $('.btn-restar').on('click',function(e){
             var id = $(this).attr('id');
             var cant = $('#cant-'+id).text();
-            var subtotal =parseInt( $('.subtotal').text().replace('$', '') );
             var price =parseInt( $('#price-'+id).text().replace('$', '') );
             if(cant > 1){
                 cant--;
@@ -75,12 +71,13 @@
             $('.total').text('$'+(subtotal+500));
             $('#check-amt').text('$'+(subtotal+500));
             $('#cant-'+id).text(cant);
-            console.log(cant++);
         });
 
 
 
         // fin cart
+
+        // Shop
 
         $('.add-cart').on('click', function(e) {
             e.preventDefault();
