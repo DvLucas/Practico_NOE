@@ -63,7 +63,8 @@ Carrito de compras
                                 position: absolute;
                                 z-index: 1;     
                                 top: -10px;
-                                left: 11px;              
+                                left: 11px;   
+                                display: inline !important;         
                             }
                         </style>
                         <div class="my-auto col-9">
@@ -76,10 +77,14 @@ Carrito de compras
                                             @foreach ($item->color_product as $colorP)
                                                 @foreach ($colors as $color)
                                                     @if ($colorP->id_color == $color->id_color)
-                                                    <div class="mx-1" style="position:relative">
-                                                        <span class="check-ok text-success"><i class="fas fa-check-square"></i></span>
-                                                        <span href="#" class="span-color" style="background:{{$color->image}};" ></span>
-                                                    </div>
+                                                    {{-- <div class="mx-1" style="position:relative"> --}}
+                                                        {{-- <span id="{{$colorP->id_color_product}}" data-product="{{$item->id_product}}" class="check text-success" style="display: none"><i class="fas fa-check-square"></i></span> --}}
+                                                        <span id="check-{{$colorP->id_color_product}}" class="iconCheck span-color mx-1" style="background:{{$color->image}};position:relative" >
+                                                            <span id="{{$colorP->id_color_product}}" class="check text-success" style="display: none">
+                                                                <i class="fas fa-check-square"></i>
+                                                            </span>
+                                                        </span>
+                                                    {{-- </div> --}}
                                                     @endif
                                                 @endforeach
                                             @endforeach
