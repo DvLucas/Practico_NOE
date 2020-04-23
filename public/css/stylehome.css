@@ -435,12 +435,23 @@ ol {
     transition: opacity 300ms linear 0s
 }
 
-/* .item:hover .productaction li:nth-child(2) {
-    -webkit-animation: 500ms ease-in-out 0s normal none 1 running fadeInRight;
-    animation: 500ms ease-in-out 0s normal none 1 running fadeInRight;
-    opacity: 1;
-    transition: opacity 500ms linear 0s
-} */
+/*** Cart ***/
+
+.span-color{
+    border-radius: 50%;
+    display: inline-block;
+    border: 1px solid #000;
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+}
+.check-ok{
+    position: absolute;
+    z-index: 1;     
+    top: -10px;
+    left: 11px;   
+    display: inline !important;         
+}
 
 
 /***** FIN TIENDA *****/

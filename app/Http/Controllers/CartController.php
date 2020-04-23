@@ -26,6 +26,19 @@ class CartController extends Controller
         return view('cart');
     }
 
+    public function show()
+    {
+        if( !empty(session('carrito')) ){
+            $products = [];
+            foreach (session('carrito') as $key => $value) {
+                $products[]= Products::find($value);
+            }
+            $colors = Color::get();
+            return response()->json(['status' => 'ok', 'products' => $products, 'colors' => $colors]);
+            /* return view('cart',compact('products','colors'));   */ 
+        }
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -102,10 +115,10 @@ class CartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    /* public function show($id)
     {
         //
-    }
+    } */
 
     /**
      * Show the form for editing the specified resource.
@@ -139,5 +152,6 @@ class CartController extends Controller
     public function destroy($id)
     {
         //
+        dd($id);
     }
 }

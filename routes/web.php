@@ -38,6 +38,8 @@ Route::get('/tienda/search/{tipo}/{id?}', 'ShopController@show')->name('search')
 /* Route::resource('/cart', 'CartController@index')->name('cart'); */
 Route::post('cart.store', 'CartController@store')->name('cart.store');
 Route::get('/cart', 'CartController@index')->name('cart');
+Route::get('cart.destroy/{id}', 'CartController@destroy')->name('cart.destroy');
+Route::get('cart.show', 'CartController@show')->name('cart.show');
 
 Route::get('/tienda/item/{product_id}', 'ProductsController@show')->name('item');
 Route::resource('comments','CommentsControllers');

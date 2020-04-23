@@ -39,6 +39,7 @@
         var subtotal = 0;
         var formProductColor, formCantidad;
         $(document).ready(function(){
+
             var prices = $('.price');
             $.each(prices, function(index,price){
                 subtotal += parseInt( $(price).text().replace('$','') );
@@ -46,6 +47,40 @@
             $('.subtotal').text('$'+subtotal);
             $('.total').text('$'+(subtotal+500));
             $('#check-amt').text('$'+(subtotal+500));
+
+            $('.delete-cart').on('click',function(e){
+                e.preventDefault();
+                var id = $(this).attr('id');
+                $('tr').remove('.item-'+id);
+
+                var action = '{{ route("cart.store") }}';
+                var _token = $('meta[name="_token"]').attr('content');
+                $.ajax({
+                    type: "POST",
+                    url: action,
+                    data: {id:id},
+                    headers: {
+                        'X-CSRF-TOKEN' : $('meta[name="_token"]').attr('content') 
+                    },
+                    success: function(msg){
+                        console.log(msg.status); 
+                        if(msg.status == 'deleted'){
+                            if(msg.cantidad == 0){
+                                msg.cantidad=null;
+                            }
+                            $('#cant-cart').text(msg.cantidad);
+                            location.reload();
+                        }
+                    },
+                    error: function(msg){
+                        console.log(msg);
+                    /*  $(msg.id).attr('data-original-title', 'Error').tooltip('show'); */
+                    }
+                });
+
+                console.log();
+            });
+
         });
 
         // Seleccionar Color
