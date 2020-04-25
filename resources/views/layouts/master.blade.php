@@ -37,7 +37,6 @@
     <script>
         // Jquery cart
         var subtotal = 0;
-        var formProductColor, formCantidad;
         $(document).ready(function(){
 
             var prices = $('.price');
@@ -94,8 +93,6 @@
                 }
             });
             $('#'+idColorProduct).addClass('check-ok');
-            formProductColor = idColorProduct;
-            console.log(formProductColor);
         });
 
         // Sumar y restar items
@@ -109,7 +106,6 @@
             $('.total').text('$'+(subtotal+500));
             $('#check-amt').text('$'+(subtotal+500));
             $('#cant-'+id).text(cant);
-            formCantidad = cant;
         });
 
         $('.btn-restar').on('click',function(e){
@@ -127,10 +123,10 @@
             formCantidad = cant;
         });
 
-
-
         // fin cart
+</script>
 
+<script>
         // Shop
 
         $('.add-cart').on('click', function(e) {
