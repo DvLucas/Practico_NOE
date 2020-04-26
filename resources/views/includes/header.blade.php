@@ -41,6 +41,12 @@
                         <li>
                             <a href="{{ url('cart') }}">Compras</a>
                         </li>
+                        @if (auth()->user()->id_rol == 1)
+
+                        <li><a href="{{ route('dashboard') }}">Panel de Control</a></li>
+
+                        @endif
+
                         <li>
 
                             <a class="dropdown-item" href="{{ route('logout') }}"
@@ -88,7 +94,7 @@
 
                 @if (auth()->user() !=null)
 
-                <div class="btn-group dropleft d-md-none">
+                <div class="btn-group dropleft d-none">
                     <a href="#" role="button" class="nav-link p-0" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
                         <img src="{{asset('img/icons/busqueda_amarillo.svg')}}" alt="" height="18"></a>
@@ -143,6 +149,9 @@
 
                 <ul class="navbar-nav ">
                     <li class="nav-item">
+                        <a class="nav-link titulos-header text-light" href="{{ url('tienda') }}">Tienda</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link titulos-header text-light" href="{{route('search',['tipo'=>'category','id'=> 1])}}">BICICLETAS <span
                                 class="sr-only">(current)</span></a>
                     </li>
@@ -154,9 +163,6 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link titulos-header text-light" href="{{route('search',['tipo'=>'category','id'=> 4])}}">CUBIERTAS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link titulos-header text-light" href="{{ url('tienda') }}">SALE !</a>
                     </li>
                 </ul>
             </div><!-- Menu colapsable -->
@@ -188,6 +194,9 @@
                 <ul class="dropdown-menu nav-menu-nosostros text-center text-uppercase font-weight-bold">
                     <li><a href="{{ url('usuario')}}">Perfil</a></li>
                     <li> <a href="{{ url('cart')}}">Compras</a></li>
+                    @if (auth()->user()->id_rol == 1)
+                    <li> <a href="{{ route('dashboard') }}">Panel de Control</a></li>
+                    @endif
 
                     <li>
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();

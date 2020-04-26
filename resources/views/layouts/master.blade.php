@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css"
         integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
     <link rel="stylesheet" href="{{asset('css/fonts.css')}}">
     <link rel="stylesheet" href="{{asset('css/stylehome.css')}}">
 
@@ -33,11 +34,29 @@
 
     {{-- Script js jquery --}}
     <script src="{{ asset("js/app.js") }}"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
     <script>
         // Jquery cart
         var subtotal = 0;
         $(document).ready(function(){
+
+            toastr.options = {
+				'closeButton': true,
+				'debug': false,
+				'newestOnTop': false,
+				'progressBar': false,
+				'positionClass': 'toast-top-right',
+				'preventDuplicates': false,
+				'showDuration': '1000',
+				'hideDuration': '1000',
+				'timeOut': '5000',
+				'extendedTimeOut': '1000',
+				'showEasing': 'swing',
+				'hideEasing': 'linear',
+				'showMethod': 'fadeIn',
+				'hideMethod': 'fadeOut',
+			}
 
             var prices = $('.price');
             $.each(prices, function(index,price){
@@ -82,19 +101,6 @@
 
         });
 
-        // Seleccionar Color
-
-        $('.iconCheck').on('click',function(){
-            var idColorProduct = $(this).attr('id').replace('check-','');
-            var iconsColor = $(this).parent().children().children();
-            $.each(iconsColor, function(index, span){
-                if ($(span).hasClass("check")){
-                    $(span).removeClass("check-ok");
-                }
-            });
-            $('#'+idColorProduct).addClass('check-ok');
-        });
-
         // Sumar y restar items
         $('.btn-sumar').on('click',function(e){
             var id = $(this).attr('id');
@@ -129,46 +135,71 @@
 <script>
         // Shop
 
+        
+        // Seleccionar Color en el shop
+
+        $('.li-color').on('click',function(){
+            var idColorProduct = $(this).attr('id').replace('li-','');
+            var liColor = $(this).parent().children();
+            var bgColor = $(this).children().children().css('background-color');
+
+            $.each(liColor, function(index, li){
+                $(li).removeClass('selected');
+            });
+            $('#li-'+idColorProduct).addClass('selected');
+            $('#li-'+idColorProduct).children().css('border-color',bgColor);
+            console.log(bgColor);
+        });
+
+        // agregar al carrito
+
         $('.add-cart').on('click', function(e) {
             e.preventDefault();
             var id_orig = $(this).attr('id');
             var id = $(this).attr('id').replace('cart-', '');
             var action = '{{ route("cart.store") }}';
             var _token = $('meta[name="_token"]').attr('content');
-            $.ajax({
-                type: "POST",
-                url: action,
-                data: {id:id},
-                headers: {
-                    'X-CSRF-TOKEN' : $('meta[name="_token"]').attr('content') 
-                },
-                success: function(msg){
-                    console.log(msg.status); 
-                    if(msg.status == 'ok'){
-                        $(msg.id).addClass('exists');
-                        $(msg.id).removeClass('color-gris');
-                        $(msg.id).addClass('text-success');
-                        /*$(msg.id).attr('data-original-title', msg.text).tooltip('show');*/
-                        $('#cant-cart').text(msg.cantidad); 
+            var liProducts = $('.li-color[data-product='+id+']'); // obtengo los colores del articulo para verificar si hay uno seleccionado
+            if(liProducts.hasClass('selected')){
+                $.ajax({
+                    type: "POST",
+                    url: action,
+                    data: {id:id},
+                    headers: {
+                        'X-CSRF-TOKEN' : $('meta[name="_token"]').attr('content') 
+                    },
+                    success: function(msg){
+                        console.log(msg.status); 
+                        if(msg.status == 'ok'){
+                            $(msg.id).addClass('exists');
+                            $(msg.id).removeClass('color-gris');
+                            $(msg.id).addClass('text-success');
+                            /*$(msg.id).attr('data-original-title', msg.text).tooltip('show');*/
+                            $('#cant-cart').text(msg.cantidad); 
+                        }
+                        if(msg.status == 'deleted'){
+                            $(msg.id).removeClass('text-success');
+                            $(msg.id).removeClass('exists');
+                            $(msg.id).addClass('color-gris');
+                        /* $(msg.id).attr('data-original-title', msg.text).tooltip('show');*/
+                        if(msg.cantidad == 0){
+                            msg.cantidad=null;
+                        }
+                            $('#cant-cart').text(msg.cantidad);
+                        }
+                    },
+                    error: function(msg){
+                        console.log(msg);
+                    /*  $(msg.id).attr('data-original-title', 'Error').tooltip('show'); */
                     }
-                    if(msg.status == 'deleted'){
-                        $(msg.id).removeClass('text-success');
-                        $(msg.id).removeClass('exists');
-                        $(msg.id).addClass('color-gris');
-                       /* $(msg.id).attr('data-original-title', msg.text).tooltip('show');*/
-                       if(msg.cantidad == 0){
-                        msg.cantidad=null;
-                       }
-                        $('#cant-cart').text(msg.cantidad);
-                    }
-                },
-                error: function(msg){
-                    console.log(msg);
-                   /*  $(msg.id).attr('data-original-title', 'Error').tooltip('show'); */
-                }
-            });
+                });
+            }else{
+                toastr["warning"]("Selecciona un color")
+            }
+
         });
-    </script>
+
+</script>
 
     
 </body>

@@ -1,4 +1,4 @@
-<div class="col-12 col-lg-2  m-2 text-left pl-0 min-vh-100">
+<div class="col-12 col-lg-2  m-2 text-left pl-0 ">
 
     <h3 class="mt-2 titulos-medio d-none d-lg-block">Categorias</h3>
     <style>
@@ -116,34 +116,46 @@
             min-height: 1.5rem;
             padding-left: 1.5rem
         }
+
     </style>
 
     <div class="card">
+        
+        <article class="filter-group">
+            <header class="card-header"> 
+                <a href="{{route('shop')}}">
+                    <h6 class="title">Todos </h6>
+                </a> 
+            </header>
+        </article> 
+
         <article class="filter-group">
             <header class="card-header"> <a href="#" data-toggle="collapse" data-target="#collapse_aside1"
                     data-abc="true" aria-expanded="false" class="collapsed"> <i
                         class="icon-control fa fa-chevron-down"></i>
                     <h6 class="title">Categorias </h6>
                 </a> </header>
-            <div class="filter-content collapse @if(isset($nav) && $nav == 'category') {{'show'}} @endif" id="collapse_aside1" style="">
+            <div class="filter-content collapse @if(isset($nav) && $nav == 'category') {{'show'}} @endif"
+                id="collapse_aside1" style="">
                 <div class="card-body pt-0">
                     <ul class="list-menu">
                         <a href="{{route('shop')}}">
                             <p class="font-weight-bold">Todos</p>
                         </a>
                         @foreach($categories as $category)
-                            <a href="{{route('search',['tipo'=>'category','id'=> $category->id_category])}}">
-                                <h5 class="font-weight-bold">{{$category->name_category}}</h5>
+                        <a href="{{route('search',['tipo'=>'category','id'=> $category->id_category])}}">
+                            <h5 class="font-weight-bold">{{$category->name_category}}</h5>
+                        </a>
+                        @if($category->id_children_category)
+                        @foreach($category->id_children_category as $child)
+                        <li>
+                            <a href="{{route('search',['tipo'=>'category','id'=> $child->id_category])}}"
+                                data-abc="true">
+                                {{$child->name_category}}
                             </a>
-                            @if($category->id_children_category)
-                                @foreach($category->id_children_category as $child)
-                                <li>
-                                    <a href="{{route('search',['tipo'=>'category','id'=> $child->id_category])}}" data-abc="true">
-                                        {{$child->name_category}} 
-                                    </a>
-                                </li>
-                                @endforeach
-                            @endif
+                        </li>
+                        @endforeach
+                        @endif
                         @endforeach
                     </ul>
                 </div>
@@ -156,18 +168,19 @@
                         class="icon-control fa fa-chevron-down"></i>
                     <h6 class="title">Marca </h6>
                 </a> </header>
-            <div class="filter-content collapse @if(isset($nav) && $nav == 'brand') {{'show'}} @endif" id="collapse_aside2" style="">
+            <div class="filter-content collapse @if(isset($nav) && $nav == 'brand') {{'show'}} @endif"
+                id="collapse_aside2" style="">
                 <div class="card-body pt-0">
                     <a href="{{route('shop')}}">
                         <p class="font-weight-bold">Todos</p>
                     </a>
                     <ul class="list-menu">
                         @foreach ($brands as $brand)
-                            <li>
-                                <a href="{{route('search',['tipo'=>'brand','id'=>$brand['id_brand']])}}" data-abc="true">
-                                    {{ $brand['description']}}
-                                </a>
-                            </li>
+                        <li>
+                            <a href="{{route('search',['tipo'=>'brand','id'=>$brand['id_brand']])}}" data-abc="true">
+                                {{ $brand['description']}}
+                            </a>
+                        </li>
                         @endforeach
                     </ul>
                 </div>
@@ -185,8 +198,8 @@
                     <div class="form-row">
                         <div class="form-group col-md-6"> <label>Min</label> <input class="form-control"
                                 placeholder="$0" type="number"> </div>
-                        <div class="form-group text-right col-md-6"> <label>Max</label> <input
-                                class="form-control" placeholder="$1,0000" type="number"> </div>
+                        <div class="form-group text-right col-md-6"> <label>Max</label> <input class="form-control"
+                                placeholder="$1,0000" type="number"> </div>
                     </div> <a href="#" class="highlight-button btn btn-medium button xs-margin-bottom-five"
                         data-abc="true">Apply Now</a>
                 </div>
