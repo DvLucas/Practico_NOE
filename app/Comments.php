@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comments extends Model
 {
-    public $primaryKey = "id_comment";
+    public $primaryKey = "id";
     public $guarded = [];
 
     protected $fillable = ['body', 'id_user', 'id_product'];

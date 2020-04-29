@@ -7,6 +7,7 @@ use App\Products;
 use Illuminate\Http\Request;
 
 use App\Http\Requests\StoreCommentsRequest;
+use App\Http\Requests\UpdateCommentsRequest;
 
 class CommentsControllers extends Controller
 {
@@ -38,12 +39,13 @@ class CommentsControllers extends Controller
      */
     public function store(StoreCommentsRequest $request)
     {
+
         $product = Products::findOrFail($request->id_product);
         
         Comments::create([
                 'body' => $request->body,
-                'user_id' => $request->id_user,
-                'product_id' => $request->id_product
+                'id_user' => $request->id_user,
+                'id_product' => $request->id_product
         ]);
 
         return back();
@@ -74,13 +76,18 @@ class CommentsControllers extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\UpdateCommentsRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateCommentsRequest $request, $id)
     {
-        //
+        $comment = Comments::find($id);
+        
+        $comment->body = $request->body;
+        $comment->save();
+
+        return back();
     }
 
     /**
@@ -91,6 +98,8 @@ class CommentsControllers extends Controller
      */
     public function destroy($id)
     {
-        //
+        Comments::where('id', $id)->delete();
+
+        return back();
     }
 }

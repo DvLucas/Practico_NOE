@@ -1,11 +1,10 @@
 <?php
- 
+
 namespace App\Http\Requests;
 
-
 use Illuminate\Foundation\Http\FormRequest;
- 
-class CommentRequest extends FormRequest
+
+class UpdateCommentsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,9 +13,9 @@ class CommentRequest extends FormRequest
      */
     public function authorize()
     {
-        return \Auth::check();
+        return true;
     }
- 
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -25,8 +24,7 @@ class CommentRequest extends FormRequest
     public function rules()
     {
         return [
-            'body' => 'required|max:1000',
-            'id_product' => 'required'
+            'body' => 'required|max:1000'
         ];
     }
 }

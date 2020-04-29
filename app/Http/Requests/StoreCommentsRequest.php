@@ -25,7 +25,7 @@ class StoreCommentsRequest extends FormRequest
     {
         return [
             'body' => 'required|max:1000',
-            'product_id' => 'required'
+            'id_product' => 'required'
         ];
     }
 }

@@ -171,6 +171,20 @@
     </script>
 
     
+    <!---JavaScript Toggle--->
+    <script type="text/javascript">
+    function ShowHide(EditComment) {
+        var EditedComment = document.getElementById("EditedComment");
+        if (EditComment.value == "Editar") {
+            EditedComment.style.display = "block";
+            EditComment.value = "Editando";
+        } else {
+            EditedComment.style.display = "none";
+            EditComment.value = "Editar";
+        }
+    }
+    </script>
+    
 </body>
 
 </html>

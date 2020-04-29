@@ -41,7 +41,7 @@ Route::get('/cart', 'CartController@index')->name('cart');
 Route::get('cart.destroy/{id}', 'CartController@destroy')->name('cart.destroy');
 Route::get('cart.show', 'CartController@show')->name('cart.show');
 
-Route::get('/tienda/item/{product_id}', 'ProductsController@show')->name('item');
+Route::get('/tienda/item/{id_product}', 'ProductsController@show')->name('item');
 Route::resource('comments','CommentsControllers');
 
 Route::get('/faq', function () {
