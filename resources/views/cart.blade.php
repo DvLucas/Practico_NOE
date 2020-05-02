@@ -125,11 +125,14 @@ Carrito de compras
                                             </span>
                                         </span>
                                     </button>
+                                    
+                                    <a href="{{ route('shop') }}">
                                     <button class="btn-block btn-yellow">
                                         <span>
-                                            <a href="{{ route('shop') }}">Seguir comprando</a>
+                                            Seguir comprando
                                         </span>
                                     </button>
+                                    </a>
                                 </div>
                             </div>
                         </div>

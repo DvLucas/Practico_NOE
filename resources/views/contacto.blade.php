@@ -25,12 +25,14 @@
                     <div class="col-12 col-md-4 col-lg-4 col-xl-4">
 
                         <div class="elServicio">
+                        <a href="tel:0351-157870362">
                             <img src="img/imagenes/iconos/telefono.svg" alt="">
-                            <p class="texto-parrafo"><a href="tel:0351-157870362">0351-157870362</a></p>
-
+                            <p class="texto-parrafo">0351-157870362</p>
+                        </a>
+                        <a href="https://www.google.com/maps?ll=-31.409205,-64.189415&z=16&t=m&hl=es-419&gl=AR&mapclient=embed&q=La+Rioja+532+X5022+FRL+C%C3%B3rdoba">
                             <img src="img/imagenes/iconos/utilidades redes/locate.ico" alt="">
-                            <p class="texto-parrafo"><a href="https://www.google.com/maps?ll=-31.409205,-64.189415&z=16&t=m&hl=es-419&gl=AR&mapclient=embed&q=La+Rioja+532+X5022+FRL+C%C3%B3rdoba">La Rioja 532 Cordoba</a></p>
-
+                            <p class="texto-parrafo">La Rioja 532 Cordoba</p>
+                        </a>
 
                         </div>
 
@@ -40,13 +42,14 @@
                     <div class="col-12 col-md-4 col-lg-4 col-xl-4">
 
                         <div class="elServicio">
-
+                        <a href="mailto:elcorreoquequieres@correo.com">
                             <img src="img/imagenes/iconos/mail.svg" alt="">
-                            <p class="texto-parrafo"> <a href="mailto:elcorreoquequieres@correo.com">info@bicisnoe.com.ar</a></p>
-
+                            <p class="texto-parrafo"> info@bicisnoe.com.ar</p>
+                        </a>
+                        <a href="https://www.instagram.com/">
                             <img src="img/imagenes/iconos/utilidades redes/instagram.svg" alt="">
-                            <p class="texto-parrafo"> <a href="https://www.instagram.com/">/noebikes</a> </p>
-
+                            <p class="texto-parrafo"> <a href="https://www.instagram.com/">/noebikes </p>
+                        </a>
 
 
 
@@ -58,13 +61,14 @@
                     <div class="col-12 col-md-4 col-lg-4 col-xl-4">
 
                         <div class="elServicio">
-
+                        <a href="https://www.facebook.com">
                             <img src="img/imagenes/iconos/utilidades redes/facebook.ico" alt="">
-                            <p class="texto-parrafo">  <a href="https://www.facebook.com">/noebikes</a> </p>
-
+                            <p class="texto-parrafo"> /noebikes</p> 
+                        </a> 
+                        <a href="https://twitter.com/">
                             <img src="img/imagenes/iconos/utilidades redes/twitter.ico" alt="">
-                            <p class="texto-parrafo"> <a href="https://twitter.com/">@noebikes</a> </p>
-
+                            <p class="texto-parrafo"> @noebikes </p>
+                        </a>
                         </div>
 
                     </div> <!--fin class col-->

@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="_token" content="{{ csrf_token() }}">
 
-    <link rel="stylesheet" href="{{ asset("css/app.css") }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Bitter|Montserrat&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css"
@@ -201,6 +201,20 @@
 
 </script>
 
+    
+    <!---JavaScript Toggle--->
+    <script type="text/javascript">
+    function ShowHide(EditComment) {
+        var EditedComment = document.getElementById("EditedComment");
+        if (EditComment.value == "Editar") {
+            EditedComment.style.display = "block";
+            EditComment.value = "Editando";
+        } else {
+            EditedComment.style.display = "none";
+            EditComment.value = "Editar";
+        }
+    }
+    </script>
     
 </body>
 

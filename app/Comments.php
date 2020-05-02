@@ -8,18 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comments extends Model
 {
-    public $primaryKey = "id_comment";
+    public $primaryKey = "id";
     public $guarded = [];
 
-    protected $fillable = ['body', 'user_id', 'product_id'];
+    protected $fillable = ['body', 'id_user', 'id_product'];
  
     public function post()
     {
-      return $this->belongsTo(Products::Class, 'product_id');
+      return $this->belongsTo(Products::Class, 'id_product');
     }
    
     public function user()
     {
-      return $this->belongsTo(User::Class, 'user_id');
+      return $this->belongsTo(User::Class, 'id_user');
     }
 }

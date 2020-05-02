@@ -18,16 +18,16 @@
             <h5 class="text-white mb-3 titulos-categorias-tienda">Productos</h5>
             <ul class="p-0 subtitulos">
                 <li>
-                    <a href="{{ url('tienda') }}">Accesorios</a>
+                    <a href="{{route('search',['tipo'=>'category','id'=> 1])}}">Bicicletas</a>
                 </li>
                 <li>
-                    <a href="{{ url('tienda') }}">Bicicletas</a>
+                    <a href="{{route('search',['tipo'=>'category','id'=> 2])}}">Accesorios</a>
                 </li>
                 <li>
-                    <a href="{{ url('tienda') }}">Cubiertas</a>
+                    <a href="{{route('search',['tipo'=>'category','id'=> 3])}}">Cubiertas</a>
                 </li>
                 <li>
-                    <a href="{{ url('tienda') }}">Repuestos</a>
+                    <a href="{{route('search',['tipo'=>'category','id'=> 4])}}">Repuestos</a>
                 </li>
             </ul>
         </div> <!-- Productos -->

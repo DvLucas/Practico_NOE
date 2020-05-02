@@ -83,11 +83,11 @@
                                     <label class="ml-1">Cantidad</label>
                                     <div class="input-group mb-3 ml-1 input-spinner">
                                         <div class="input-group-prepend">
-                                            <button class="btn btn-dark" type="button" id="button-plus"> + </button>
+                                            <button class="btn btn-dark btn-sumar" type="button" id="{{$product->id_product}}"> + </button>
                                         </div>
-                                        <input type="text" class="form-control col-md-3" value="1">
+                                        <p class="pt-2 mb-0 col-3 cantItem" id="cant-{{$product->id_product}}">1</p>
                                         <div class="input-group-append">
-                                            <button class="btn btn-dark" type="button" id="button-minus"> − </button>
+                                            <button class="btn btn-dark btn-restar" type="button" id="{{$product->id_product}}"> − </button>
                                         </div>
                                     </div>
                                     <!-- botones de compra y agregar al carrito -->
@@ -113,17 +113,51 @@
                 <form action="{{route('comments.store')}}" method="post">
                     @csrf
                     <textarea class="col-md-12" name="body" id="" >{{old('body')}}</textarea>
-                    <input hidden type="text" name="product_id" value="{{$product->id_product}}">
-                    <input hidden type="text" name="user_id" value="{{Auth::user()->id}}">
-                    <button class="btn bg-yellow botones-texto" type="submit">enviar</button>
+                    <input hidden type="text" name="id_product" value="{{$product->id_product}}">
+                    <input hidden type="text" name="id_user" value="{{Auth::user()->id}}">
+                    <button class="btn bg-yellow botones-texto" type="submit">Enviar</button>
+
                 </form>
                 @endif
                 <hr>
                 @forelse ($product->comments as $comment)
-                    <p class="titulos-header text-noe-yellow"> {{ $comment->user->name }}</p>
-                    <p class="texto-parrafo">{{$comment->created_at}}</p>
-                    <p class="col-12 texto-parrafo">{{ $comment->body }}</p>
-                    <hr>
+                    @if (Auth::check() and ($comment->id_user == Auth::user()->id))
+                        <div>
+                            <p class="titulos-header text-noe-yellow"> {{ $comment->user->name }}</p>
+                            <p class="texto-parrafo">{{$comment->created_at}}</p>
+                            <p class="col-12 texto-parrafo">{{ $comment->body }}</p>
+
+                            <div class="d-flex justify-content-end">
+                                
+                                <form action="{{ route('comments.destroy', $comment->id) }}" method="POST">
+                                    @csrf
+                                    {{ method_field('DELETE') }}
+
+                                    <input hidden type="text" name="id_comment" value="{{$comment->id}}">
+                                    <button class="btn btn-outline-danger btn-sm" type="submit">Delete</button>
+                                </form>
+
+                                <button id="EditComment" class="btn btn-outline-dark btn-sm" value="Editar" onclick="ShowHide(this)">Editar</button>
+                            </div>
+                            <div class="col-12 mt-2" id="EditedComment" style="display: none">
+                                <form action="{{ route('comments.update', $comment->id)}}" method="POST">
+                                    @csrf
+                                    {{ method_field('PUT') }}
+                                    <textarea class="col-md-12" name="body">{{$comment->body}}</textarea>
+                                    <input hidden type="text" name="id_comment" value="{{$comment->id}}">
+                                    <button class="btn btn-outline-dark primary btn-sm" type="submit">Editar</button>
+                                </form>
+                            </div>
+                            <hr>
+                        </div>
+                    @else
+                    <div>
+                        <p class="titulos-header text-noe-yellow"> {{ $comment->user->name }}</p>
+                        <p class="texto-parrafo">{{$comment->created_at}}</p>
+                        <p class="col-12 texto-parrafo">{{ $comment->body }}</p>
+                        <hr>
+                    </div>
+                    @endif
                 @empty
                     <p class="col-12 texto-parrafo">This post has no comments</p>
                 @endforelse
@@ -168,6 +202,7 @@
                 </div> <!-- fin row productos relacionados -->
             </div> <!-- fin row -->
         </div>
+
 
 </main>
 @endsection
