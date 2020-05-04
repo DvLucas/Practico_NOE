@@ -9,8 +9,16 @@
                     <li title="Favoritos">
                         <i class="color-gris fa fa-heart"></i>
                     </li>
-                    <li title="Agregar a carrito">
-                        <i id="cart-{{$item->id_product}}" class="add-cart @if(!empty(session('carrito')) && in_array($item->id_product, session('carrito'))) {{ 'exists text-success' }} @endif fas fa-shopping-cart color-gris"></i>
+                    <li class="cart" title="Agregar a carrito">
+
+                        <i id="cart-{{$item->id_product}}" 
+                            class="add-cart 
+                            @if( !empty(session('carrito')) && in_array($item->id_product, session('carrito')) ) 
+                                {{ 'exists text-success' }} 
+                            @endif 
+                            fas fa-shopping-cart color-gris">
+                        </i>
+
                     </li>
                 </ul>
             </div>

@@ -39,6 +39,7 @@
     <script>
         // Jquery cart
         var subtotal = 0;
+        
         $(document).ready(function(){
 
             toastr.options = {
@@ -65,10 +66,10 @@
             $('.subtotal').text('$'+subtotal);
             $('.total').text('$'+(subtotal+500));
             $('#check-amt').text('$'+(subtotal+500));
-
             $('.delete-cart').on('click',function(e){
                 e.preventDefault();
                 var id = $(this).attr('id');
+                var id_color = $(this).data('color');
                 $('tr').remove('.item-'+id);
 
                 var action = '{{ route("cart.store") }}';
@@ -76,7 +77,7 @@
                 $.ajax({
                     type: "POST",
                     url: action,
-                    data: {id:id},
+                    data: {id:id,idColor:id_color},
                     headers: {
                         'X-CSRF-TOKEN' : $('meta[name="_token"]').attr('content') 
                     },
@@ -134,8 +135,7 @@
 
 <script>
         // Shop
-
-        
+        var id_color;
         // Seleccionar Color en el shop
 
         $('.li-color').on('click',function(){
@@ -146,9 +146,10 @@
             $.each(liColor, function(index, li){
                 $(li).removeClass('selected');
             });
+
             $('#li-'+idColorProduct).addClass('selected');
+            id_color = idColorProduct;
             $('#li-'+idColorProduct).children().css('border-color',bgColor);
-            console.log(bgColor);
         });
 
         // agregar al carrito
@@ -164,7 +165,7 @@
                 $.ajax({
                     type: "POST",
                     url: action,
-                    data: {id:id},
+                    data: {id:id,idColor:id_color},
                     headers: {
                         'X-CSRF-TOKEN' : $('meta[name="_token"]').attr('content') 
                     },
@@ -174,36 +175,32 @@
                             $(msg.id).addClass('exists');
                             $(msg.id).removeClass('color-gris');
                             $(msg.id).addClass('text-success');
-                            /*$(msg.id).attr('data-original-title', msg.text).tooltip('show');*/
                             $('#cant-cart').text(msg.cantidad); 
                         }
                         if(msg.status == 'deleted'){
                             $(msg.id).removeClass('text-success');
                             $(msg.id).removeClass('exists');
                             $(msg.id).addClass('color-gris');
-                        /* $(msg.id).attr('data-original-title', msg.text).tooltip('show');*/
-                        if(msg.cantidad == 0){
+                            if(msg.cantidad == 0){
                             msg.cantidad=null;
-                        }
+                            }
+                            console.log(msg.cantidad);
                             $('#cant-cart').text(msg.cantidad);
                         }
                     },
                     error: function(msg){
                         console.log(msg);
-                    /*  $(msg.id).attr('data-original-title', 'Error').tooltip('show'); */
                     }
                 });
             }else{
-                toastr["warning"]("Selecciona un color")
+                toastr["warning"]("Selecciona un color");
             }
 
         });
 
 </script>
-
-    
     <!---JavaScript Toggle--->
-    <script type="text/javascript">
+<script type="text/javascript">
     function ShowHide(EditComment) {
         var EditedComment = document.getElementById("EditedComment");
         if (EditComment.value == "Editar") {
@@ -214,7 +211,7 @@
             EditComment.value = "Editar";
         }
     }
-    </script>
+</script>
     
 </body>
 

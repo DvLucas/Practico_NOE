@@ -17,90 +17,78 @@ Carrito de compras
         <div class="tab-pane fade show active" id="nav-carrito" role="tabpanel" aria-labelledby="nav-home-tab">
             <div class="container px-3 py-2 mx-auto cart-items">
 
-                @if (isset($products))
-
+                @if (isset($productColors))
                 <div class="row">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col"></th>
-                                <th scope="col">Descripcion</th>
-                                <th scope="col" class="text-center">Color</th>
-                                <th scope="col" class="text-center">Cantidad</th>
-                                <th scope="col">Precio</th>
-                                <th scope="col"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($products as $item)
+                    <div class="col-12 col-lg-8">
+                        <table class="">
+                            <thead>
+                                <tr>
+                                    {{-- <th scope="col"></th>
+                                    <th scope="col"></th>
+                                    <th scope="col" ></th>
+                                    <th scope="col" ></th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th> --}}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($productColors as $key)
+                                @foreach ($key->color_product as $item)
+                                <tr class="item-{{$item->id_product}} row align-items-center border my-2 bg-white shadow">
 
-                            <tr class="item-{{$item->id_product}}">
-                                <th scope="row">
-                                    @foreach ($item->gallery as $image )
-                                    @if($image['store'] == 1)
-                                    <img src="{{asset($image['url'])}}" style="width:100px"
-                                        class="m-2 producto-img img-thumbnail" alt="...">
-                                    @endif
-                                    @endforeach
-                                </th>
+                                    <th class="col-6 col-md-3">
+                                        @foreach ($item->gallery as $image )
+                                        @if($image['store'] == 1)
+                                        <img src="{{asset($image['url'])}}" style="width:100px"
+                                            class="m-2 producto-img img-thumbnail" alt="...">
+                                        @endif
+                                        @endforeach
+                                    </th>
 
-                                <th class="align-middle">
-                                    {{$item->name}}
-                                </th>
+                                    <th class="col-6 col-md-2 order-md-last text-right">
+                                        <a class="btn btn-danger mt-2 delete-cart" href="#" id="{{$item->id_product}}"
+                                            data-color="{{$key->id_color_product}}">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </th>
+                                    <style>
+                                        @media (max-width: 600px) {
+                                            .card-cant ,.card-price{
+                                                -webkit-box-shadow: -1px -18px 22px -2px rgba(0,0,0,0.1);
+-moz-box-shadow: -1px -18px 22px -2px rgba(0,0,0,0.1);
+box-shadow: -1px -18px 22px -2px rgba(0,0,0,0.1);
+                                            }
+                                        } 
+                                    </style>
+                                    <th class="col-12 col-md-3 description">
+                                        Descripcion : <a href="{{route('item',$item)}}">{{$item->name}}</a><br>
+                                        Color: {{$key->color->name}}
+                                    </th>
 
-                                <th class="justify-content-center align-items-center text-center align-middle">
-                                    @foreach ($item->color_product as $colorP)
-                                    @foreach ($colors as $color)
-                                    @if ($colorP->id_color == $color->id_color)
-
-                                    <span id="check-{{$colorP->id_color_product}}" class="iconCheck span-color mx-1"
-                                        style="background:{{$color->image}};position:relative"
-                                        data-product=" {{$item->id_product}} ">
-                                        <span id="{{$colorP->id_color_product}}" class="check text-success"
-                                            style="display: none">
-                                            <i class="fas fa-check-square"></i>
-                                        </span>
-                                    </span>
-
-                                    @endif
-                                    @endforeach
-                                    @endforeach
-                                </th>
-
-                                <th class="align-middle">
-                                    <div class="row d-flex justify-content-center align-items-center  px-3">
+                                    <th class="col-6 col-md-2 d-flex pt-2 justify-content-center card-cant">
+                                        <button class="btn btn-dark btn-sumar p-0 mb-1 align-items-center"
+                                            id="{{$item->id_product}}" style="height:25px;width:25px">+</button>
                                         <p class="mb-0 col-3 cantItem" id="cant-{{$item->id_product}}">1</p>
-                                        <div class="col-3 d-flex flex-column">
-                                            <button class="btn btn-success btn-sumar p-0 mb-1 align-items-center"
-                                                id="{{$item->id_product}}" style="height:25px;width:25px">+</button>
-                                            <button class="btn btn-danger btn-restar p-0 align-items-center"
-                                                id="{{$item->id_product}}" style="height:25px;width:25px">-</button>
-                                        </div>
-                                    </div>
-                                </th>
+                                        <button class="btn btn-dark btn-restar p-0 align-items-center"
+                                            id="{{$item->id_product}}" style="height:25px;width:25px">-</button>
+                                    </th>
 
-                                <th class="align-middle">
-                                    <h6 class="mob-text price" id="price-{{$item->id_product}}"> ${{$item->price}}
-                                    </h6>
-                                </th>
+                                    <th class="col-6 col-md-2 pt-2 m-0 text-center card-price align-self-stretch ">
+                                        <h6 class="mob-text price " id="price-{{$item->id_product}}"> ${{$item->price}}
+                                        </h6>
+                                    </th>
 
-                                <th class="align-middle">
-                                    <a class="btn btn-danger mt-2 delete-cart" href="#" id="{{$item->id_product}}">
-                                        <i class="fas fa-trash"></i>
-                                    </a>
-                                </th>
+                                </tr>
+                                @endforeach
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
 
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="row ">
-                    <div class="col-lg-12">
+                    <div class="col-12 col-lg-4 align-items-end">
                         <div class="card">
-                            <div class="row d-flex justify-content-end">
-                                <div class="col-lg-4 mt-2 ">
+                            <div class="row d-flex justify-content-center">
+                                <div class="col mt-2 ">
                                     <div class="row d-flex justify-content-between px-4">
                                         <p class="mb-1 text-left">Subtotal</p>
                                         <h6 class="mb-1 text-right subtotal">
@@ -125,20 +113,20 @@ Carrito de compras
                                             </span>
                                         </span>
                                     </button>
-                                    
+
                                     <a href="{{ route('shop') }}">
-                                    <button class="btn-block btn-yellow">
-                                        <span>
-                                            Seguir comprando
-                                        </span>
-                                    </button>
+                                        <button class="btn-block btn-yellow">
+                                            <span>
+                                                Seguir comprando
+                                            </span>
+                                        </button>
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
+                </div>
 
                 @else
                 <div class="row justify-content-center">

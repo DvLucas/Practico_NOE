@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Color;
 use App\Products;
+use App\Colors_products;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -15,13 +16,15 @@ class CartController extends Controller
      */
     public function index()
     {
-        if( !empty(session('carrito')) ){
+        if( !empty(session('colores')) ){
             $products = [];
-            foreach (session('carrito') as $key => $value) {
-                $products[]= Products::find($value);
+            $productColors= [];
+            foreach (session('colores') as $key => $value) {
+                $productColors[]= Colors_products::find($value);
             }
+        /*     dd($productColors); */
             $colors = Color::get();
-            return view('cart',compact('products','colors'));   
+            return view('cart',compact('colors','productColors'));   
         }
         return view('cart');
     }
@@ -58,6 +61,47 @@ class CartController extends Controller
     public function store(Request $request)
     {
         $carrito = $request->session()->get('carrito');
+        $color = $request->session()->get('colores');
+
+        if($color == null)
+        {
+            $request->session()->push('colores',$request->idColor);
+        }
+        else  
+        {
+            if( !in_array($request->idColor, $color) )
+            {
+                $request->session()->push('colores', $request->idColor);
+                if (in_array($request->id, $carrito)){
+                    $all_cart = count($request->session()->get('colores'));
+                    return response()->json(['status' => 'ok','cantidad' => $all_cart]);
+                }
+            }
+            else {
+                if(!empty($color))
+                {
+                    foreach($color as $key => $c)
+                    {
+                        if($c == $request->idColor)
+                        {
+                            unset($color[$key]);
+                        }
+                    }
+                }
+    
+                $request->session()->forget('colores');
+    
+                if(!empty($color))
+                {
+                    foreach($color as $key => $c)
+                    {
+                        $request->session()->push('colores', $c);
+                    }
+                }
+            }
+        }
+
+
         if($carrito == null)
         {
             $request->session()->push('carrito',$request->id);
