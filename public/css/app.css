@@ -2412,7 +2412,7 @@ textarea.form-control.is-valid {
 }
 
 .was-validated .custom-select:valid:focus,
-.custom-select.is-valid:focus {
+.custom-select.is-valid:focus, input.valid {
   border-color: #38c172;
   box-shadow: 0 0 0 0.2rem rgba(56, 193, 114, 0.25);
 }
@@ -2470,6 +2470,15 @@ textarea.form-control.is-valid {
   display: none;
   width: 100%;
   margin-top: 0.25rem;
+  margin-bottom: -1.25rem;
+  font-size: 80%;
+  color: #e3342f;
+}
+
+.invalid-field {
+  width: 100%;
+  margin-top: 0.25rem;
+  margin-bottom: -1.20rem;
   font-size: 80%;
   color: #e3342f;
 }
@@ -2507,7 +2516,7 @@ textarea.form-control.is-valid {
 }
 
 .was-validated .form-control:invalid:focus,
-.form-control.is-invalid:focus {
+.form-control.is-invalid:focus, input.invalid {
   border-color: #e3342f;
   box-shadow: 0 0 0 0.2rem rgba(227, 52, 47, 0.25);
 }
