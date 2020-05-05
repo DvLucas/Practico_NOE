@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Products;
+use App\Color;
 use App\Brands;
-use App\Categories;
 use App\Gallery;
+use App\Products;
+use App\Categories;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -49,8 +50,9 @@ class ProductsController extends Controller
     {
         $product = Products::find($product_id);
         $related = Products::where('id_category','=', $product['id_category'])->paginate(4);
+        $colors = Color::get();
 
-        return view('item' , compact('product', 'related'));
+        return view('item' , compact('product', 'related','colors'));
     }
 
     /**

@@ -72,7 +72,28 @@
                                 <dt class="col-sm-3 botones-texto">Stock</dt>
                                 <dd class="col-sm-9 botones-texto">{{$product['stock']}}</dd>
                                 <dt class="col-sm-3 botones-texto">Color</dt>
-                                <dd class="col-sm-9 botones-texto"></dd>
+                                <dd class="col-sm-9 botones-texto">
+                                    <div class="row btn-group btn-group-toggle justify-content-center mt-2" data-toggle="buttons">
+                                        <ul class="list-group list-group-horizontal ul-color">
+                                            @foreach ($product->color_product as $colorP)
+                                                @foreach ($colors as $color)
+                                                    @if($colorP->id_color == $color->id_color)
+                                                    <li class="mx-1 li-color" id="li-{{$colorP->id_color_product}}" data-product="{{$product->id_product}}" >
+                                                        <span class="tooltipt">
+                                                            <label class="color-item" style="background-color:{{$color->image}};">
+                                                                {{$color->name}}
+                                                            </label>
+                                                            <span class="tooltiptextt">
+                                                                {{$color->name}}
+                                                            </span>
+                                                        </span>
+                                                    </li>
+                                                    @endif
+                                                @endforeach
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                </dd>
                             </dl>
                             <!-- linea separadora entre descripcion y detalles de compra -->
                             <hr>
