@@ -1,5 +1,5 @@
 
-<div class="col-6 mx-3 my-2 border rounded p-2" style="overflow-y:auto; width:100%; height:500px;">
+<div class="col-12 col-sm-6 mx-3 my-2 border rounded p-2" style="overflow-y:auto; width:100%; height:500px;">
     <div class="row" style=" height:500px;">
         <div class="col-12 align-self-start">
             <table class="table table-bordered table-striped" style=" ">

@@ -17,9 +17,9 @@
             <h4>Marcas</h4>
         </div>
 
+        @include('dashboard.brands.add')
         @include('dashboard.brands.list')
 
-        @include('dashboard.brands.add')
 
     </div>
 </div>

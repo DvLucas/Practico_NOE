@@ -19,6 +19,11 @@ Carrito de compras
 
                 @if (isset($productColors))
                 <div class="row">
+                    <div class="col-12 text-center my-3 p-1">
+                        @if (!auth()->user())
+                            <h3>Logeate o registrate para poder continuar con la compra</h3>
+                        @endif
+                    </div>
                     <div class="col-12 col-lg-8">
                         <table class="">
                             <thead>
@@ -105,7 +110,9 @@ box-shadow: -1px -18px 22px -2px rgba(0,0,0,0.1);
                                             <!-- Calculado por js -->
                                         </h6>
                                     </div>
-                                    <button class="btn-block btn-yellow">
+                                    <button class="btn-block btn-yellow" @if (!auth()->user())
+                                        disabled
+                                    @endif >
                                         <span>
                                             <span id="checkout">Comprar</span>
                                             <span id="check-amt">

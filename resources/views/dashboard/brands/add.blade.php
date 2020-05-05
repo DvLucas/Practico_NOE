@@ -1,5 +1,5 @@
 
-<div class="col-4 mx-3 my-2 p-0">
+<div class="col-10 col-sm-4 mx-3 my-2 p-0">
     <div class="border rounded p-2">
         <h4 class="text-center font-weight-bolder">Agregar Marca Nueva</h4>
         <form class="" action="{{route('brands.store')}}" method="post">

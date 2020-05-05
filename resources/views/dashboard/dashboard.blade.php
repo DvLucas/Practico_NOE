@@ -10,12 +10,11 @@
     <main class="container-fluid">
 
         <div class="row">
-
-            <div class="col-12 col-lg-2 text-left bg-dark pt-3 min-vh-100">
+            <div class="col-12 col-lg-2 text-left bg-dark pt-3 nav-dash">
                 @include('dashboard.includes.nav_dashboard')
             </div> <!-- Nav Panel de Control -->
             
-            <div class="col-10">
+            <div class="col-12 col-lg-10">
                 <div class="row justify-content-center">
                     @yield('product')
                 </div>

@@ -211,9 +211,9 @@
             EditComment.value = "Editar";
         }
     }
-    </script>
+</script>
 
-   
+   {{-- Validacion Registro --}}
 <script>
      //Register 
     window.addEventListener('load', function (){ 
