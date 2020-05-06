@@ -20,12 +20,12 @@
                         <div class="form-group col-11 col-lg-8">
                             <label for="email" class="col-form-label text-md-right">{{ __('E-Mail') }}</label>
 
-                            <div class="">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                            <div class="parent-input-email">
+                                <input id="email-login" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email" autofocus>
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                         {{ $message }}
                                     </span>
                                 @enderror
                             </div>
@@ -34,12 +34,12 @@
                         <div class="form-group col-11 col-lg-8 mb-0">
                             <label for="password" class=" col-form-label text-md-right">{{ __('Contraseña') }}</label>
 
-                            <div class="">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                            <div class="parent-input-password">
+                                <input id="password-login" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="current-password">
 
                                 @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                    <span class="invalid-feedback mb-1" role="alert">
+                                        {{ $message }}
                                     </span>
                                 @enderror
                             </div>
@@ -47,11 +47,11 @@
 
                         <div class="form-group col-11 col-lg-8 reset-pass d-flex justify-content-between subtitulos">
                             @if (Route::has('password.request'))
-                                    <a class="ForgetPwd" href="{{ route('password.request') }}">
+                                    <a class="ForgetPwd mt-1" href="{{ route('password.request') }}">
                                         {{ __('Olvidaste tu contraseña?') }}
                                     </a>
                             @endif
-                            <a href="{{route('register')}}" class="ForgetPwd">Registrarse</a>
+                            <a href="{{route('register')}}" class="ForgetPwd mt-1">Registrarse</a>
                         </div>
 
                         <div class="form-group col-11 col-lg-8 text-left">

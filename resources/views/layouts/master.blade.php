@@ -220,8 +220,7 @@
 
    
         var regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-        var registerForm = document.getElementsByTagName("form");
-        var form = document.getElementsByTagName("form")[0];
+        var registerForm = document.getElementById("register-form");
         var nameField = document.getElementById("name");
         var surnameField = document.getElementById("surname");
         var emailField = document.getElementById("email");
@@ -241,41 +240,41 @@
        
         nuevoSpan('.parent-input-name', 'errorName' , 'Debe completar con su nombre');
 
-        nameField.addEventListener('input', function (){
-         var spanName = document.querySelector('.errorName');
-            if (nameField.value.trim() === '' ) {
-                nameField.className = 'form-control invalid';
-                spanName.className = 'errorName d-block';
-                spanName.classList.add('invalid-field');
+            nameField.addEventListener('input', function (){
+            var spanName = document.querySelector('.errorName');
+                if (nameField.value.trim() === '' ) {
+                    nameField.className = 'form-control invalid';
+                    spanName.className = 'errorName d-block';
+                    spanName.classList.add('invalid-field');
 
-            } else {
-                nameField.className = "form-control valid";
-                spanName.className = "errorName d-none";
-                }
+                } else {
+                    nameField.className = "form-control valid";
+                    spanName.className = "errorName d-none";
+                    }
 
-        })
-        
-        nameField.addEventListener('blur', function (){
-         var spanName = document.querySelector('.errorName');
-            if (nameField.value.trim() === '' ) {
-                nameField.className = 'form-control invalid';
-                spanName.className = 'errorName d-block';
-                spanName.classList.add('invalid-field');
-                spanName.innerHTML = 'Debe completar con su nombre';
+            })
+            
+            nameField.addEventListener('blur', function (){
+            var spanName = document.querySelector('.errorName');
+                if (nameField.value.trim() === '' ) {
+                    nameField.className = 'form-control invalid';
+                    spanName.className = 'errorName d-block';
+                    spanName.classList.add('invalid-field');
+                    spanName.innerHTML = 'Debe completar con su nombre';
 
-            } else if(nameField.value.trim().length < 3){
+                } else if(nameField.value.trim().length < 3){
 
-                nameField.className = 'form-control invalid';
-                spanName.className = 'errorName d-block';
-                spanName.classList.add('invalid-field');
-                spanName.innerHTML = 'El campo debe tener más de 3 letras';
+                    nameField.className = 'form-control invalid';
+                    spanName.className = 'errorName d-block';
+                    spanName.classList.add('invalid-field');
+                    spanName.innerHTML = 'El campo debe tener más de 3 letras';
 
-            }else {
-                nameField.className = "form-control valid";
-                spanName.className = "errorName d-none";
-                }
-        })
-        
+                }else {
+                    nameField.className = "form-control valid";
+                    spanName.className = "errorName d-none";
+                    }
+            })
+            
         nuevoSpan('.parent-input-surname', 'errorSurname' , 'Debe completar con su apellido');
 
             surnameField.addEventListener('input', function (){
@@ -327,7 +326,7 @@
                     }  
             })
             
-            emailField.addEventListener('blur', function (){ 
+            emailField.addEventListener('blur', function (){
             var spanEmail = document.querySelector('.errorEmail');
                 if (emailField.value.trim() === '' ) {
                     emailField.className = 'form-control invalid';
@@ -346,14 +345,14 @@
                         emailField.className = 'form-control invalid';
                         spanEmail.className = 'errorEmail d-block';
                         spanEmail.classList.add('invalid-field');
-                        spanEmail.innerHTML = 'El email ingresado es invalido';
+                        spanEmail.innerHTML = 'El e-mail ingresado es invalido';
                     } 
                    
                 })
 
         nuevoSpan('.parent-input-password', 'errorPassword' , 'Debe ingresar una contraseña');
 
-        passwordField.addEventListener('input', function (){ 
+            passwordField.addEventListener('input', function (){ 
                 var spanPassword = document.querySelector('.errorPassword');
                     if (passwordField.value.trim() === '' ) {
                         passwordField.className = 'form-control invalid';
@@ -364,7 +363,6 @@
                         passwordField.className = "form-control valid";
                         spanPassword.className = "errorPassword d-none";
                         }  
-                    console.log(spanPassword);
             })
                 
             passwordField.addEventListener('blur', function (){ 
@@ -378,7 +376,7 @@
                         passwordField.className = "form-control valid";
                         spanPassword.className = "errorPassword d-none";
                     }  
-                    console.log(spanPassword);
+                    
             })
 
             passwordField.addEventListener('blur', function () {
@@ -393,6 +391,7 @@
             })
 
         nuevoSpan('.parent-input-password-confirm', 'errorPasswordConfirm' , 'Ingresa nuevamente tu clave');
+
             passwordConfirmField.addEventListener('blur', function (){
                 var spanPasswordConfirm = document.querySelector('.errorPasswordConfirm');
                     if (passwordConfirmField.value.trim() === '' ) {
@@ -415,22 +414,168 @@
             })
 
             
-
+/*      
         registerForm.onsubmit = function (event){
            
-            if(campoNombre.value.trim() === '' || campoApellido.value.trim() === '' || campoEmail.value.trim() === '' || campoPassword.value.trim() === '' || !regexEmail(campoEmail.value)){
-              
-               event.preventDefault();
-                
-            } 
+            if(nameField.value.trim() == '' || surnameField.value.trim() === '' || emailField.value.trim() === '' || passwordField.value.trim() === '' || !regexEmail.test(emailField.value)){
+                event.preventDefault(); 
+                if (nameField.value.trim() === ''){
+                    var spanName = document.querySelector('.errorName');
+                        nameField.className = 'form-control invalid';
+                        spanName.className = 'errorName d-block';
+                        spanName.classList.add('invalid-field');
+
+                } else if (surnameField.value.trim() === ''){
+                    var spanSurname = document.querySelector('.errorSurname');
+                        surnameField.className = 'form-control invalid';
+                        spanSurname.className = 'errorSurname d-block';
+                        spanSurname.classList.add('invalid-field');
+
+                } else if (emailField.value.trim() === ''){
+                    var spanEmail = document.querySelector('.errorEmail');
+                        emailField.className = 'form-control invalid';
+                        spanEmail.className = 'errorEmail d-block';
+                        spanEmail.classList.add('invalid-field');
+
+                } else if (passwordField.value.trim() === ''){   
+                    var spanPassword = document.querySelector('.errorPassword');
+                        passwordField.className = 'form-control invalid';
+                        spanPassword.className = 'errorPassword d-block';
+                        spanPassword.classList.add('invalid-field');
+
+                }   else if (!regexEmail.test(emailField.value)){   
+                    var spanEmail = document.querySelector('.errorEmail');
+                        emailField.className = 'form-control invalid';
+                        spanEmail.className = 'errorEmail d-block';
+                        spanEmail.classList.add('invalid-field');
+                        spanEmail.innerHTML = 'El e-mail ingresado no es valido';
+
+                }   else if (!regexEmail.test(emailField.value)){   
+                var spanEmail = document.querySelector('.errorEmail');
+                    emailField.className = 'form-control invalid';
+                    spanEmail.className = 'errorEmail d-block';
+                    spanEmail.classList.add('invalid-field');
+                    spanEmail.innerHTML = 'El e-mail ingresado no es valido';
+            
+            }
+            
         }
-        
-   
-   
-    
-     
+        }
+        */
     })
 
+</script> 
+
+
+        {{-- Validacion Login --}}
+
+<script>
+
+window.addEventListener('load', function (){ 
+
+    var regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    var loginForm = document.querySelector('#login-form');
+    var emailFieldLogin = document.querySelector('#email-login');
+    var passwordFieldLogin = document.querySelector('#password-login');
+
+        function nuevoSpan(parentNode, campo, mensajeSpan){
+            var parent = document.querySelector(parentNode)
+            var span = document.createElement('span');
+            span.className = campo + " d-none";
+            var mensaje =  document.createTextNode(mensajeSpan);
+            span.append(mensaje);
+            parent.appendChild(span);
+        }
+    
+    nuevoSpan('.parent-input-email', 'errorEmail' , 'Debe ingresar su e-mail');
+
+        emailFieldLogin.addEventListener('blur', function (){
+            var spanEmail = document.querySelector('.errorEmail');
+            if (emailFieldLogin.value.trim() === '' ) {
+                emailFieldLogin.className = 'form-control invalid';
+                spanEmail.className = 'errorEmail d-block';
+                spanEmail.classList.add('invalid-field');
+                spanEmail.innerHTML = 'Debe ingresar su e-mail';
+            } else {
+                    emailFieldLogin.className = "form-control valid";
+                    spanEmail.className = "errorEmail d-none";
+                }  
+        })
+
+        emailFieldLogin.addEventListener('input', function (){
+            var spanEmail = document.querySelector('.errorEmail');
+            if (emailFieldLogin.value.trim() === '' ) {
+                emailFieldLogin.className = 'form-control invalid';
+                spanEmail.className = 'errorEmail d-block';
+                spanEmail.classList.add('invalid-field');
+                spanEmail.innerHTML = 'Debe ingresar su e-mail';
+            } else {
+                    emailFieldLogin.className = "form-control valid";
+                    spanEmail.className = "errorEmail d-none";
+                }  
+        })
+
+        emailFieldLogin.addEventListener('blur', function () {
+            var spanEmail = document.querySelector('.errorEmail');
+            if(emailFieldLogin.value.trim().length != 0 && !regexEmail.test(emailFieldLogin.value)){
+                    emailFieldLogin.className = 'form-control invalid';
+                    spanEmail.className = 'errorEmail d-block';
+                    spanEmail.classList.add('invalid-field');
+                    spanEmail.innerHTML = 'El email ingresado es invalido';
+                } 
+            
+        })
+        nuevoSpan('.parent-input-password', 'errorPassword' , 'Debe ingresar su contraseña');
+
+        passwordFieldLogin.addEventListener('input', function (){ 
+            var spanPassword = document.querySelector('.errorPassword');
+                if (passwordFieldLogin.value.trim() === '' ) {
+                    passwordFieldLogin.className = 'form-control invalid';
+                    spanPassword.className = 'errorPassword d-block mb-2';
+                    spanPassword.classList.add('invalid-field');
+                    spanPassword.innerHTML = 'Debe ingresar su contraseña';
+                } else {
+                    passwordFieldLogin.className = "form-control valid"
+                    spanPassword.className = "errorPassword d-none";
+                    }  
+        })
+            
+        passwordFieldLogin.addEventListener('blur', function (){ 
+            var spanPassword = document.querySelector('.errorPassword');
+                if (passwordFieldLogin.value.trim() === '' ) {
+                passwordFieldLogin.className = 'form-control invalid';
+                spanPassword.className = 'errorPassword d-block mb-2';
+                spanPassword.classList.add('invalid-field');
+                spanPassword.innerHTML = 'Debe ingresar su contraseña';
+            } else {
+                    passwordFieldLogin.className = "form-control valid";
+                    spanPassword.className = "errorPassword d-none";
+                }  
+            
+        })
+        
+        loginForm.onsubmit = function (event){
+           
+           if(emailFieldLogin.value.trim() === '' || passwordFieldLogin.value.trim() === ''){
+            
+            event.preventDefault();
+                if(emailFieldLogin.value.trim() === '') {
+                    var spanEmail = document.querySelector('.errorEmail');
+                        emailFieldLogin.className = 'form-control invalid';
+                        spanEmail.className = 'errorEmail d-block';
+                        spanEmail.classList.add('invalid-field');
+                } else if(passwordFieldLogin.value.trim() === ''){
+                    var spanPassword = document.querySelector('.errorPassword');
+                        passwordFieldLogin.className = 'form-control invalid';
+                        spanPassword.className = 'errorPassword d-block mb-2';
+                        spanPassword.classList.add('invalid-field');
+                }
+           }
+    
+       }
+       
+
+})
 
 </script>
     
