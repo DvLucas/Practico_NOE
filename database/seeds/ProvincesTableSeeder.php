@@ -35,7 +35,7 @@ class ProvincesTableSeeder extends Seeder {
         ];
 
         foreach($provinces as $province) {
-            App\Models\Province::create($province);
+            App\Province::create($province);
         }
     }
 

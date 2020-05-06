@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="_token" content="{{ csrf_token() }}">
+
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Bitter|Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css"
+        integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{asset('css/fonts.css')}}">
+    <link rel="stylesheet" href="{{asset('css/stylehome.css')}}">
+
+    <link rel="shortcut icon" href="img/icons/rueda.svg">
+
+
+    <title> @yield('title') </title>
+</head>
+
+<body>
+
+    @include ('includes.header')
+
+
+        @yield('content')
+
+
+    @include('includes.footer')
+
+    {{-- Script js jquery --}}
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+
+    <script>
+        $('#deleteCateModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget)
+            var id = button.data('id') 
+            action = $('#formCatDelete').attr('data-action').slice(0,-1)
+            action += id
+            console.log(action)
+    
+           $('#formCatDelete').attr('action',action)
+        })
+
+        $('#deleteModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget)
+            var id = button.data('id') 
+            var state = button.data('state')
+            action = $('#formDelete').attr('data-action').slice(0,-1)
+            action += id
+            console.log(action)
+    
+            $('#formDelete').attr('action',action)
+    
+            var modal = $(this)
+            if(state==0){
+                modal.find('.modal-title').text('Vas a dar alta al producto: ' + id)
+            }else{
+                modal.find('.modal-title').text('Vas a quitar el producto: ' + id)
+            }
+        })
+
+        $('#checkCategoryFather').on('click', function(e){
+            if (this.checked == true) {
+                console.log($('#selectCategoryChild'));
+                $('#selectCategoryChild').attr('disabled','disabled');
+            } else {
+                $('#selectCategoryChild').removeAttr('disabled');
+            }
+
+        })
+
+        $('#a-icon-nav').on('click', function(e){
+            $('#icon-nav').toggleClass('rotate');
+        })
+    </script> {{-- Este scrip te utiliza en la vista de listar productos panel --}}
+
+<script>
+    $('#imageModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        var id = button.data('id') 
+        var name = button.data('name') 
+        var state = button.data('state')
+       /*  action = $('#formDelete').attr('data-action').slice(0,-1)
+        action += id
+        console.log(action) */
+
+        $('#inputId').attr('value',id)
+        $('#inputName').attr('value',name)
+
+        var modal = $(this)
+        /* if(state==0){
+            modal.find('.modal-title').text('Vas a dar alta al producto: ' + id)
+        }else{
+            modal.find('.modal-title').text('Vas a quitar el producto: ' + id)
+        } */
+    })
+</script> {{-- Este scrip se utiliza para las imagenes --}}
+    
+</body>
+
+</html>

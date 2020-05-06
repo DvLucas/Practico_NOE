@@ -16,7 +16,7 @@ class TableGallery extends Migration
         Schema::create('gallery', function (Blueprint $table) {
             $table->increments('id_gallery');
             $table->integer('id_product')->unsigned();
-            $table->string('url');
+            $table->string('url')->nullable($value = true);
             $table->tinyInteger('store')->nullable($value = true);
         });
     }

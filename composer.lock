@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "06da6ec52c94019f4edfbbaf2fd318c5",
+    "content-hash": "36a80b92fb4e886911f00a19db5183c4",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -599,7 +599,76 @@
             "time": "2020-02-13T21:12:28+00:00"
         },
         {
+            "name": "laravelcollective/html",
+            "version": "v6.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LaravelCollective/html.git",
+                "reference": "64f2268bf41bf02b3a9dd3c30f102e934d721664"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/64f2268bf41bf02b3a9dd3c30f102e934d721664",
+                "reference": "64f2268bf41bf02b3a9dd3c30f102e934d721664",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/http": "^6.0|^7.0",
+                "illuminate/routing": "^6.0|^7.0",
+                "illuminate/session": "^6.0|^7.0",
+                "illuminate/support": "^6.0|^7.0",
+                "illuminate/view": "^6.0|^7.0",
+                "php": ">=7.2.5"
+            },
+            "require-dev": {
+                "illuminate/database": "^6.0|^7.0",
+                "mockery/mockery": "~1.0",
+                "phpunit/phpunit": "~7.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "6.0-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Collective\\Html\\HtmlServiceProvider"
+                    ],
+                    "aliases": {
+                        "Form": "Collective\\Html\\FormFacade",
+                        "Html": "Collective\\Html\\HtmlFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Collective\\Html\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Adam Engebretson",
+                    "email": "adam@laravelcollective.com"
+                },
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com"
+                }
+            ],
+            "description": "HTML and Form Builders for the Laravel Framework",
+            "homepage": "https://laravelcollective.com",
+            "time": "2020-03-02T16:41:28+00:00"
+        },
+        {
             "name": "league/commonmark",
+<<<<<<< HEAD
             "version": "1.4.3",
             "source": {
                 "type": "git",
@@ -610,6 +679,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/412639f7cfbc0b31ad2455b2fe965095f66ae505",
                 "reference": "412639f7cfbc0b31ad2455b2fe965095f66ae505",
+=======
+            "version": "1.4.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/commonmark.git",
+                "reference": "9e780d972185e4f737a03bade0fd34a9e67bbf31"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/9e780d972185e4f737a03bade0fd34a9e67bbf31",
+                "reference": "9e780d972185e4f737a03bade0fd34a9e67bbf31",
+>>>>>>> 86ac12062b9186a9da311bbf26acceab95dc981f
                 "shasum": ""
             },
             "require": {
@@ -670,7 +751,11 @@
                 "md",
                 "parser"
             ],
+<<<<<<< HEAD
             "time": "2020-05-04T22:15:21+00:00"
+=======
+            "time": "2020-04-24T13:39:56+00:00"
+>>>>>>> 86ac12062b9186a9da311bbf26acceab95dc981f
         },
         {
             "name": "league/flysystem",
@@ -839,6 +924,7 @@
         },
         {
             "name": "nesbot/carbon",
+<<<<<<< HEAD
             "version": "2.33.0",
             "source": {
                 "type": "git",
@@ -849,6 +935,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/4d93cb95a80d9ffbff4018fe58ae3b7dd7f4b99b",
                 "reference": "4d93cb95a80d9ffbff4018fe58ae3b7dd7f4b99b",
+=======
+            "version": "2.32.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/briannesbitt/Carbon.git",
+                "reference": "f10e22cf546704fab1db4ad4b9dedbc5c797a0dc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/f10e22cf546704fab1db4ad4b9dedbc5c797a0dc",
+                "reference": "f10e22cf546704fab1db4ad4b9dedbc5c797a0dc",
+>>>>>>> 86ac12062b9186a9da311bbf26acceab95dc981f
                 "shasum": ""
             },
             "require": {
@@ -907,7 +1005,11 @@
                 "datetime",
                 "time"
             ],
+<<<<<<< HEAD
             "time": "2020-04-20T15:05:43+00:00"
+=======
+            "time": "2020-03-31T13:43:19+00:00"
+>>>>>>> 86ac12062b9186a9da311bbf26acceab95dc981f
         },
         {
             "name": "nikic/php-parser",
@@ -1268,6 +1370,7 @@
         },
         {
             "name": "psy/psysh",
+<<<<<<< HEAD
             "version": "v0.10.4",
             "source": {
                 "type": "git",
@@ -1278,6 +1381,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/bobthecow/psysh/zipball/a8aec1b2981ab66882a01cce36a49b6317dc3560",
                 "reference": "a8aec1b2981ab66882a01cce36a49b6317dc3560",
+=======
+            "version": "v0.10.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bobthecow/psysh.git",
+                "reference": "2bde2fa03e05dff0aee834598b951d6fc7c6fe02"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/2bde2fa03e05dff0aee834598b951d6fc7c6fe02",
+                "reference": "2bde2fa03e05dff0aee834598b951d6fc7c6fe02",
+>>>>>>> 86ac12062b9186a9da311bbf26acceab95dc981f
                 "shasum": ""
             },
             "require": {
@@ -1336,7 +1451,11 @@
                 "interactive",
                 "shell"
             ],
+<<<<<<< HEAD
             "time": "2020-05-03T19:32:03+00:00"
+=======
+            "time": "2020-04-07T06:44:48+00:00"
+>>>>>>> 86ac12062b9186a9da311bbf26acceab95dc981f
         },
         {
             "name": "ramsey/uuid",
@@ -2906,6 +3025,7 @@
         },
         {
             "name": "vlucas/phpdotenv",
+<<<<<<< HEAD
             "version": "v3.6.4",
             "source": {
                 "type": "git",
@@ -2916,6 +3036,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/10d3f853fdf1f3a6b3c7ea0c4620d2f699713db5",
                 "reference": "10d3f853fdf1f3a6b3c7ea0c4620d2f699713db5",
+=======
+            "version": "v3.6.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vlucas/phpdotenv.git",
+                "reference": "1b3103013797f04521c6cae5560f604649484066"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/1b3103013797f04521c6cae5560f604649484066",
+                "reference": "1b3103013797f04521c6cae5560f604649484066",
+>>>>>>> 86ac12062b9186a9da311bbf26acceab95dc981f
                 "shasum": ""
             },
             "require": {
@@ -2965,7 +3097,11 @@
                 "env",
                 "environment"
             ],
+<<<<<<< HEAD
             "time": "2020-05-02T13:46:13+00:00"
+=======
+            "time": "2020-04-12T15:18:03+00:00"
+>>>>>>> 86ac12062b9186a9da311bbf26acceab95dc981f
         }
     ],
     "packages-dev": [

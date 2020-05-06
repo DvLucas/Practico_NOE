@@ -17,7 +17,7 @@ class TablaCategories extends Migration
             $table->increments('id_category');
             $table->string('name_category');
             $table->string('description')->nullable();
-            $table->integer('id_father_category');
+            $table->integer('id_father_category')->nullable();
         });
     }
 

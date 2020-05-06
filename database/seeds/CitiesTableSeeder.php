@@ -13593,7 +13593,7 @@ class CitiesTableSeeder extends Seeder {
         ];
 
         foreach($cities as $city) {
-            App\Models\City::create($city);
+            App\City::create($city);
         }
     }
 

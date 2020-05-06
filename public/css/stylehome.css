@@ -5,6 +5,11 @@
     background-color: rgb(252, 216, 22);
 }
 
+.bg-black {  
+    /** Botones amarillos **/
+    background-color:rgb(30,30,30) !important;
+}
+
 
 
 /*** HEADER GLOBAL ***/
@@ -45,6 +50,12 @@ a.bag {
     padding: 0px 5px;
 }
 
+a.bag span#cant-cart{
+    position: absolute;
+    top: 10px;
+    right: 3px;
+    z-index: 1;
+}
 a.navbar-brand {
     padding: 0%;
     margin: 0%;
@@ -177,7 +188,7 @@ footer ul li a {
 /***** CONTACTO *****/
 
 .header-contacto {
-    background: url("../img/IMAGENES/AGUA.jpeg") fixed center no-repeat;
+    background: url("../img/imagenes/IMAGENES/AGUA.jpeg") fixed center no-repeat;
     background-size: cover;
     height: 40vh;
     border-radius: 0;
@@ -233,7 +244,7 @@ section.servicios .elServicio {
 
 /*****  FAQ  *****/
 .header-faq {
-    background: url("../img/IMAGENES/HeaderFaq.jpg") fixed center no-repeat;
+    background: url("../img/imagenes/IMAGENES/HeaderFaq.jpg") fixed center no-repeat;
     background-size: cover;
     height: 40vh;
     border-radius: 0;
@@ -275,7 +286,7 @@ section.servicios .elServicio {
     transition: background-color .5s;
 }
 .shadow-item:hover{
-    box-shadow: inset 0 0 10px #c3c3c3;
+    box-shadow: 0 0 10px #d8d8d8;
 }
 .shadow-item:hover .fav{
     font-size: 2rem;
@@ -292,41 +303,27 @@ section.servicios .elServicio {
     box-shadow: inset 0 0 10px rgb(216, 187, 21);
     transition: background-color .5s;
 }
-
-.hov-bici:hover:after{
-    content:'';
-    height: 1.5rem;
-    width: 1.5rem;
-    background: url(../img/ICONOS/SVG/SVG/Recurso\ 5.svg) no-repeat;
-    position: absolute ;
-    margin-left: 1rem;
+ 
+.color-item{
+    cursor: pointer;
+    border-radius: 50%;
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    font-size: 0;
+    border: 1px solid #c3c3c3;
+    overflow: hidden;
+    position: relative;
+    margin-top: 1px;
 }
-
-.hov-acce:hover:after{
-    content:'';
-    height: 1.5rem;
-    width: 1.5rem;
-    background: url(../img/ICONOS/SVG/SVG/Recurso\ 10.svg) no-repeat;
-    position: absolute ;
-    margin-left: 1rem;
-}
-
-.hov-part:hover:after{
-    content:'';
-    height: 1.5rem;
-    width: 1.5rem;
-    background: url(../img/ICONOS/SVG/SVG/Recurso\ 4.svg) no-repeat;
-    position: absolute ;
-    margin-left: 1rem;
-}
-
-.hov-cubrt:hover:after{
-    content:'';
-    height: 1.5rem;
-    width: 1.5rem;
-    background: url(../img/ICONOS/SVG/SVG/Recurso\ 9.svg) no-repeat;
-    position: absolute ;
-    margin-left: 1rem;
+.selected span{
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 50%;
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
 }
 
 /** utilidades tienda **/
@@ -356,5 +353,97 @@ section.servicios .elServicio {
     visibility: visible;
   }
 
+  .item {
+    /* overflow: hidden; */
+    position: relative;
+    /* border: 1px solid #673AB7 */
+}
+.frhoverinfo {
+    position: absolute;
+    z-index: 1;
+    right: -2%;
+    top:25%
+}
+.productaction {
+    display: flex;
+    justify-content: center;
+    /* background-color:white; */
+    width: 35px;
+    height: 80px;
+    flex-flow: column;
+    /* border-top-left-radius: 35%;
+    border-bottom-left-radius: 35%;
+    border: 2px solid black; */
+    /* box-shadow: -8px 0 30px #555555; */
+}
+ul,
+ol {
+    list-style: none
+}
+.productaction li:nth-child(1) {
+    opacity: 0;
+    /* border-top-left-radius: 35%; */
+    transition: opacity 300ms linear 0s
+}
+
+.productaction li:nth-child(2) {
+    opacity: 0;
+    /* border-bottom-left-radius: 35%;  */
+    transition: opacity 300ms linear 0s
+}
+
+.productaction li {
+    background: rgb(252, 216, 22);
+    cursor: pointer;
+    display: inline-block;
+    height: 30px;
+    line-height: 35px;
+    text-align: center;
+    transition: all 0.4s ease 0s;
+    width: 30px;   
+    margin-top: 15px;   
+    border-top-left-radius: 35%;
+    border-bottom-left-radius: 35%; 
+}
+
+.color-gris {
+    color: rgb(0, 0, 0,0.6);
+}
+
+.productaction li i {
+    font-size: 18px;
+    transition: all 0.4s ease 0s
+}
+.item:hover .productaction li {
+    -webkit-animation: 300ms ease-in-out 0s normal none 1 running fadeInRight;
+    animation: 300ms ease-in-out 0s normal none 1 running fadeInRight;
+    opacity: 1;
+    transition: opacity 300ms linear 0s
+}
+
+/*** Cart ***/
+
+/* .span-color{
+    border-radius: 50%;
+    display: inline-block;
+    border: 1px solid #000;
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+} */
+.check-ok{
+    position: absolute;
+    z-index: 1;     
+    top: -10px;
+    left: 11px;   
+    display: inline !important;         
+}
+
 
 /***** FIN TIENDA *****/
+/** Dash **/
+@media (min-width: 1000px){
+    .nav-dash{
+        height: 100vh;
+    }
+}

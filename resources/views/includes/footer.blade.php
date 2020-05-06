@@ -4,8 +4,8 @@
         <div class="col-7 col-lg-3 order-last order-lg-first">
             <div class="row justify-content-center mt-2 mt-md-0 p-2 text-center">
                 <div class="col-8">
-                    <a href="index.php">
-                        <img src="img/icons/icon_footer.svg" alt="Logo">
+                    <a href="{{ url('home') }}">
+                        <img src="{{asset('img/icons/icon_footer.svg')}}" alt="Logo">
                     </a>
                 </div>
                 <div class="col-12">
@@ -18,16 +18,16 @@
             <h5 class="text-white mb-3 titulos-categorias-tienda">Productos</h5>
             <ul class="p-0 subtitulos">
                 <li>
-                    <a href="tienda.php">Accesorios</a>
+                    <a href="{{route('search',['tipo'=>'category','id'=> 1])}}">Bicicletas</a>
                 </li>
                 <li>
-                    <a href="tienda.php">Bicicletas</a>
+                    <a href="{{route('search',['tipo'=>'category','id'=> 2])}}">Accesorios</a>
                 </li>
                 <li>
-                    <a href="tienda.php">Cubiertas</a>
+                    <a href="{{route('search',['tipo'=>'category','id'=> 3])}}">Cubiertas</a>
                 </li>
                 <li>
-                    <a href="tienda.php">Repuestos</a>
+                    <a href="{{route('search',['tipo'=>'category','id'=> 4])}}">Repuestos</a>
                 </li>
             </ul>
         </div> <!-- Productos -->
@@ -35,13 +35,13 @@
             <h5 class="text-white mb-3 titulos-categorias-tienda">Atencion al Cliente</h5>
             <ul class="p-0 subtitulos">
                 <li>
-                    <a href="faq.php">Faq</a>
+                    <a href="{{route('faq')}}">Faq</a>
                 </li>
                 <li>
-                    <a href="contacto.php">Contacto</a>
+                    <a href="{{route('contacto')}}">Contacto</a>
                 </li>
                 <li>
-                    <a href="registro.php">Registrate</a>
+                    <a href="{{route('register')}}">Registrate</a>
                 </li>
             </ul>
         </div> <!-- Atencion Al Cliente -->
@@ -49,28 +49,28 @@
             <h5 class="text-white mb-3 titulos-categorias-tienda">Seguinos</h5>
             <ul class="ul-redes p-0">
                 <li>
-                    <a href="#">
-                        <img src="img\icons\facebook.svg" width="30" alt="">
+                    <a href="https://www.facebook.com">
+                        <img src="{{asset('img\icons\facebook.svg')}}" width="30" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://twitter.com">
+                        <img src="{{asset('img\icons\twitter.svg')}}" width="30" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.youtube.com">
+                        <img src="{{asset('img\icons\youtube.svg')}}" width="30" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com">
+                        <img src="{{asset('img\icons\instagram.svg')}}" width="30" alt="">
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <img src="img\icons\twitter.svg" width="30" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="img\icons\youtube.svg" width="30" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="img\icons\instagram.svg" width="30" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="img/icons/ubicacion.svg" width="30" alt="">
+                        <img src="{{asset('img/icons/ubicacion.svg')}}" width="30" alt="">
                     </a>
                 </li>
             </ul>

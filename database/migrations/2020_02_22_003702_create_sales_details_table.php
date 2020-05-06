@@ -16,9 +16,9 @@ class CreateSalesDetailsTable extends Migration
         Schema::create('sales_details', function (Blueprint $table) {
             $table->increments('id_sale_detail');
             $table->date('created_at');
-            $table->integer('quota');
-            $table->decimal('descuento', 8,2);
-            $table->decimal('total', 10,2);
+            $table->integer('quota')->nullable($value = true);
+            $table->decimal('descuento', 8,2)->nullable($value = true);
+            $table->decimal('total', 10,2)->nullable($value = true);
             $table->integer('id_user')->unsigned();
             $table->integer('id_shipping')->unsigned();
             $table->integer('id_payment_method')->unsigned();
