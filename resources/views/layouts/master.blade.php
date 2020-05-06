@@ -199,19 +199,7 @@
         });
 
 </script>
-    <!---JavaScript Toggle--->
-<script type="text/javascript">
-    function ShowHide(EditComment) {
-        var EditedComment = document.getElementById("EditedComment");
-        if (EditComment.value == "Editar") {
-            EditedComment.style.display = "block";
-            EditComment.value = "Editando";
-        } else {
-            EditedComment.style.display = "none";
-            EditComment.value = "Editar";
-        }
-    }
-    </script>
+   
 
    
 <script>
@@ -432,6 +420,23 @@
     })
 
 
+</script>
+
+
+<script>
+    // asignacion de la informacion para editar comentarios en el pop-up
+    
+    $('#editCommentsModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) 
+        var id_comment_to_edit = button.data('myid') 
+        var body_comment_to_edit = button.data('mybody') 
+  
+        var modal = $(this)
+        
+        modal.find('.modal-body #id_comment').val(id_comment_to_edit)
+        modal.find('.modal-body #body').val(body_comment_to_edit)
+    })
+ 
 </script>
     
 </body>

@@ -44,6 +44,7 @@ Route::get('cart.show', 'CartController@show')->name('cart.show');
 Route::get('/tienda/item/{id_product}', 'ProductsController@show')->name('item');
 Route::resource('comments','CommentsControllers');
 
+
 Route::get('/faq', function () {
     return view('faq');
 })->name('faq');

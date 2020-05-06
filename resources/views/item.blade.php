@@ -134,20 +134,20 @@
                                     {{ method_field('DELETE') }}
 
                                     <input hidden type="text" name="id_comment" value="{{$comment->id}}">
-                                    <button class="btn btn-outline-danger btn-sm" type="submit">Delete</button>
+                                    <button class="btn btn-outline-danger btn-sm " type="submit">Eliminar</button>
                                 </form>
 
-                                <button id="EditComment" class="btn btn-outline-dark btn-sm" value="Editar" onclick="ShowHide(this)">Editar</button>
+                                <button class="btn btn-outline-dark btn-sm comment-to-edit" 
+                                style="cursor: pointer" data-toggle="modal" 
+                                data-target="#editCommentsModal" data-myid="{{$comment->id}}" 
+                                data-mybody="{{$comment->body}}">Editar</button>
+
+                                @include('editComment')
+
                             </div>
-                            <div class="col-12 mt-2" id="EditedComment" style="display: none">
-                                <form action="{{ route('comments.update', $comment->id)}}" method="POST">
-                                    @csrf
-                                    {{ method_field('PUT') }}
-                                    <textarea class="col-md-12" name="body">{{$comment->body}}</textarea>
-                                    <input hidden type="text" name="id_comment" value="{{$comment->id}}">
-                                    <button class="btn btn-outline-dark primary btn-sm" type="submit">Editar</button>
-                                </form>
-                            </div>
+
+               
+
                             <hr>
                         </div>
                     @else
@@ -159,8 +159,9 @@
                     </div>
                     @endif
                 @empty
-                    <p class="col-12 texto-parrafo">This post has no comments</p>
+                    <p class="col-12 texto-parrafo">Este artículo no posee comentarios.</p>
                 @endforelse
+
 
               </div>
             </div>

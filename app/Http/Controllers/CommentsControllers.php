@@ -81,8 +81,8 @@ class CommentsControllers extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateCommentsRequest $request, $id)
-    {
-        $comment = Comments::find($id);
+    {   
+        $comment = Comments::find($request->id_comment);
         
         $comment->body = $request->body;
         $comment->save();
