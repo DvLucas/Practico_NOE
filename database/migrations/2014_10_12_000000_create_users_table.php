@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->date('date_birth')->nullable();
             $table->string('description')->nullable();
-            $table->string('profile_picture')->nullable();
+            $table->string('profile_picture')->default('default.jpeg');
             $table->integer('id_rol')->unsigned()->nullable();
             $table->integer('id_cities')->unsigned()->nullable();
             $table->rememberToken();
