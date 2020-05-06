@@ -130,6 +130,7 @@
                 <!-- seccion para dejar comentarios -->
 
                 @if (Auth::check())
+                <!--- Si es usuario, puede dejar comentarios en la publicacion ---> 
                
                 <form action="{{route('comments.store')}}" method="post">
                     @csrf
@@ -143,6 +144,7 @@
                 <hr>
                 @forelse ($product->comments as $comment)
                     @if (Auth::check() and ($comment->id_user == Auth::user()->id))
+                        <!--- Chequea si el usuario es el autor del comentario, en cuyo caso puede eliminar y editar todos los comentarios del usuario ---> 
                         <div>
                             <p class="titulos-header text-noe-yellow"> {{ $comment->user->name }}</p>
                             <p class="texto-parrafo">{{$comment->created_at}}</p>
@@ -166,12 +168,37 @@
                                 @include('editComment')
 
                             </div>
+                            <hr>
+                        </div>
+                    @elseif (Auth::check() and (Auth::user()->id_rol == 1))
+                        <!--- Chequea si el usuario es administrador, en cuyo caso puede eliminar y editar todos los comentarios ---> 
+                        <div>
+                            <p class="titulos-header text-noe-yellow"> {{ $comment->user->name }}</p>
+                            <p class="texto-parrafo">{{$comment->created_at}}</p>
+                            <p class="col-12 texto-parrafo">{{ $comment->body }}</p>
 
-               
+                            <div class="d-flex justify-content-end">
+                                
+                                <form action="{{ route('comments.destroy', $comment->id) }}" method="POST">
+                                    @csrf
+                                    {{ method_field('DELETE') }}
 
+                                    <input hidden type="text" name="id_comment" value="{{$comment->id}}">
+                                    <button class="btn btn-outline-danger btn-sm " type="submit">Eliminar</button>
+                                </form>
+
+                                <button class="btn btn-outline-dark btn-sm comment-to-edit" 
+                                style="cursor: pointer" data-toggle="modal" 
+                                data-target="#editCommentsModal" data-myid="{{$comment->id}}" 
+                                data-mybody="{{$comment->body}}">Editar</button>
+
+                                @include('editComment')
+
+                            </div>
                             <hr>
                         </div>
                     @else
+                    <!--- Si no es usuario, solo puede leer los comentarios ---> 
                     <div>
                         <p class="titulos-header text-noe-yellow"> {{ $comment->user->name }}</p>
                         <p class="texto-parrafo">{{$comment->created_at}}</p>
@@ -180,6 +207,7 @@
                     </div>
                     @endif
                 @empty
+                    <!--- Si el post no tiene comentarios ---> 
                     <p class="col-12 texto-parrafo">Este artículo no posee comentarios.</p>
                 @endforelse
 
