@@ -20,7 +20,7 @@
 <div class="col-10 border m-2 p-3">
     <div class="row">
         @foreach ($gallery as $item)
-            <div class="col-2 text-center ">
+            <div class="col-12 col-md-2 text-center ">
                 <a href=" {{ route( 'gallery.edit' , $item ) }} " class="bg-danger">
                     <img src="{{asset($item->url)}}" alt="{{$item->url}}" class='img-thumbnail img-product' data-store="{{$item->store}}">
                 </a>

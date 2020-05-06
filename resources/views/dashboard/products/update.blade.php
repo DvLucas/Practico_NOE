@@ -19,18 +19,18 @@
             <input type="hidden" name="state" value="{{$product->state}}">
             <div class="row">
 
-                <div class="form-group col-6">
+                <div class="form-group col-12 col-sm-6">
     
                     <label for="nombre" class=""> Nombre </label>
                     <input type="text" name="name" value="{{old('name',$product->name)}}" class="form-control"
                         placeholder="Colocar Nombre">
                     <div class="row">
-                        <div class="col">
+                        <div class="col col-md-6">
                             <label for="Precio" class=""> Precio $</label>
                             <input type="text" name="price" value="{{old('price',$product->price)}}" class="form-control"
                                 placeholder="Colocar Precio">
                         </div>
-                        <div class="col">
+                        <div class="col col-md-6">
                             <label for="Stock" class=""> Stock </label>
                             <input type="text" name="stock" value="{{old('stock',$product->stock)}}" class="form-control"
                                 placeholder="Colocar Stock">
@@ -42,7 +42,7 @@
                
                 </div>
 
-                <div class="col-6 form-group d-flex flex-column">
+                <div class="col-12 col-sm-6 form-group d-flex flex-column">
 
                     <div class="mb-auto">
                         <label for="exampleFormControlSelect2">Seleccione Categoria</label>

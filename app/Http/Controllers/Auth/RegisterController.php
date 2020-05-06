@@ -53,20 +53,24 @@ class RegisterController extends Controller
         [
             'name' => ['required', 'string', 'min:3' ,'max:255'],
             'surname' => ['required', 'string','min:3', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users', 'regex:/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ], 
         $message =
         [
             'name.required' => 'Debe completar con su nombre',
             'tring' => 'Debe ingresar solo letras',
-            'min:3' => 'El campo debe tener como minimo 3 letras',
-            'max:255' => 'El campo debe tener como máximo 255 letras',
+            'min' => 'El campo debe tener como minimo :min letras',
+            'max' => 'El campo debe tener como máximo :max letras',
             'surname.required' => 'Debe completar con su apellido',
             'email.required' => 'Debe ingresar su e-mail',
-            'email' => 'El email ingresado es invalido',
-            'unique:users' => 'El email ya esta registrado',
+            'email' => 'El e-mail ingresado es invalido',
+            'regex' => 'El e-mail ingresado no es valido',
+            'unique' => 'El e-mail ya esta registrado',
             'password.required' => 'Debe ingresar una contraseña',
+            'password.min' => 'Tu contraseña debe tener al menos :min caracteres',
+            'confirmed' => 'La contraseña de verificación no coincide',
+           
             
         ]);
     }

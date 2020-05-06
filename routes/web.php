@@ -54,3 +54,6 @@ Route::get('/contacto', function () {
 })->name('contacto');
 
 
+Route::get('/usuario','UserController@vista')->name('usuario');
+Route::get('/editar/{dato}','UserController@editar')->name('user.editar');
+Route::put('/editar/{id}','UserController@update')->name('user.update');

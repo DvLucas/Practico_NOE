@@ -17,9 +17,10 @@
             <h4>Categorias</h4>
         </div>
 
+        @include('dashboard.categories.add')
+        
         @include('dashboard.categories.list')
 
-        @include('dashboard.categories.add')
 
     </div>
 </div>
