@@ -402,7 +402,7 @@
             })
 
             
-/*      
+    
         registerForm.onsubmit = function (event){
            
             if(nameField.value.trim() == '' || surnameField.value.trim() === '' || emailField.value.trim() === '' || passwordField.value.trim() === '' || !regexEmail.test(emailField.value)){
@@ -449,7 +449,7 @@
             
         }
         }
-        */
+        
     })
 
 </script> 
