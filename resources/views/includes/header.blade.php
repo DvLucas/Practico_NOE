@@ -74,7 +74,7 @@
     <nav class="navbar navbar-expand-md navbar-dark col-12" style="background-color:rgb(30,30,30)">
         <div class="row mx-0 w-100 justify-content-around">
 
-            <a class="col navbar-brand text-center" href="{{route('home')}}"><img src="{{asset('img/icons/logo_blanco.svg')}}"
+            <a class="col navbar-brand text-center mt-1" href="{{route('home')}}"><img src="{{asset('img/icons/logo_blanco.svg')}}"
                     alt="logo" height="35"></a> <!-- Logo -->
 
             <button class="col-2 ml-1 order-first d-md-none navbar-toggler" type="button" data-toggle="collapse"
