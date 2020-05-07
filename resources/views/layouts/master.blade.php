@@ -586,6 +586,19 @@ window.addEventListener('load', function (){
 </script>
 
 <script>
+    // extensión del titulo en el slider de productos recomendados
+    $(function(){
+        $(".text-title-slider").each(function(i){
+            len=$(this).text().length;
+            if(len>1)
+            {
+            $(this).text($(this).text().substr(0,25)+'...');
+            }
+        });
+    });
+</script>
+
+<script>
     // extensión del texto en el slider de productos recomendados
     $(function(){
         $(".text-slider").each(function(i){

@@ -106,7 +106,7 @@
                         @endif
                       @endforeach
                       <div class="card-body">
-                        <h4 class="card-title">{{$some_products[$i]->name}}</h4>
+                        <h4 class="card-title text-title-slider">{{$some_products[$i]->name}}</h4>
                         <h4 class="card-title">${{$some_products[$i]->price}}</h4>
                         <p class="card-text text-slider">{{$some_products[$i]->description}}</p>
                         <a href="tienda/item/{{$some_products[$i]->id_product}}" class="btn btn-dark">Mirar</a>
@@ -122,7 +122,7 @@
                         @endif
                       @endforeach
                       <div class="card-body">
-                        <h4 class="card-title">{{$some_products[$i]->name}}</h4>
+                        <h4 class="card-title text-title-slider">{{$some_products[$i]->name}}</h4>
                         <h4 class="card-title">${{$some_products[$i]->price}}</h4>
                         <p class="card-text text-slider">{{$some_products[$i]->description}}</p>
                         <a href="tienda/item/{{$some_products[$i]->id_product}}" class="btn btn-dark">Mirar</a>
@@ -147,7 +147,7 @@
                         @endif
                       @endforeach
                       <div class="card-body">
-                        <h4 class="card-title">{{$some_products[$i]->name}}</h4>
+                        <h4 class="card-title text-title-slider">{{$some_products[$i]->name}}</h4>
                         <h4 class="card-title">${{$some_products[$i]->price}}</h4>
                         <p class="card-text text-slider">{{$some_products[$i]->description}}</p>
                         <a href="tienda/item/{{$some_products[$i]->id_product}}" class="btn btn-dark">Mirar</a>
@@ -163,7 +163,7 @@
                         @endif
                       @endforeach
                       <div class="card-body">
-                        <h4 class="card-title">{{$some_products[$i]->name}}</h4>
+                        <h4 class="card-title text-title-slider">{{$some_products[$i]->name}}</h4>
                         <h4 class="card-title">${{$some_products[$i]->price}}</h4>
                         <p class="card-text text-slider">{{$some_products[$i]->description}}</p>
                         <a href="tienda/item/{{$some_products[$i]->id_product}}" class="btn btn-dark">Mirar</a>
@@ -188,7 +188,7 @@
                         @endif
                       @endforeach
                       <div class="card-body">
-                        <h4 class="card-title">{{$some_products[$i]->name}}</h4>
+                        <h4 class="card-title text-title-slider">{{$some_products[$i]->name}}</h4>
                         <h4 class="card-title">${{$some_products[$i]->price}}</h4>
                         <p class="card-text text-slider">{{$some_products[$i]->description}}</p>
                         <a href="tienda/item/{{$some_products[$i]->id_product}}" class="btn btn-dark">Mirar</a>
@@ -204,7 +204,7 @@
                         @endif
                       @endforeach
                       <div class="card-body">
-                        <h4 class="card-title">{{$some_products[$i]->name}}</h4>
+                        <h4 class="card-title text-title-slider">{{$some_products[$i]->name}}</h4>
                         <h4 class="card-title">${{$some_products[$i]->price}}</h4>
                         <p class="card-text text-slider">{{$some_products[$i]->description}}</p>
                         <a href="tienda/item/{{$some_products[$i]->id_product}}" class="btn btn-dark">Mirar</a>
