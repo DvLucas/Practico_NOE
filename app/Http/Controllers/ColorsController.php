@@ -2,14 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Comments;
-use App\Products;
 use Illuminate\Http\Request;
 
-use App\Http\Requests\StoreCommentsRequest;
-use App\Http\Requests\UpdateCommentsRequest;
-
-class CommentsControllers extends Controller
+class ColorsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +13,7 @@ class CommentsControllers extends Controller
      */
     public function index()
     {
-    
+        //
     }
 
     /**
@@ -37,18 +32,9 @@ class CommentsControllers extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCommentsRequest $request)
+    public function store(Request $request)
     {
-
-        $product = Products::findOrFail($request->id_product);
-        
-        Comments::create([
-                'body' => $request->body,
-                'id_user' => $request->id_user,
-                'id_product' => $request->id_product
-        ]);
-
-        return back();
+        //
     }
 
     /**
@@ -76,18 +62,13 @@ class CommentsControllers extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\UpdateCommentsRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateCommentsRequest $request, $id)
-    {   
-        $comment = Comments::find($request->id_comment);
-        
-        $comment->body = $request->body;
-        $comment->save();
-
-        return back();
+    public function update(Request $request, $id)
+    {
+        //
     }
 
     /**
@@ -98,8 +79,6 @@ class CommentsControllers extends Controller
      */
     public function destroy($id)
     {
-        Comments::where('id', $id)->delete();
-
-        return back();
+        //
     }
 }

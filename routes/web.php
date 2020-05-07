@@ -27,10 +27,13 @@ Auth::routes();
 Route::get('/panel', 'panelController@log')->name('dashboard');
 
 Route::prefix('/panel')->group(function () {
+    Route::get('products/show_colors/{id}', 'dashboard\ProductsController@show_colors')->name('products.show_colors');
     Route::resource('products', 'dashboard\ProductsController');
     Route::resource('gallery', 'GalleryController');
     Route::resource('categories', 'CategoriesController');
     Route::resource('brands', 'BrandController');
+    Route::resource('colors_products', 'ColorsProductsController');
+    
 });
 
 Route::get('/tienda', 'ShopController@index')->name('shop');
@@ -43,6 +46,9 @@ Route::get('cart.show', 'CartController@show')->name('cart.show');
 
 Route::get('/tienda/item/{id_product}', 'ProductsController@show')->name('item');
 Route::resource('comments','CommentsControllers');
+Route::resource('colors', 'ColorsController');
+
+
 
 Route::get('/faq', function () {
     return view('faq');
@@ -53,3 +59,6 @@ Route::get('/contacto', function () {
 })->name('contacto');
 
 
+Route::get('/usuario','UserController@vista')->name('usuario');
+Route::get('/editar/{dato}','UserController@editar')->name('user.editar');
+Route::put('/editar/{id}','UserController@update')->name('user.update');

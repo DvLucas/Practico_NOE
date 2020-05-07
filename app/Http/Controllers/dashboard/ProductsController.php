@@ -5,6 +5,8 @@ namespace App\Http\Controllers\dashboard;
 use App\Brands;
 use App\Gallery;
 use App\Products;
+use App\Color;
+use App\Colors_products;
 use Carbon\Carbon;
 use App\Categories;
 use Illuminate\Http\Request;
@@ -103,7 +105,25 @@ class ProductsController extends Controller
             }
         }
         $brands = Brands::pluck('id_brand','description');
+        
+
         return view ('dashboard.products.update',['product' => $product,'categoriesFathers' => $categoriesFathers,'categoriesChildren' => $categoriesChildren,'brands' => $brands]);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show_colors($id)
+    {   
+        $name_product = Products::where('id_product',$id)->value('name');
+        $colors_stocked = Colors_products::where('id_product',$id)->pluck('id_color')->toArray();   
+        $colors = Color::all();
+    
+        return view('dashboard.products.addColors', ['colors'=>$colors, 'id_product'=>$id, 'name_product'=>$name_product, 'colors_stocked'=>$colors_stocked]);
+    
     }
 
     /**
