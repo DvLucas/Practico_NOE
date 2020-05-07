@@ -254,5 +254,6 @@
 
       <span class="border-top"></span>
 
-    </main>
+</main>
+
 @endsection

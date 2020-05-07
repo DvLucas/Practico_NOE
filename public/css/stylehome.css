@@ -30,6 +30,11 @@ header {
     font-family: 'Montserrat', sans-serif;
 }
 
+.header-shop{
+    /* background: url("../images/831977bb-8dd1-4f1a-a52a-9ee5713f5042.jfif") fixed center;
+    background-size: cover; */
+}
+
 .nav-link,
 a.dropdown-toggle {
     text-transform: uppercase;

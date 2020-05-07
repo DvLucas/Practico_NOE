@@ -53,9 +53,15 @@
                     </a>
                         <div class="row btn-group btn-group-toggle justify-content-center mt-2" data-toggle="buttons">
                             <ul class="list-group list-group-horizontal ul-color">
+                                @php
+                                    $contador=0;
+                                @endphp
                             @foreach ($item->color_product as $colorP)
                                 @foreach ($colors as $color)
-                                    @if($colorP->id_color == $color->id_color)
+                                    @if($colorP->id_color == $color->id_color && $contador < 4)
+                                    @php
+                                        $contador=$contador+1;
+                                    @endphp
                                     <li class="mx-1 li-color" id="li-{{$colorP->id_color_product}}" data-product="{{$item->id_product}}" >
                                         <span class="tooltipt">
                                             <label class="color-item" style="background-color:{{$color->image}};">
