@@ -26,11 +26,18 @@
                         <label for="message-text" class="col-form-label categorias-tienda">Colores:</label>
 
                         <div class="form-group">
-                            @foreach($colors as $color)
+                        @foreach($colors as $color)
+                            @if(in_array($color->id_color, $colors_stocked))
+                                <div class="">
+                                    <input disabled type="checkbox" value="" name="colors[]"> {{$color->name}}
+                                </div>
+                            @else
                                 <div class="">
                                     <input type="checkbox" value="{{$color->id_color}}" name="colors[]"> {{$color->name}}
                                 </div>
-                            @endforeach
+                            @endif 
+                        @endforeach
+                        
                         </div> 
 
                     </div>
