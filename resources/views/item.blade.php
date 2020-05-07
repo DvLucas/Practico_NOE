@@ -122,7 +122,7 @@
                 </div>
             </div>
 
-            <div class="card producto col-md-12 p-0 mt-3">
+            <div class="card producto col-md-12 p-0 mt-3 mb-3">
               <div class="card-header text-light bg-black">
                 <p class="titulos-medio">Principales Comentarios</p>
               </div>
@@ -218,11 +218,12 @@
 
 
             <!-- COLUMNA DE PRODUCTOS RELACIONADOS -->
-            <div class=" col-10 col-lg-2 float-left">
+            <div class=" col-9 col-lg-2 float-left">
                 <div class="row ">
-                    <div class="col-12 bg-black mb-2">
-                        <p class="titulos-header text-light ">Productos Relacionados</p>
-                    </div> <!-- fin titulo -->
+                    <div class="card-header text-light bg-black col-12">
+                        <p class="titulos-header">Productos relacionados</p>
+                    </div>
+                <!-- fin titulo -->
 
                     <div class="col-12">
                         <div class="row justify-content-around">
