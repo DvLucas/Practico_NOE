@@ -55,6 +55,11 @@
                                 class="fas fa-marker"></i></a>
                         <a href="{{ route('products.show',$product->id_product) }}" class="btn btn-info"><i
                                 class="fas fa-image"></i></a>
+
+                        <a href="{{ route('products.show_colors', $product->id_product) }}" class="btn btn-success"><i
+                                class="fas fa-palette"></i></a>
+                        
+
                         @if ($product->state == 0)
                         <button data-toggle="modal" data-target="#deleteModal" data-id="{{ $product->id_product}}"
                             data-state="0" class="btn btn-success"><i class="fas fa-arrow-circle-up"></i></button>
