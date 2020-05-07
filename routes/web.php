@@ -32,6 +32,7 @@ Route::prefix('/panel')->group(function () {
     Route::resource('gallery', 'GalleryController');
     Route::resource('categories', 'CategoriesController');
     Route::resource('brands', 'BrandController');
+    Route::resource('colors', 'ColorsController');
     Route::resource('colors_products', 'ColorsProductsController');
     
 });
@@ -46,7 +47,7 @@ Route::get('cart.show', 'CartController@show')->name('cart.show');
 
 Route::get('/tienda/item/{id_product}', 'ProductsController@show')->name('item');
 Route::resource('comments','CommentsControllers');
-Route::resource('colors', 'ColorsController');
+
 
 
 

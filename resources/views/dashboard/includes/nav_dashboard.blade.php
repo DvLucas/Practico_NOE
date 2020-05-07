@@ -50,6 +50,11 @@
                                 </a>
                             </li>
                             <li>
+                                <a href="{{route('colors.index')}}" data-abc="true">
+                                    Colores
+                                </a>
+                            </li>
+                            <li>
                                 <a href="{{route('brands.index')}}" data-abc="true">
                                     Marcas
                                 </a>

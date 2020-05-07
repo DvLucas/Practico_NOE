@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Color;
 use Illuminate\Http\Request;
 
 class ColorsController extends Controller
@@ -13,7 +14,8 @@ class ColorsController extends Controller
      */
     public function index()
     {
-        //
+        $colors = Color::get();
+        return view('dashboard.colors.colors',['colors'=>$colors]);
     }
 
     /**
@@ -34,7 +36,13 @@ class ColorsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $color = $request->validate([
+            'name' => 'required|max:20',
+            'image' => ''
+        ]);
+        $affected = Color::create($color);
+        
+        return back()->with('state','Color agregado');
     }
 
     /**
@@ -79,6 +87,13 @@ class ColorsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $affected= Color::destroy($id);
+            $status="Color eliminado";
+        } catch (\Throwable $th) {
+            $status="Color no se puede eliminar";
+        }
+        
+        return back()->with('state', $status);
     }
 }
