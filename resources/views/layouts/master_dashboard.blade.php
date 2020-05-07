@@ -101,6 +101,25 @@
         } */
     })
 </script> {{-- Este scrip se utiliza para las imagenes --}}
+
+<script>
+    // asignacion de la informacion para editar colores en el pop-up
+    
+    $('#editColorsModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) 
+        var id_color_to_edit = button.data('myid')
+        var name_color_to_edit = button.data('myname') 
+        var code_color_to_edit = button.data('mycode') 
+  
+        var modal = $(this)
+        
+        modal.find('.modal-body #id_color').val(id_color_to_edit)
+        modal.find('.modal-body #name').val(name_color_to_edit)
+        modal.find('.modal-body #image').val(code_color_to_edit)
+    })
+ 
+</script>
+
     
 </body>
 

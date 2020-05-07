@@ -76,7 +76,13 @@ class ColorsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $color = Color::find($request->id_color);
+        
+        $color->name = $request->name;
+        $color->image = $request->image;
+        $color->save();
+
+        return back();
     }
 
     /**

@@ -22,8 +22,13 @@
                             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteCateModal" data-id="{{ $color->id_color}}">
                                 <i class="fas fa-trash-alt"></i>
                             </button>
-                            <button data-toggle="modal" data-target="#updateModal" class="btn btn-info"><i
-                                    class="fas fa-marker"></i></button>
+                            
+                            <button class="btn btn-info" 
+                                style="cursor: pointer" data-toggle="modal" 
+                                data-target="#editColorsModal" data-myid="{{$color->id_color}}" data-myname="{{$color->name}}" 
+                                data-mycode="{{$color->image}}" >
+                                <i class="fas fa-marker"></i>
+                            </button>
                         </td>
                     </tr>
                     @endforeach
@@ -60,3 +65,38 @@
       </div>
     </div>
   </div>
+
+
+  <div class="modal fade" id="editColorsModal" tabindex="-1" role="dialog" aria-labelledby="editColorsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editColorsModalLabel">Editar Color</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form  action="{{route('colors.update', 0)}}" method="POST">
+                    @csrf
+                    {{ method_field('PUT') }}
+                    <div class="form-group">
+                        <input hidden  type="text" id="id_color" name="id_color">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" value="" class="form-control" 
+                        placeholder="Colocar Nombre" required>
+                    </div> 
+
+                    <div class="form-group">
+                        <input type="text" id="image" name="image" value="" class="form-control" 
+                        placeholder="Colocar Código" required>
+                    </div> 
+
+                    <button class="btn btn-outline-dark primary btn-sm" type="submit">Editar</button>  
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
