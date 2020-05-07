@@ -120,6 +120,22 @@
  
 </script>
 
+<script>
+    // asignacion de la informacion para editar marcas en el pop-up
+    
+    $('#editBrandModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) 
+        var id_brand_to_edit = button.data('myid')
+        var name_brand_to_edit = button.data('myname')  
+  
+        var modal = $(this)
+        
+        modal.find('.modal-body #id_brand').val(id_brand_to_edit)
+        modal.find('.modal-body #description').val(name_brand_to_edit)
+    })
+ 
+</script>
+
     
 </body>
 
