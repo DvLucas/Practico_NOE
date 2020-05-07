@@ -229,30 +229,30 @@
                         <div class="row justify-content-around">
                             @foreach($related as $related_product) 
                                 <div class="card producto mb-3 col-12 p-0">
-                                <a href="" class="text-center p-3">
-                                    @foreach($related_product->gallery as $image)
-                                    @if($image['store'] == 1)
-                                    <img src="{{asset($image['url'])}}" class="card-img-top img-fluid" alt="..."
-                                        style="max-width: 13rem;">
-                                    @endif
-                                    @endforeach
-                                </a>
-                                <div class="card-body botones-texto my-0 py-0">
-                                    <a href="#">
-                                        <h6 class="mb-1">{{$related_product['name']}}</h6>
+                                    <a href="" class="text-center p-3">
+                                        @foreach($related_product->gallery as $image)
+                                            @if($image['store'] == 1)
+                                            <img src="{{asset($image['url'])}}" class="card-img-top img-fluid" alt="..."
+                                                style="max-width: 13rem;">
+                                            @endif
+                                        @endforeach
                                     </a>
-                                    <p class="texto-parrafo mb-1">${{$related_product['price']}}</p>
+                                    <div class="card-body botones-texto my-0 py-0">
+                                        <a href="#">
+                                            <h6 class="mb-1">{{$related_product['name']}}</h6>
+                                        </a>
+                                        <p class="texto-parrafo mb-1">${{$related_product['price']}}</p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <small class="text-noe-black botones-texto">&#9733; &#9733; &#9733; &#9733;
+                                            &#9734;</small>
+                                    </div>
                                 </div>
-                                <div class="card-footer">
-                                    <small class="text-noe-black botones-texto">&#9733; &#9733; &#9733; &#9733;
-                                        &#9734;</small>
-                                </div>
-                        </div>
-                        @endforeach
-                    </div> <!-- fin columnas productos -->
-                </div> <!-- fin row productos relacionados -->
-            </div> <!-- fin row -->
-        </div>
+                            @endforeach
+                        </div> <!-- fin columnas productos -->
+                    </div> <!-- fin row productos relacionados -->
+                </div> <!-- fin row -->
+            </div>
 
 
 </main>

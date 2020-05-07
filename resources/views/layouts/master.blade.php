@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="{{asset('css/fonts.css')}}">
     <link rel="stylesheet" href="{{asset('css/stylehome.css')}}">
 
+    
     <link rel="shortcut icon" href="img/icons/rueda.svg">
 
 
@@ -584,6 +585,18 @@ window.addEventListener('load', function (){
  
 </script>
 
+<script>
+    // extensión del texto en el slider de productos recomendados
+    $(function(){
+        $(".text-slider").each(function(i){
+            len=$(this).text().length;
+            if(len>20)
+            {
+            $(this).text($(this).text().substr(0,80)+'...');
+            }
+        });
+    });
+</script>
     
 </body>
 
