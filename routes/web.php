@@ -59,7 +59,12 @@ Route::get('/contacto', function () {
     return view('contacto');
 })->name('contacto');
 
+<<<<<<< HEAD
 
 Route::get('/usuario','UserController@vista')->name('usuario');
 Route::get('/editar/{dato}','UserController@editar')->name('user.editar');
 Route::put('/editar/{id}','UserController@update')->name('user.update');
+=======
+Route::get('auth/{provider}', 'Auth\SocialAuthController@redirectToProvider')->name('social.auth');
+Route::get('auth/{provider}/callback', 'Auth\SocialAuthController@handleProviderCallback');
+>>>>>>> lucas

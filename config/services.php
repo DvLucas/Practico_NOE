@@ -30,4 +30,10 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'facebook' => [
+        'client_id' => '254922799114810',
+        'client_secret' => '89b62cda25645a29e98a811b15caedc6',
+        'redirect' => 'http://noe.test/auth/facebook/callback',
+    ],
+
 ];
