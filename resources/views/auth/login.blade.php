@@ -61,7 +61,14 @@
                                     <label class="custom-control-label" for="remember">{{ __('Recordarme') }}</label>
                                 </div>
                         </div>
-                        
+                        <div class="col-12 text-center mb-3">
+                            <a class="btn btn-primary mx-2" href="{{ route('social.auth', 'facebook') }}">
+                                Facebook
+                            </a>
+                            <a class="btn btn-danger mx-2" href="{{ route('social.auth', 'facebook') }}">
+                                Google
+                            </a>
+                        </div>
                         <div class="form-group col-9 mb-0 text-center">
                                 <button type="submit" class="btn btn-outline-light">
                                     {{ __('Ingresar') }}
@@ -69,6 +76,8 @@
                         </div>
                     </form>
                 </div>
+
+                
             </div>
         </div>
     </div>
