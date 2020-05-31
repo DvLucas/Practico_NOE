@@ -5,6 +5,11 @@
     background-color: rgb(252, 216, 22);
 }
 
+.font-yellow {
+    color: #ffed4a ;
+    font-size: 1rem;
+}
+
 .bg-black {
     /** Botones amarillos **/
     background-color:rgb(30,30,30) !important;

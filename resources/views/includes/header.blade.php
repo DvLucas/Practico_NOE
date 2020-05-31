@@ -126,8 +126,7 @@
 
                 @else
 
-                <a class="d-md-none" href="{{route('login')}}"><img src="{{asset('img/icons/busqueda_amarillo.svg')}}" alt=""
-                        height="18"></a>
+                <a class="d-md-none" href="{{route('login')}}"><img alt=""><i class="fas fa-user font-yellow"></i></a>
 
                 @endif
                 <div>

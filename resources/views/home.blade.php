@@ -12,19 +12,19 @@
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="img/imagenes/INDEX/carousel/PROMO 1-100.jpg" class="d-block w-100 col-12" alt="imagen-repuestosS">
+            <img src="img/imagenes/index/carousel/PROMO 1-100.jpg" class="d-block w-100 col-12" alt="imagen-repuestosS">
             <div class="carousel-caption">
 
             </div>
           </div>
           <div class="carousel-item">
-            <img src="img/imagenes/INDEX/carousel/PROMO 2-100.jpg" class="d-block w-100 col-12" alt="imagen-accesorios" >
+            <img src="img/imagenes/index/carousel/PROMO 2-100.jpg" class="d-block w-100 col-12" alt="imagen-accesorios" >
             <div class="carousel-caption">
 
             </div>
           </div>
           <div class="carousel-item">
-            <img src="img/imagenes/INDEX/carousel/PROMO 3-100.jpg" class="d-block w-100 col-12" alt="bicicletas" >
+            <img src="img/imagenes/index/carousel/PROMO 3-100.jpg" class="d-block w-100 col-12" alt="bicicletas" >
             <div class="carousel-caption">
 
             </div>
@@ -237,16 +237,16 @@
         
           <div class="row col-lg-12">
             <div class="col-md-3 mb-1">
-              <a href="{{route('search',['tipo'=>'category','id'=> 7])}}"><img src="img/imagenes/index/CIUDAD-100.jpg" alt="" width="100%"></a>
+              <a href="{{route('search',['tipo'=>'category','id'=> 7])}}"><img src="{{asset( 'img/imagenes/index/CIUDAD-100.jpg' )}}" alt="" width="100%"></a>
             </div>
             <div class="col-md-3 mb-1">
-              <a href="{{route('search',['tipo'=>'category','id'=> 6])}}"><img src="img/imagenes/index/RUTA-100.jpg" alt="" width="100%"></a>
+              <a href="{{route('search',['tipo'=>'category','id'=> 6])}}"><img src="{{asset( 'img/imagenes/index/RUTA-100.jpg' )}}" alt="" width="100%"></a>
             </div>
             <div class="col-md-3 mb-1">
-              <a href="{{route('search',['tipo'=>'category','id'=> 5])}}"><img src="img/imagenes/index/MONTAÑA-100.jpg" alt="" width="100%"></a>
+              <a href="{{route('search',['tipo'=>'category','id'=> 5])}}"><img src="{{asset( 'img/imagenes/index/MONTAÑA-100.jpg' )}}" alt="" width="100%"></a>
             </div>
             <div class="col-md-3 mb-1">
-              <a href="{{route('search',['tipo'=>'category','id'=> 8])}}"><img src="img/imagenes/index/FIXED-100.jpg" alt="" width="100%"></a>
+              <a href="{{route('search',['tipo'=>'category','id'=> 8])}}"><img src="{{asset( 'img/imagenes/index/FIXED-100.jpg' )}}" alt="" width="100%"></a>
             </div>
           </div>
         
