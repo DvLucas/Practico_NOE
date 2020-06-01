@@ -13,6 +13,7 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
+        
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
@@ -20,7 +21,8 @@ class CreateUsersTable extends Migration
             $table->integer('dni')->nullable();
             $table->string('email',30)->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
+            $table->string('avatar')->nullable();
             $table->date('date_birth')->nullable();
             $table->string('description')->nullable();
             $table->string('profile_picture')->default('default.jpeg');
